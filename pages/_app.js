@@ -10,6 +10,8 @@ import '../styles/alogosite/style.css'
 import '../styles/alogosite/inline.css'
 import '../styles/alogosite/js_composer.min.css'
 import '../styles/alogosite/font-awesome.min.css'
+import '../styles/globals.css'
+
 
 
 

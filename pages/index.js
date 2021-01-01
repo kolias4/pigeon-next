@@ -255,6 +255,162 @@ export default function Home() {
       </nav>
     </div>
 
+    <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="" >
+      <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="vc_row wpb_row vc_row-fluid vc_row-no-padding" >
+        <div className="wpb_column vc_column_container vc_col-sm-12 jtx-sr jtx-sr-effect-fade_in jtx-sr-id-796528285 jtx-sr-el-text_el jtx-sr-delay-200 jtx-sr-duration-300 jtx-sr-sequences-100">
+          <div className="vc_column-inner">
+            <div className="wpb_wrapper">
+              <div className="slider-zoom  zoom-out zoom-color-white zoom-align-center zoom-style-default overlay-plain bullets-false zs-enabled" id="like_sc_zoom_slider_104670324" data-zs-prev="prev" data-zs-next="next" data-zs-overlay="plain" data-zs-initzoom={1.0} data-zs-speed={20000} data-zs-interval={4500} data-zs-switchspeed={7000} data-zs-arrows="false" data-zs-bullets="false" data-zs-src="[&quot;http:\/\/senorcavallo.just-themes.com\/wp-content\/uploads\/2017\/11\/slide1.jpg&quot;,&quot;http:\/\/senorcavallo.just-themes.com\/wp-content\/uploads\/2017\/11\/slide3.jpg&quot;,&quot;http:\/\/senorcavallo.just-themes.com\/wp-content\/uploads\/2017\/11\/slide4.jpg&quot;]" data-zs-src2="data-zs-src2" style={{
+                  position: 'relative'
+                }}>
+                <div className="zs-slideshow">
+                  <div className="zs-slides"><div className="zs-slide zs-slide-0" style={{
+backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide1.jpg")'
+}}/><div className="zs-slide zs-slide-1 active" style={{
+backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide3.jpg")',
+transition: 'transform 20000ms ease-out 0s, opacity 800ms ease 0s',
+opacity: 1,
+transform: 'scale(1, 1)',
+zIndex: 2
+}}/><div className="zs-slide zs-slide-2" style={{
+backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide4.jpg")'
+}}/></div>
+                </div>
+                <div className="container" style={{
+                    zIndex: 2,
+                    position: 'relative'
+                  }}>
+                  <div className="slider-inner">
+                    <div className="es-resp">
+                      <div className="visible-lg" style={{
+                          height: 500
+                        }}/>
+                      <div className="visible-md" style={{
+                          height: 300
+                        }}/>
+                      <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
+                          height: 290
+                        }}/>
+                      <div className="visible-ms" style={{
+                          height: 290
+                        }}/>
+                      <div className="visible-xs" style={{
+                          height: 280
+                        }}/></div>
+                    <div className="heading  inline align-center color-main subcolor-white transform-default   vc_custom_1516288099100" id="like_sc_header_1212805265" style={{
+                        fontFamily: 'Rufina !important',
+                        fontWeight: 700,
+                        fontStyle: 'normal'
+                      }}>
+                      <h2 style={{
+                          fontWeight: 700,
+                          fontStyle: 'normal',
+                          visibility: 'visible',
+                          transform: 'translateY(0px) scale(1)',
+                          opacity: 1,
+                          transition: 'all 0.3s ease 0s',
+                          fontFamily: 'Rufina !important'
+                        }} className="header" data-sr-id={2}>Senor Cavallo
+                        <span className="subheader" data-sr-id={3} style={{
+                            visibility: 'visible',
+                            transform: 'translateY(0px) scale(1)',
+                            opacity: 1,
+                            transition: 'all 0.3s ease 0s'
+                          }}>- Riding Club</span>
+                      </h2>
+                    </div>
+                    <div className="jtx-content-width width-0" style={{
+                        maxWidth: 700
+                      }}>
+                      <div className="wpb_text_column wpb_content_element  vc_custom_1513383880691">
+                        <div className="wpb_wrapper">
+                          <p style={{
+                              textAlign: 'center',
+                              visibility: 'visible',
+                              transform: 'translateY(0px) scale(1)',
+                              opacity: 1,
+                              transition: 'all 0.3s ease 0s'
+                            }} data-sr-id={4}>
+                            <span className="text-md">Praesent ac ipsum nisi. Integer non condimentum quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla diam arcu, sodales a varius eget.</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="es-resp">
+                      <div className="visible-lg" style={{
+                          height: 54
+                        }}/>
+                      <div className="visible-md" style={{
+                          height: 54
+                        }}/>
+                      <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
+                          height: 54
+                        }}/>
+                      <div className="visible-ms" style={{
+                          height: 54
+                        }}/>
+                      <div className="visible-xs" style={{
+                          height: 54
+                        }}/></div>
+                    <div className="btn-wrap align-center">
+                      <a href="href" className="btn  btn-second transform-default color-text-main color-hover-white btn-wide align-center   vc_custom_1513384107705" id="like_sc_button_1168674312" data-sr-id={5} style={{
+                          visibility: 'visible',
+                          transform: 'translateY(0px) scale(1)',
+                          opacity: 1,
+                          transition: 'all 0.3s ease 0s'
+                        }}>read more</a>
+                    </div>
+                    <div className="es-resp">
+                      <div className="visible-lg" style={{
+                          height: 180
+                        }}/>
+                      <div className="visible-md" style={{
+                          height: 120
+                        }}/>
+                      <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
+                          height: 120
+                        }}/>
+                      <div className="visible-ms" style={{
+                          height: 120
+                        }}/>
+                      <div className="visible-xs" style={{
+                          height: 120
+                        }}/></div>
+                  </div>
+                </div>
+                <ul className="nav-left">
+                  <li>
+                    <a href="#" target="_blank"><span className="fa fa-facebook-f"/></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><span className="fa fa-twitter"/></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><span className="fa fa-google-plus"/></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><span className="fa fa-instagram"/></a>
+                  </li>
+                </ul>
+                <div className="nav-right">
+                  <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart" title="View your shopping cart">
+                    <i className="fa fa-shopping-cart" aria-hidden="true"/>
+                    <span className="cart-contents header-cart-count count">0</span>
+                  </a>
+                  <div id="top-search" className="top-search">
+                    <a href="#" id="top-search-ico" className="fa fa-search" aria-hidden="true"/>
+                    <input placeholder="Search" defaultValue="defaultValue" type="text"/>
+                    <span className="search-close">×</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="vc_row-full-width vc_clearfix"/>
+    </section>
+
     <div className="container">
       {/* Content */}
       <div className="margin-disabled">
@@ -262,169 +418,8 @@ export default function Home() {
           <div className=" col-md-12 text-page">
             <article id="post-2093" className="post-2093 page type-page status-publish hentry">
               <div className="entry-content clearfix" id="entry-div">
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="vc_section" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353
-                  }}>
-                  <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="vc_row wpb_row vc_row-fluid vc_row-no-padding" style={{
-                      position: 'relative',
-                      left: 0,
-                      boxSizing: 'border-box',
-                      width: 1353
-                    }}>
-                    <div className="wpb_column vc_column_container vc_col-sm-12 jtx-sr jtx-sr-effect-fade_in jtx-sr-id-796528285 jtx-sr-el-text_el jtx-sr-delay-200 jtx-sr-duration-300 jtx-sr-sequences-100">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <div className="slider-zoom  zoom-out zoom-color-white zoom-align-center zoom-style-default overlay-plain bullets-false zs-enabled" id="like_sc_zoom_slider_104670324" data-zs-prev="prev" data-zs-next="next" data-zs-overlay="plain" data-zs-initzoom={1.0} data-zs-speed={20000} data-zs-interval={4500} data-zs-switchspeed={7000} data-zs-arrows="false" data-zs-bullets="false" data-zs-src="[&quot;http:\/\/senorcavallo.just-themes.com\/wp-content\/uploads\/2017\/11\/slide1.jpg&quot;,&quot;http:\/\/senorcavallo.just-themes.com\/wp-content\/uploads\/2017\/11\/slide3.jpg&quot;,&quot;http:\/\/senorcavallo.just-themes.com\/wp-content\/uploads\/2017\/11\/slide4.jpg&quot;]" data-zs-src2="data-zs-src2" style={{
-                              position: 'relative'
-                            }}>
-                            <div className="zs-slideshow">
-                              <div className="zs-slides"><div className="zs-slide zs-slide-0" style={{
-      backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide1.jpg")'
-    }}/><div className="zs-slide zs-slide-1 active" style={{
-      backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide3.jpg")',
-      transition: 'transform 20000ms ease-out 0s, opacity 800ms ease 0s',
-      opacity: 1,
-      transform: 'scale(1, 1)',
-      zIndex: 2
-    }}/><div className="zs-slide zs-slide-2" style={{
-      backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide4.jpg")'
-    }}/></div>
-                            </div>
-                            <div className="container" style={{
-                                zIndex: 2,
-                                position: 'relative'
-                              }}>
-                              <div className="slider-inner">
-                                <div className="es-resp">
-                                  <div className="visible-lg" style={{
-                                      height: 500
-                                    }}/>
-                                  <div className="visible-md" style={{
-                                      height: 300
-                                    }}/>
-                                  <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                      height: 290
-                                    }}/>
-                                  <div className="visible-ms" style={{
-                                      height: 290
-                                    }}/>
-                                  <div className="visible-xs" style={{
-                                      height: 280
-                                    }}/></div>
-                                <div className="heading  inline align-center color-main subcolor-white transform-default   vc_custom_1516288099100" id="like_sc_header_1212805265" style={{
-                                    fontFamily: 'Rufina !important',
-                                    fontWeight: 700,
-                                    fontStyle: 'normal'
-                                  }}>
-                                  <h2 style={{
-                                      fontWeight: 700,
-                                      fontStyle: 'normal',
-                                      visibility: 'visible',
-                                      transform: 'translateY(0px) scale(1)',
-                                      opacity: 1,
-                                      transition: 'all 0.3s ease 0s',
-                                      fontFamily: 'Rufina !important'
-                                    }} className="header" data-sr-id={2}>Senor Cavallo
-                                    <span className="subheader" data-sr-id={3} style={{
-                                        visibility: 'visible',
-                                        transform: 'translateY(0px) scale(1)',
-                                        opacity: 1,
-                                        transition: 'all 0.3s ease 0s'
-                                      }}>- Riding Club</span>
-                                  </h2>
-                                </div>
-                                <div className="jtx-content-width width-0" style={{
-                                    maxWidth: 700
-                                  }}>
-                                  <div className="wpb_text_column wpb_content_element  vc_custom_1513383880691">
-                                    <div className="wpb_wrapper">
-                                      <p style={{
-                                          textAlign: 'center',
-                                          visibility: 'visible',
-                                          transform: 'translateY(0px) scale(1)',
-                                          opacity: 1,
-                                          transition: 'all 0.3s ease 0s'
-                                        }} data-sr-id={4}>
-                                        <span className="text-md">Praesent ac ipsum nisi. Integer non condimentum quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla diam arcu, sodales a varius eget.</span>
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="es-resp">
-                                  <div className="visible-lg" style={{
-                                      height: 54
-                                    }}/>
-                                  <div className="visible-md" style={{
-                                      height: 54
-                                    }}/>
-                                  <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                      height: 54
-                                    }}/>
-                                  <div className="visible-ms" style={{
-                                      height: 54
-                                    }}/>
-                                  <div className="visible-xs" style={{
-                                      height: 54
-                                    }}/></div>
-                                <div className="btn-wrap align-center">
-                                  <a href="href" className="btn  btn-second transform-default color-text-main color-hover-white btn-wide align-center   vc_custom_1513384107705" id="like_sc_button_1168674312" data-sr-id={5} style={{
-                                      visibility: 'visible',
-                                      transform: 'translateY(0px) scale(1)',
-                                      opacity: 1,
-                                      transition: 'all 0.3s ease 0s'
-                                    }}>read more</a>
-                                </div>
-                                <div className="es-resp">
-                                  <div className="visible-lg" style={{
-                                      height: 180
-                                    }}/>
-                                  <div className="visible-md" style={{
-                                      height: 120
-                                    }}/>
-                                  <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                      height: 120
-                                    }}/>
-                                  <div className="visible-ms" style={{
-                                      height: 120
-                                    }}/>
-                                  <div className="visible-xs" style={{
-                                      height: 120
-                                    }}/></div>
-                              </div>
-                            </div>
-                            <ul className="nav-left">
-                              <li>
-                                <a href="#" target="_blank"><span className="fa fa-facebook-f"/></a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank"><span className="fa fa-twitter"/></a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank"><span className="fa fa-google-plus"/></a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank"><span className="fa fa-instagram"/></a>
-                              </li>
-                            </ul>
-                            <div className="nav-right">
-                              <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart" title="View your shopping cart">
-                                <i className="fa fa-shopping-cart" aria-hidden="true"/>
-                                <span className="cart-contents header-cart-count count">0</span>
-                              </a>
-                              <div id="top-search" className="top-search">
-                                <a href="#" id="top-search-ico" className="fa fa-search" aria-hidden="true"/>
-                                <input placeholder="Search" defaultValue="defaultValue" type="text"/>
-                                <span className="search-close">×</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div><div className="vc_row-full-width vc_clearfix"/></section><div className="vc_row-full-width vc_clearfix"/>
+
+                <div className="vc_row-full-width vc_clearfix"/>
                 <section className="vc_section vc_custom_1518023914640 bg-color-theme_color call-us">
                   <div className="vc_row wpb_row vc_row-fluid vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
                     <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
@@ -489,14 +484,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.2" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-white bg-pos-center-center" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.2" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-white bg-pos-center-center">
                   <div className="vc_row wpb_row vc_row-fluid vc_custom_1511210269077">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -533,14 +521,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid" style={{
-                      position: 'relative',
-                      left: '-76.5px',
-                      boxSizing: 'border-box',
-                      width: 1353,
-                      paddingLeft: '76.5px',
-                      paddingRight: '76.5px'
-                    }}>
+                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid" >
                     <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-has-fill bg-pos-center-center jtx-sr jtx-sr-effect-slide_from_left jtx-sr-id-1840206000 jtx-sr-el-block jtx-sr-delay-0 jtx-sr-duration-500 jtx-sr-sequences-100" data-sr-id={7} style={{
                         visibility: 'visible',
                         transform: 'translateX(0px) scale(1)',
@@ -661,7 +642,7 @@ export default function Home() {
                               }}/></div>
                           <div className="wpb_single_image wpb_content_element vc_align_center  vc_custom_1513346768356 img-shadow-plain">
                             <figure className="wpb_wrapper vc_figure">
-                              <div className="vc_single_image-wrapper   vc_box_border_grey"><img width={570} height={441} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png" className="vc_single_image-img attachment-full" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png 570w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo-300x232.png 300w" sizes="(max-width: 570px) 100vw, 570px"/></div>
+                              <div className="vc_single_image-wrapper   vc_box_border_grey"><img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png" className="vc_single_image-img attachment-full" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png 570w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo-300x232.png 300w" sizes="(max-width: 570px) 100vw, 570px"/></div>
                             </figure>
                           </div>
                           <div className="es-resp">
@@ -688,14 +669,7 @@ export default function Home() {
       backgroundImage: 'url("")',
       top: '-20%'
     }}/></section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" >
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -719,14 +693,12 @@ export default function Home() {
                           <div className="services-sc bg-gray highlight-disabled  row">
                             <div className="swiper-container services-slider swiper-container-horizontal" data-cols={3} data-autoplay={0}>
                               <div className="swiper-wrapper">
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide swiper-slide-active" style={{
-                                    width: 400
-                                  }}>
+                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide swiper-slide-active" >
                                   <article id="post-2369" className="matchHeight post-2369 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
                                       height: 320
                                     }}>
                                     <a href="http://senorcavallo.just-themes.com/services/horse-tours/" className="photo">
-                                      <img width={740} height={500} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
+                                      <img src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
                                     </a>
                                     <div className="description">
                                       <a href="http://senorcavallo.just-themes.com/services/horse-tours/">
@@ -738,14 +710,12 @@ export default function Home() {
                                     </div>
                                   </article>
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide swiper-slide-next" style={{
-                                    width: 400
-                                  }}>
+                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide swiper-slide-next" >
                                   <article id="post-2367" className="matchHeight post-2367 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
                                       height: 320
                                     }}>
                                     <a href="http://senorcavallo.just-themes.com/services/grooming-services/" className="photo">
-                                      <img width={740} height={500} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
+                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
                                     </a>
                                     <div className="description">
                                       <a href="http://senorcavallo.just-themes.com/services/grooming-services/">
@@ -757,14 +727,12 @@ export default function Home() {
                                     </div>
                                   </article>
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" style={{
-                                    width: 400
-                                  }}>
+                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" >
                                   <article id="post-2366" className="matchHeight post-2366 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
                                       height: 320
                                     }}>
                                     <a href="http://senorcavallo.just-themes.com/services/winds-classes-2/" className="photo">
-                                      <img width={740} height={500} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
+                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
                                     </a>
                                     <div className="description">
                                       <a href="http://senorcavallo.just-themes.com/services/winds-classes-2/">
@@ -776,14 +744,12 @@ export default function Home() {
                                     </div>
                                   </article>
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" style={{
-                                    width: 400
-                                  }}>
+                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide">
                                   <article id="post-2357" className="matchHeight post-2357 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
                                       height: 320
                                     }}>
                                     <a href="http://senorcavallo.just-themes.com/services/keeping-and-care/" className="photo">
-                                      <img width={740} height={500} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
+                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
                                     </a>
                                     <div className="description">
                                       <a href="http://senorcavallo.just-themes.com/services/keeping-and-care/">
@@ -795,14 +761,12 @@ export default function Home() {
                                     </div>
                                   </article>
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" style={{
-                                    width: 400
-                                  }}>
+                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" >
                                   <article id="post-2365" className="matchHeight post-2365 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
                                       height: 320
                                     }}>
                                     <a href="http://senorcavallo.just-themes.com/services/horse-tours-2/" className="photo">
-                                      <img width={740} height={500} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
+                                      <img src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
                                     </a>
                                     <div className="description">
                                       <a href="http://senorcavallo.just-themes.com/services/horse-tours-2/">
@@ -814,14 +778,12 @@ export default function Home() {
                                     </div>
                                   </article>
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" style={{
-                                    width: 400
-                                  }}>
+                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" >
                                   <article id="post-2364" className="matchHeight post-2364 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
                                       height: 320
                                     }}>
                                     <a href="http://senorcavallo.just-themes.com/services/childrens-classes/" className="photo">
-                                      <img width={740} height={500} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
+                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
                                     </a>
                                     <div className="description">
                                       <a href="http://senorcavallo.just-themes.com/services/childrens-classes/">
@@ -864,22 +826,8 @@ export default function Home() {
                     </div>
                   </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_custom_1511217882368 vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-white bg-pos-center-center bg-overlay-dark" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
-                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_custom_1508187734191 vc_row-has-fill bg-pos-center-center text-align-center" style={{
-                      position: 'relative',
-                      left: '-76.5px',
-                      boxSizing: 'border-box',
-                      width: 1353,
-                      paddingLeft: '76.5px',
-                      paddingRight: '76.5px'
-                    }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_custom_1511217882368 vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-white bg-pos-center-center bg-overlay-dark" >
+                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_custom_1508187734191 vc_row-has-fill bg-pos-center-center text-align-center" >
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
                         <div className="wpb_wrapper">
@@ -1047,14 +995,7 @@ export default function Home() {
       height: '150%',
       top: '-50%'
     }}/></section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" >
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -1079,14 +1020,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid" style={{
-                      position: 'relative',
-                      left: '-76.5px',
-                      boxSizing: 'border-box',
-                      width: 1353,
-                      paddingLeft: '76.5px',
-                      paddingRight: '76.5px'
-                    }}>
+                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid" >
                     <div className="club-cards wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6 vc_col-has-fill bg-color-white bg-pos-center-center border_shadow displaced-top">
                       <div className="vc_column-inner vc_custom_1579537352413">
                         <div className="wpb_wrapper">
@@ -1189,14 +1123,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section vc_custom_1516291127722 vc_section-has-fill bg-pos-left-bottom bg-mobile-hide jtx-sr jtx-sr-effect-fade_in jtx-sr-id-697380719 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-300 jtx-sr-sequences-200" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section vc_custom_1516291127722 vc_section-has-fill bg-pos-left-bottom bg-mobile-hide jtx-sr jtx-sr-effect-fade_in jtx-sr-id-697380719 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-300 jtx-sr-sequences-200">
                   <div className="vc_row wpb_row vc_row-fluid bg-pos-left-center">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -1280,14 +1207,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section vc_custom_1513394910090 vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-overlay-dark" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section vc_custom_1513394910090 vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-overlay-dark" >
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -1354,14 +1274,7 @@ export default function Home() {
       height: '150%',
       top: '-50%'
     }}/></section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-second testimonials-section" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-second testimonials-section">
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -1407,9 +1320,7 @@ export default function Home() {
                                 transform: 'translate3d(0px, 0px, 0px)',
                                 transitionDuration: '1000ms'
                               }}>
-                              <div className="swiper-slide swiper-slide-active" style={{
-                                  width: 1170
-                                }}>
+                              <div className="swiper-slide swiper-slide-active" >
                                 <div className="inner matchHeight" style={{
                                     height: 428
                                   }}>
@@ -1424,9 +1335,7 @@ export default function Home() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="swiper-slide swiper-slide-next" style={{
-                                  width: 1170
-                                }}>
+                              <div className="swiper-slide swiper-slide-next">
                                 <div className="inner matchHeight" style={{
                                     height: 428
                                   }}>
@@ -1440,9 +1349,7 @@ export default function Home() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="swiper-slide" style={{
-                                  width: 1170
-                                }}>
+                              <div className="swiper-slide" >
                                 <div className="inner matchHeight" style={{
                                     height: 428
                                   }}>
@@ -1456,9 +1363,7 @@ export default function Home() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="swiper-slide" style={{
-                                  width: 1170
-                                }}>
+                              <div className="swiper-slide" >
                                 <div className="inner matchHeight" style={{
                                     height: 428
                                   }}>
@@ -1472,9 +1377,7 @@ export default function Home() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="swiper-slide" style={{
-                                  width: 1170
-                                }}>
+                              <div className="swiper-slide" >
                                 <div className="inner matchHeight" style={{
                                     height: 428
                                   }}>
@@ -1488,9 +1391,7 @@ export default function Home() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="swiper-slide" style={{
-                                  width: 1170
-                                }}>
+                              <div className="swiper-slide" >
                                 <div className="inner matchHeight" style={{
                                     height: 428
                                   }}>
@@ -1755,14 +1656,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section vc_custom_1511271667688 vc_section-has-fill bg-color-gray" style={{
-                    position: 'relative',
-                    left: '-76.5px',
-                    boxSizing: 'border-box',
-                    width: 1353,
-                    paddingLeft: '76.5px',
-                    paddingRight: '76.5px'
-                  }}>
+                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section vc_custom_1511271667688 vc_section-has-fill bg-color-gray" >
                   <div className="vc_row wpb_row vc_row-fluid vc_custom_1507758725973">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -1795,7 +1689,7 @@ export default function Home() {
                                 <div className="row">
                                   <div className="col-lg-4">
                                     <a href="http://senorcavallo.just-themes.com/riding-school-begins-our-riding-classes-and-trainings/" className="photo img-visible">
-                                      <img width={770} height={520} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog10-770x520.jpg" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog10-770x520.jpg 770w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog10-740x500.jpg 740w" sizes="(max-width: 770px) 100vw, 770px"/>
+                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog10-770x520.jpg" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog10-770x520.jpg 770w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog10-740x500.jpg 740w" sizes="(max-width: 770px) 100vw, 770px"/>
                                     </a>
                                   </div>
                                   <div className="description col-lg-8">
@@ -1834,7 +1728,7 @@ export default function Home() {
                                 <div className="row">
                                   <div className="col-lg-4">
                                     <a href="http://senorcavallo.just-themes.com/how-can-i-keep-my-horse-happy-and-fit/" className="photo img-visible">
-                                      <img width={770} height={520} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-770x520.jpg" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-770x520.jpg 770w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-740x500.jpg 740w" sizes="(max-width: 770px) 100vw, 770px"/>
+                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-770x520.jpg" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-770x520.jpg 770w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-740x500.jpg 740w" sizes="(max-width: 770px) 100vw, 770px"/>
                                     </a>
                                   </div>
                                   <div className="description col-lg-8">
