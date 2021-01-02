@@ -11,6 +11,7 @@ import '../styles/alogosite/inline.css'
 import '../styles/alogosite/js_composer.min.css'
 import '../styles/alogosite/font-awesome.min.css'
 import '../styles/globals.css'
+import Layout from '../components/layout'
 
 
 
@@ -21,7 +22,12 @@ import '../styles/globals.css'
 
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <Layout>
+    <Component {...pageProps} />
+    </Layout>
+
+  )
 }
 
 export default MyApp

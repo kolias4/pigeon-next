@@ -1,259 +1,15 @@
 import Head from 'next/head'
+import {useEffect,useState} from 'react'
+
 
 export default function Home() {
-  return (<div >
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico"/>
+  return (
+    <div >
 
-    </Head>
 
-    <div id="nav-wrapper">
-      <nav className="navbar navbar-homepage">
-        <div className="container">
-          <a className="logo-home" href="http://senorcavallo.just-themes.com/">
-            <img width={168} height={158} src="http://senorcavallo.just-themes.com/wp-content/uploads/2018/01/senor_cavallo_logo-2.png" className="attachment-full size-full" alt="alt"/>
-          </a>
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar top-bar"/>
-              <span className="icon-bar middle-bar"/>
-              <span className="icon-bar bottom-bar"/>
-            </button>
-          </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <div className="toggle-wrap">
-              <button type="button" className="navbar-toggle collapsed">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar top-bar"/>
-                <span className="icon-bar middle-bar"/>
-                <span className="icon-bar bottom-bar"/>
-              </button>
-              <div className="clearfix"/>
-            </div>
-            <ul id="menu-main-menu" className="nav navbar-nav">
-              <li id="menu-item-2104" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2104">
-                <a href="http://senorcavallo.just-themes.com/">
-                  <span>Home</span>
-                </a>
-              </li>
-              <li id="menu-item-2547" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2547">
-                <a href="#">
-                  <span>About Us</span>
-                </a>
-                <ul className="sub-menu">
-                  <li id="menu-item-2548" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2548">
-                    <a href="http://senorcavallo.just-themes.com/about-club/">
-                      <span>About Club</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-750" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-750">
-                    <a href="http://senorcavallo.just-themes.com/team/">
-                      <span>Our Team</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-57" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
-                    <a href="http://senorcavallo.just-themes.com/testimonials/">
-                      <span>Testimonials</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li id="menu-item-59" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59">
-                <a>
-                  <span>Blog</span>
-                </a>
-                <ul className="sub-menu">
-                  <li id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
-                    <a href="http://senorcavallo.just-themes.com/blog-one-column/">
-                      <span>Blog One Column</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <a href="http://senorcavallo.just-themes.com/blog-two-columns/">
-                      <span>Blog Two Columns</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-44" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-44">
-                    <a href="http://senorcavallo.just-themes.com/blog-three-columns/">
-                      <span>Blog Three Columns</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li id="menu-item-60" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60">
-                <a>
-                  <span>Gallery</span>
-                </a>
-                <ul className="sub-menu">
-                  <li id="menu-item-47" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-47">
-                    <a href="http://senorcavallo.just-themes.com/gallery-2-columns/">
-                      <span>Gallery 2-columns</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-48" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-48">
-                    <a href="http://senorcavallo.just-themes.com/gallery-3-columns/">
-                      <span>Gallery 3-columns</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-49" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-49">
-                    <a href="http://senorcavallo.just-themes.com/gallery-4-columns/">
-                      <span>Gallery 4-columns</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li id="menu-item-619" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
-                <a href="#">
-                  <span>Shop</span>
-                </a>
-                <ul className="sub-menu">
-                  <li id="menu-item-623" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
-                    <a href="http://senorcavallo.just-themes.com/shop/">
-                      <span>Shop</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-622" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
-                    <a href="http://senorcavallo.just-themes.com/cart/">
-                      <span>Cart</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-621" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-621">
-                    <a href="http://senorcavallo.just-themes.com/checkout/">
-                      <span>Checkout</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-620" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-620">
-                    <a href="http://senorcavallo.just-themes.com/my-account/">
-                      <span>My account</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li id="menu-item-46" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
-                <a href="http://senorcavallo.just-themes.com/contacts/">
-                  <span>Contacts</span>
-                </a>
-              </li>
-              <li id="menu-item-61" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-mega-menu menu-item-61">
-                <a>
-                  <span>Elements</span>
-                </a>
-                <div className="mega-menu">
-                  <ul className="sub-menu mega-menu-row">
-                    <li id="menu-item-783" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-783">
-                      <a>
-                        <span>Typography</span>
-                      </a>
-                      <ul className="sub-menu sub-menu-has-icons">
-                        <li id="menu-item-597" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-597">
-                          <a href="http://senorcavallo.just-themes.com/headers/" className="fa fa-font">
-                            <span>Headers</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-579" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-579">
-                          <a href="http://senorcavallo.just-themes.com/text/" className="fa fa-align-left">
-                            <span>Text</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-594" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-594">
-                          <a href="http://senorcavallo.just-themes.com/text_columns/" className="fa fa-columns">
-                            <span>Text Columns</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-643" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-643">
-                          <a href="http://senorcavallo.just-themes.com/table/" className="fa fa-table">
-                            <span>Table</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-588" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-588">
-                          <a href="http://senorcavallo.just-themes.com/separators/" className="fa fa-arrows-h">
-                            <span>Separators</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li id="menu-item-784" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-784">
-                      <a>
-                        <span>Form Elements</span>
-                      </a>
-                      <ul className="sub-menu sub-menu-has-icons">
-                        <li id="menu-item-555" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-555">
-                          <a href="http://senorcavallo.just-themes.com/buttons/" className="fa fa-mouse-pointer">
-                            <span>Buttons</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-705" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-705">
-                          <a href="http://senorcavallo.just-themes.com/forms/" className="fa fa-edit">
-                            <span>Forms</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li id="menu-item-785" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-785">
-                      <a>
-                        <span>Shortcodes</span>
-                      </a>
-                      <ul className="sub-menu sub-menu-has-icons">
-                        <li id="menu-item-527" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-527">
-                          <a href="http://senorcavallo.just-themes.com/accordions/" className="fa fa-list">
-                            <span>Accordions</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-538" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-538">
-                          <a href="http://senorcavallo.just-themes.com/alert/" className="fa fa-exclamation-triangle">
-                            <span>Alerts</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-568" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-568">
-                          <a href="http://senorcavallo.just-themes.com/tabs/" className="fa fa-th-large">
-                            <span>Tabs</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-56" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-56">
-                          <a href="http://senorcavallo.just-themes.com/shortcodes/" className="fa fa-caret-square-o-right">
-                            <span>Shortcodes</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li id="menu-item-786" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-786">
-                      <a href="#">
-                        <span>Lists</span>
-                      </a>
-                      <ul className="sub-menu sub-menu-has-icons">
-                        <li id="menu-item-675" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-675">
-                          <a href="http://senorcavallo.just-themes.com/icons-page/" className="fa fa-gratipay">
-                            <span>Icons</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-562" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-562">
-                          <a href="http://senorcavallo.just-themes.com/list/" className="fa fa-twitter">
-                            <span>Lists and Social Icons</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-            <div className="nav-mob">
-              <ul className="nav navbar-nav">
-                <li>
-                  <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart-mob" title="View your shopping cart">
-                    <span className="cart-contents header-cart-count count">0</span>
-                    <i className="fa fa-shopping-cart" aria-hidden="true"/>
-                    <span className="name">Cart</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
+
+
+
 
     <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="" >
       <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" className="vc_row wpb_row vc_row-fluid vc_row-no-padding" >
@@ -264,17 +20,11 @@ export default function Home() {
                   position: 'relative'
                 }}>
                 <div className="zs-slideshow">
-                  <div className="zs-slides"><div className="zs-slide zs-slide-0" style={{
-backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide1.jpg")'
-}}/><div className="zs-slide zs-slide-1 active" style={{
-backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide3.jpg")',
-transition: 'transform 20000ms ease-out 0s, opacity 800ms ease 0s',
-opacity: 1,
-transform: 'scale(1, 1)',
-zIndex: 2
-}}/><div className="zs-slide zs-slide-2" style={{
-backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide4.jpg")'
-}}/></div>
+                  <div className="zs-slides">
+                  <div className="zs-slide zs-slide-0" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide1.jpg")'}}/>
+                  <div className="zs-slide zs-slide-1 active" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide3.jpg")',transition: 'transform 20000ms ease-out 0s, opacity 800ms ease 0s',opacity: 1,transform: 'scale(1, 1)',zIndex: 2}}/>
+                  <div className="zs-slide zs-slide-2" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide4.jpg")'}}/>
+                </div>
                 </div>
                 <div className="container" style={{
                     zIndex: 2,
@@ -411,7 +161,7 @@ backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/20
       <div className="vc_row-full-width vc_clearfix"/>
     </section>
 
-    <div className="container">
+    <div className="container-fluid">
       {/* Content */}
       <div className="margin-disabled">
         <div className="row">
@@ -1022,7 +772,7 @@ backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/20
                   </div>
                   <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid" >
                     <div className="club-cards wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6 vc_col-has-fill bg-color-white bg-pos-center-center border_shadow displaced-top">
-                      <div className="vc_column-inner vc_custom_1579537352413">
+                      <div style={{backgroundImage:'none',backgroundColor:'white'}} className="vc_column-inner vc_custom_1579537352413">
                         <div className="wpb_wrapper">
                           <div className="heading  heading-large head-subheader align-left color-black subcolor-main transform-default" id="like_sc_header_1372766355" style={{
                               fontFamily: 'Rufina !important',
