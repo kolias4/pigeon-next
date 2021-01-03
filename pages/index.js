@@ -2,7 +2,38 @@ import Head from 'next/head'
 import {useEffect,useState} from 'react'
 
 
-export default function Home() {
+ export default function Home({data}) {
+
+  const [activeslide,setActiveSlide]= useState(null)
+
+  const slides=data.slider_images
+
+  const handleSlider = () => {
+    var len = slides.length
+    var current_slide = activeslide
+    if(current_slide < len-1){
+      setActiveSlide(current_slide + 1)
+    }
+    else {
+      setActiveSlide(0)
+    }
+  }
+
+  useEffect(() => {
+
+    const intervalId = setInterval(() => {
+      handleSlider()
+    },5300)
+
+    return () => clearInterval(intervalId)
+
+},[activeslide]);
+
+useEffect(() => {
+
+   setActiveSlide(0)
+
+},[]);
   return (
     <div >
 
@@ -21,9 +52,17 @@ export default function Home() {
                 }}>
                 <div className="zs-slideshow">
                   <div className="zs-slides">
-                  <div className="zs-slide zs-slide-0" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide1.jpg")'}}/>
+                    {slides.map((slide,i) => {
+                      return (
+
+                        <div key={`slide${i}`} className={`zs-slide zs-slide-${i} ${activeslide === i? 'active myactive':''}`} style={{backgroundImage:`url(${process.env.NEXT_PUBLIC_STRAPI_URL}${slide.url})`}}/>
+
+
+                      )
+                    })}
+                  {/* <div className="zs-slide zs-slide-0" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide1.jpg")'}}/>
                   <div className="zs-slide zs-slide-1 active" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide3.jpg")',transition: 'transform 20000ms ease-out 0s, opacity 800ms ease 0s',opacity: 1,transform: 'scale(1, 1)',zIndex: 2}}/>
-                  <div className="zs-slide zs-slide-2" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide4.jpg")'}}/>
+                  <div className="zs-slide zs-slide-2" style={{backgroundImage: 'url("http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/slide4.jpg")'}}/> */}
                 </div>
                 </div>
                 <div className="container" style={{
@@ -419,7 +458,7 @@ export default function Home() {
       backgroundImage: 'url("")',
       top: '-20%'
     }}/></section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" >
+                {/* <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" >
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -575,7 +614,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </section><div className="vc_row-full-width vc_clearfix"/>
+                </section><div className="vc_row-full-width vc_clearfix"/> */}
                 <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_custom_1511217882368 vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-white bg-pos-center-center bg-overlay-dark" >
                   <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_custom_1508187734191 vc_row-has-fill bg-pos-center-center text-align-center" >
                     <div className="wpb_column vc_column_container vc_col-sm-12">
@@ -1540,4 +1579,19 @@ export default function Home() {
     </div>
 
   </div>)
+}
+
+
+
+
+
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-slider`
+  const res = await fetch(url)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
 }

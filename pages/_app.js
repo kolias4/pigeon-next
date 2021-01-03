@@ -21,7 +21,7 @@ import Layout from '../components/layout'
 
 
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps,blogcats }) {
   return (
     <Layout>
     <Component {...pageProps} />

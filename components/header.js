@@ -1,4 +1,4 @@
-
+import Link from 'next/link'
 
 function Header(){
 
@@ -9,7 +9,7 @@ function Header(){
       <nav className="navbar navbar-homepage">
         <div className="container">
           <a className="logo-home" href="http://senorcavallo.just-themes.com/">
-            <img width={168} height={158} src="http://senorcavallo.just-themes.com/wp-content/uploads/2018/01/senor_cavallo_logo-2.png" className="attachment-full size-full" alt="alt"/>
+            <img width={168} height={158} src="/logo.png" className="attachment-full size-full" alt="logo"/>
           </a>
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed">
@@ -30,16 +30,18 @@ function Header(){
               <div className="clearfix"/>
             </div>
             <ul id="menu-main-menu" className="nav navbar-nav">
-              <li id="menu-item-2104" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2104">
+              {/* <li id="menu-item-2104" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2104">
                 <a href="http://senorcavallo.just-themes.com/">
                   <span>Home</span>
                 </a>
-              </li>
-              <li id="menu-item-2547" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2547">
-                <a href="#">
-                  <span>About Us</span>
+              </li> */}
+              <li id="menu-item-2547" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
+                <Link href="/about">
+                <a >
+                  <span>Σχετικά με εμάς</span>
                 </a>
-                <ul className="sub-menu">
+                </Link>
+                {/* <ul className="sub-menu">
                   <li id="menu-item-2548" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2548">
                     <a href="http://senorcavallo.just-themes.com/about-club/">
                       <span>About Club</span>
@@ -55,11 +57,11 @@ function Header(){
                       <span>Testimonials</span>
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </li>
               <li id="menu-item-59" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59">
                 <a>
-                  <span>Blog</span>
+                  <span>Αρθρα</span>
                 </a>
                 <ul className="sub-menu">
                   <li id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
@@ -129,9 +131,11 @@ function Header(){
                 </ul>
               </li>
               <li id="menu-item-46" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
-                <a href="http://senorcavallo.just-themes.com/contacts/">
-                  <span>Contacts</span>
+                <Link href="/contact">
+                <a >
+                  <span>Επικοινωνία</span>
                 </a>
+                </Link>
               </li>
               <li id="menu-item-61" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-mega-menu menu-item-61">
                 <a>

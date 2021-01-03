@@ -6,3 +6,20 @@
   box-sizing: border-box;
   /* width: 100vw; */
 }
+
+.myactive {
+  transition: transform 20000ms ease-out 0s, opacity 800ms ease 0s !important;
+  opacity: 1 !important;
+  transform: scale(1, 1) !important;
+  z-index : 2
+
+}
+
+.crop_string {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 100px;
+}
