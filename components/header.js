@@ -65,20 +65,53 @@ function Header(){
                 </a>
                 <ul className="sub-menu">
                   <li id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
-                    <a href="http://senorcavallo.just-themes.com/blog-one-column/">
-                      <span>Blog One Column</span>
+                    <Link href="/blog/category/iatrika">
+                    <a>
+                      <span>Ιατρικά</span>
                     </a>
+                    </Link>
                   </li>
                   <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <a href="http://senorcavallo.just-themes.com/blog-two-columns/">
-                      <span>Blog Two Columns</span>
+                    <Link href="/blog/category/agones">
+                    <a >
+                      <span>Αγώνες</span>
                     </a>
+                    </Link>
                   </li>
-                  <li id="menu-item-44" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-44">
+                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
+                    <Link href="/blog/category/ektrofi">
+                    <a >
+                      <span>Εκτροφή</span>
+                    </a>
+                    </Link>
+                  </li>
+
+                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
+                    <Link href="/blog/category/diatrofi">
+                    <a >
+                      <span>Διατροφή</span>
+                    </a>
+                    </Link>
+                  </li>
+                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
+                    <Link href="/blog/category/empeiries">
+                    <a >
+                      <span>Εμπειρίες  Εκτροφέων</span>
+                    </a>
+                    </Link>
+                  </li>
+                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
+                    <Link href="/blog/category/xaraktiristika-protathliton">
+                    <a >
+                      <span>Χαρακτηριστικά Πρωταθλητών</span>
+                    </a>
+                    </Link>
+                  </li>
+                  {/* <li id="menu-item-44" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-44">
                     <a href="http://senorcavallo.just-themes.com/blog-three-columns/">
                       <span>Blog Three Columns</span>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               <li id="menu-item-60" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60">
