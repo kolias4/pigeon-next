@@ -4,6 +4,13 @@ import fetcher from '../../../functions/fetcher'
 
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Disqus from "disqus-react"
+import { useRouter } from 'next/router'
+
+
 
 function BlogPost({data,notFound}){
 
@@ -12,8 +19,49 @@ function BlogPost({data,notFound}){
       <h1 className="text-center">Δεν βρέθηκαν άρθρα</h1>
     )
   }
+  const router = useRouter()
+
+  const settings = {
+   autoplay:true,
+   dots: true,
+   infinite: true,
+   speed: 500,
+   slidesToShow: 1,
+   slidesToScroll: 1,
+   nextArrow: <SampleNextArrow />,
+   prevArrow: <SamplePrevArrow />
+ };
 
   var article = data.articles[0]
+
+  const disqusShortname = "mypigeon"
+ const disqusConfig = {
+   url: `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`,
+   identifier: article.id,
+   title: article.Title
+ }
+
+ function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className="arrow right"
+      style={{display: "block", position:"absolute", width:'20px',height:'20px',right:'10px', top:'50%', zIndex:'1000' }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className="arrow left"
+      style={{display: "block", position:"absolute", width:'20px',height:'20px',left:'10px', top:'50%', zIndex:'1000' }}
+      onClick={onClick}
+    />
+  );
+}
 
   return (
 
@@ -26,12 +74,21 @@ function BlogPost({data,notFound}){
           <article id="post-1851" className="post-1851 post type-post status-publish format-standard has-post-thumbnail hentry category-riding-school tag-horses">
             <div className="image">
               {/* <img width={1400} height={933} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9.jpg" className="attachment-senorcavallo-big size-senorcavallo-big wp-post-image" alt srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9.jpg 1400w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-300x200.jpg 300w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-768x512.jpg 768w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-1024x682.jpg 1024w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-600x400.jpg 600w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-570x380.jpg 570w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/blog9-272x182.jpg 272w" sizes="(max-width: 1400px) 100vw, 1400px" /> */}
-              {article.Eikones[0]&&
+               <Slider {...settings}>
+                 {article.Eikones.map((item,i) => {
+                   return (
+                     <div className="text-center">
+                     <Image key={`imageblog${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}  alt={`blogimage${i}`} objectFit="contain" width={800} height={500} />
+                    </div>
+                   )
+                 })}
+               </Slider>
+              {/* {article.Eikones[0]&&
                 <Image src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.Eikones[0].url}`}  alt="Picture of the author" objectFit="cover" width={1200} height={800} />
-              }
+              } */}
             </div>
             <div className="blog-info blog-info-top">
-              <span className="date">{dateformat(article.created_at)}</span><span className="date-div color-main">|</span><ul><li className="icon-fav">
+              <span className="date">{dateformat(article.created_at)}</span><span className="date-div color-main">|</span> <span>{article.author}</span><ul><li className="icon-fav">
                   <span className="fa fa-eye" /> 0
                 </li>
                 <li className="icon-comments">
@@ -64,7 +121,7 @@ function BlogPost({data,notFound}){
              </div>
             </div>
           </article>
-          <div id="comments" className="comments-area">
+          {/* <div id="comments" className="comments-area">
             <div className="comments-form-wrap">
               <a className="anchor" id="comments-form" />
               <div className="comments-form anchor">
@@ -78,7 +135,12 @@ function BlogPost({data,notFound}){
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+
+          <Disqus.DiscussionEmbed
+       shortname={disqusShortname}
+       config={disqusConfig}
+     />
         </section>
       </div>
 
@@ -111,6 +173,7 @@ url_key
 }
 
 articles:arthras(where:{urlkey:$urlkey}){
+id
 created_at
 Title
 kyriosthema
@@ -140,5 +203,5 @@ Eikones{
 
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data,title:data.articles[0].Title } }
 }

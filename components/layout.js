@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import Footer from './footer'
 
-function Layout({children,data}){
+function Layout({children,data,title}){
 
   const router = useRouter()
 
@@ -12,7 +12,7 @@ function Layout({children,data}){
 
   return (
     <div>
-    {path === '/'?<Header menu={data.menu} />:<Header2 menu={data.menu}/>}
+    {path === '/'?<Header menu={data.menu} />:<Header2 title={title} menu={data.menu}/>}
     <main>
     {children}
     </main>

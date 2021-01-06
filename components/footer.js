@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 function Footer() {
   return (<footer>
 
@@ -6,10 +8,10 @@ function Footer() {
         <div className="row">
           <div className="col-md-4 col-sm-6 col-ms-12  matchHeight clearfix">
             <div className="footer-widget-area">
-              <div id="media_image-2" className="widget widget_media_image"><img width={168} height={158} src="http://senorcavallo.just-themes.com/wp-content/uploads/2018/01/senor_cavallo_logo-2.png" className="image wp-image-2853  attachment-full size-full" alt="alt" style={{
-      maxWidth: '100%',
-      height: 'auto'
-    }}/></div>
+              <div id="media_image-2" className="widget widget_media_image">
+              {/* <img width={168} height={158} src="http://senorcavallo.just-themes.com/wp-content/uploads/2018/01/senor_cavallo_logo-2.png" className="image wp-image-2853  attachment-full size-full" alt="alt" /> */}
+                <Image width={168} height={158} alt="logo" src="/logo.png"/>
+              </div>
             </div>
           </div>
           <div className="col-md-4 col-sm-6 col-ms-12  matchHeight clearfix">

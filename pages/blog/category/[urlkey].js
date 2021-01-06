@@ -97,6 +97,7 @@ url_key
 }
 
 articles:categoryArthras(where:{url_key:$urlkey}){
+  title
 
 arthras{
   Title
@@ -126,5 +127,5 @@ arthras{
 
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data,title:data.articles[0].title } }
 }
