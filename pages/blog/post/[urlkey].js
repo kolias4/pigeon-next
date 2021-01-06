@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import dateformat from '../../../functions/dateformat'
+import fetcher from '../../../functions/fetcher'
+
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 function BlogPost({data,notFound}){
 
@@ -10,7 +13,7 @@ function BlogPost({data,notFound}){
     )
   }
 
-  var article = data[0]
+  var article = data.articles[0]
 
   return (
 
@@ -30,14 +33,25 @@ function BlogPost({data,notFound}){
             <div className="blog-info blog-info-top">
               <span className="date">{dateformat(article.created_at)}</span><span className="date-div color-main">|</span><ul><li className="icon-fav">
                   <span className="fa fa-eye" /> 0
-                </li><li className="icon-comments"><span className="fa fa-commenting" /> 0</li></ul>		</div>
+                </li>
+                <li className="icon-comments">
+                  <span className="fa fa-commenting" /> 0</li>
+                </ul>
+              </div>
             <div className="description">
-              <div dangerouslySetInnerHTML={{__html:article.kyriosthema.replace(/\n/g,"<br />")}} className="text text-page">
+              <div className="text text-page">
+                <ReactMarkdown>
+                  {article.kyriosthema}
+                </ReactMarkdown>
+
+              </div>
+
+
 
               </div>
               <div className="clearfix" />
 
-            </div>
+
             <div className="blog-info blog-info-bottom">
               <div className="cats-short"><strong>Category:</strong>
               {article.category_arthras.map((cat,i) => {
@@ -85,15 +99,46 @@ export default BlogPost
 
 export async function getServerSideProps({query}) {
   // Fetch data from external API
-  var notFound=false;
+
   var {urlkey} = query
-  var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/arthras?urlkey=${urlkey}`
-  const res = await fetch(url)
-  const data = await res.json()
-  if(!data[0]){
-    notFound=true;
-  }
+
+  var nquery = `
+  query($urlkey:String!) {
+
+menu:categoryArthras{
+title
+url_key
+}
+
+articles:arthras(where:{urlkey:$urlkey}){
+created_at
+Title
+kyriosthema
+author
+Youtubevideo
+Video{
+  url
+}
+category_arthras{
+  title
+  url_key
+}
+Eikones{
+  url
+}
+}
+
+}
+  `
+
+
+  const data = await fetcher(nquery,{
+    variables:{
+      urlkey:urlkey
+    }
+  })
+
 
   // Pass data to the page via props
-  return { props: { data, notFound } }
+  return { props: { data } }
 }

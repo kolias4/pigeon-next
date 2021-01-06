@@ -1,6 +1,7 @@
+import Image from 'next/image'
+import Link from 'next/link'
 
-
-function Header2(){
+function Header2({menu}){
   return(
     <>
     <div id="nav-wrapper">
@@ -15,8 +16,12 @@ function Header2(){
 					<span class="icon-bar middle-bar"></span>
 					<span class="icon-bar bottom-bar"></span>
 				</button>
-								<a class="logo" href="http://senorcavallo.just-themes.com/">
-					<img width="168" height="158" src="http://senorcavallo.just-themes.com/wp-content/uploads/2018/01/senor_cavallo_logo-2.png" class="attachment-full size-full" alt=""/>				</a>
+          <Link href="/">
+								<a class="logo">
+					{/* <img width="168" height="158" src="http://senorcavallo.just-themes.com/wp-content/uploads/2018/01/senor_cavallo_logo-2.png" class="attachment-full size-full" alt=""/> */}
+          <Image width={168} height={168} alt="logo" src="/logo.png"/>
+          				</a>
+              </Link>
 							</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<div class="toggle-wrap">
@@ -28,21 +33,31 @@ function Header2(){
 					</button>
 					<div class="clearfix"></div>
 				</div>
-				<ul id="menu-main-menu" class="nav navbar-nav"><li id="menu-item-2104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2104"><a href="http://senorcavallo.just-themes.com/"><span>Home</span></a></li>
-<li id="menu-item-2547" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2547"><a href="#"><span>About Us</span></a>
+				<ul id="menu-main-menu" class="nav navbar-nav">
+          <li id="menu-item-2104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2104">
+             <Link href="/about">
+            <a >
+            <span>Σχετικά με εμάς</span>
+          </a>
+          </Link>
+          </li>
+<li id="menu-item-2547" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2547"><a ><span>Αρθρα</span></a>
 <ul class="sub-menu">
-	<li id="menu-item-2548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2548"><a href="http://senorcavallo.just-themes.com/about-club/"><span>About Club</span></a></li>
-	<li id="menu-item-750" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-750"><a href="http://senorcavallo.just-themes.com/team/"><span>Our Team</span></a></li>
-	<li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="http://senorcavallo.just-themes.com/testimonials/"><span>Testimonials</span></a></li>
+  {menu.map((item) => {
+    return (
+      <li key={item.title} id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
+        <Link href={`/blog/category/${item.url_key}`}>
+        <a>
+          <span>{item.title}</span>
+        </a>
+        </Link>
+      </li>
+
+    )
+  })}
 </ul>
 </li>
-<li id="menu-item-59" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59"><a><span>Blog</span></a>
-<ul class="sub-menu">
-	<li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="http://senorcavallo.just-themes.com/blog-one-column/"><span>Blog One Column</span></a></li>
-	<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="http://senorcavallo.just-themes.com/blog-two-columns/"><span>Blog Two Columns</span></a></li>
-	<li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="http://senorcavallo.just-themes.com/blog-three-columns/"><span>Blog Three Columns</span></a></li>
-</ul>
-</li>
+
 <li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60"><a><span>Gallery</span></a>
 <ul class="sub-menu">
 	<li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47"><a href="http://senorcavallo.just-themes.com/gallery-2-columns/"><span>Gallery 2-columns</span></a></li>

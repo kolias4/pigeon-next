@@ -1,4 +1,4 @@
-
+import fetcher from '../functions/fetcher'
 
 function Contact(){
 
@@ -101,3 +101,28 @@ function Contact(){
 }
 
 export default Contact
+
+export async function getServerSideProps({query}) {
+  // Fetch data from external API
+
+
+
+  var nquery = `
+  query {
+
+menu:categoryArthras{
+title
+url_key
+}
+
+
+}
+  `
+
+
+  const data = await fetcher(nquery)
+
+
+  // Pass data to the page via props
+  return { props: { data } }
+}

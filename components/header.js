@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function Header(){
+function Header({menu}){
 
   return (
     <header>
@@ -64,49 +64,20 @@ function Header(){
                   <span>Αρθρα</span>
                 </a>
                 <ul className="sub-menu">
-                  <li id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
-                    <Link href="/blog/category/iatrika">
-                    <a>
-                      <span>Ιατρικά</span>
-                    </a>
-                    </Link>
-                  </li>
-                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <Link href="/blog/category/agones">
-                    <a >
-                      <span>Αγώνες</span>
-                    </a>
-                    </Link>
-                  </li>
-                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <Link href="/blog/category/ektrofi">
-                    <a >
-                      <span>Εκτροφή</span>
-                    </a>
-                    </Link>
-                  </li>
+                  {menu.map((item) => {
+                    return (
+                      <li key={item.title} id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
+                        <Link href={`/blog/category/${item.url_key}`}>
+                        <a>
+                          <span>{item.title}</span>
+                        </a>
+                        </Link>
+                      </li>
 
-                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <Link href="/blog/category/diatrofi">
-                    <a >
-                      <span>Διατροφή</span>
-                    </a>
-                    </Link>
-                  </li>
-                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <Link href="/blog/category/empeiries">
-                    <a >
-                      <span>Εμπειρίες  Εκτροφέων</span>
-                    </a>
-                    </Link>
-                  </li>
-                  <li id="menu-item-45" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
-                    <Link href="/blog/category/xaraktiristika-protathliton">
-                    <a >
-                      <span>Χαρακτηριστικά Πρωταθλητών</span>
-                    </a>
-                    </Link>
-                  </li>
+                    )
+                  })}
+
+
                   {/* <li id="menu-item-44" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-44">
                     <a href="http://senorcavallo.just-themes.com/blog-three-columns/">
                       <span>Blog Three Columns</span>

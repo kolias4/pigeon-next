@@ -1,12 +1,15 @@
 import Head from 'next/head'
 import {useEffect,useState} from 'react'
+import fetcher from '../functions/fetcher'
+import ReactMarkdown from 'react-markdown'
+import Image from 'next/image'
 
 
  export default function Home({data}) {
 
   const [activeslide,setActiveSlide]= useState(null)
 
-  const slides=data.slider_images
+  const slides=data.slider.slider_images
 
   const handleSlider = () => {
     var len = slides.length
@@ -299,12 +302,12 @@ useEffect(() => {
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
-                            <h5 className="subheader">Who we are</h5>
+                            {/* <h5 className="subheader">Who we are</h5> */}
                             <h3 style={{
                                 fontFamily: 'Rufina !important',
                                 fontWeight: 700,
                                 fontStyle: 'normal'
-                              }} className="header">About Riding Club</h3>
+                              }} className="header">{data.about.title}</h3>
                           </div>
                         </div>
                       </div>
@@ -319,7 +322,7 @@ useEffect(() => {
                       }}>
                       <div className="vc_column-inner vc_custom_1513454744328">
                         <div className="wpb_wrapper">
-                          <div className="heading  heading-large head-subheader align-left color-black subcolor-second transform-default   vc_custom_1513346469845" id="like_sc_header_1051267961" style={{
+                          {/* <div className="heading  heading-large head-subheader align-left color-black subcolor-second transform-default   vc_custom_1513346469845" id="like_sc_header_1051267961" style={{
                               fontFamily: 'Rufina !important',
                               fontWeight: 700,
                               fontStyle: 'normal'
@@ -330,7 +333,7 @@ useEffect(() => {
                                 fontWeight: 700,
                                 fontStyle: 'normal'
                               }} className="header">Riding Experience</h2>
-                          </div>
+                          </div> */}
                           <div className="es-resp">
                             <div className="visible-lg" style={{
                                 height: 8
@@ -347,7 +350,7 @@ useEffect(() => {
                             <div className="visible-xs" style={{
                                 height: 8
                               }}/></div>
-                          <div className="wpb_text_column wpb_content_element  vc_custom_1513346334246">
+                          {/* <div className="wpb_text_column wpb_content_element  vc_custom_1513346334246">
                             <div className="wpb_wrapper">
                               <h4 style={{
                                   textAlign: 'left'
@@ -356,11 +359,16 @@ useEffect(() => {
                                 </span>
                               </h4>
                             </div>
-                          </div>
+                          </div> */}
                           <div className="wpb_text_column wpb_content_element ">
                             <div className="wpb_wrapper">
                               <p>
-                                <span className="text-md">Sed pharetra ex ligula, a rutrum dolor varius non. Nam lobortis fringilla molestie. Nunc bibendum ligula vel nisl ornare tempor. Etiam vehicula, mauris tincidunt malesuada pharetra, nibh ante laoreet tellus, sed faucibus mauris.</span>
+                                <div  className="text-md crop_string">
+                                  <ReactMarkdown>
+                                    {data.about.body}
+
+                                  </ReactMarkdown>
+                                </div>
                               </p>
                             </div>
                           </div>
@@ -431,7 +439,12 @@ useEffect(() => {
                               }}/></div>
                           <div className="wpb_single_image wpb_content_element vc_align_center  vc_custom_1513346768356 img-shadow-plain">
                             <figure className="wpb_wrapper vc_figure">
-                              <div className="vc_single_image-wrapper   vc_box_border_grey"><img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png" className="vc_single_image-img attachment-full" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png 570w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo-300x232.png 300w" sizes="(max-width: 570px) 100vw, 570px"/></div>
+                              <div className="vc_single_image-wrapper   vc_box_border_grey">
+                                {/* <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png" className="vc_single_image-img attachment-full" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo.png 570w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/12/about-photo-300x232.png 300w" sizes="(max-width: 570px) 100vw, 570px"/> */}
+                                {data.about.image[0] &&
+                                  <Image width={500} height={500} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.about.image[0].url}`} alt="about"/>
+                                }
+                              </div>
                             </figure>
                           </div>
                           <div className="es-resp">
@@ -1588,10 +1601,42 @@ useEffect(() => {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-slider`
-  const res = await fetch(url)
-  const data = await res.json()
+  // var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-slider`
+  var url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`
+
+  var query =`
+  query {
+menu:categoryArthras{
+  title
+  url_key
+}
+
+slider:homeSlider{
+  slider_images{
+    url
+  }
+}
+
+  about:aboutUs{
+    title
+    body
+    image{
+      url
+    }
+
+  }
+}
+  `;
+
+  var data= await fetcher(query)
+
+
+
+
+
+  // const res = await fetch(url)
+  // const data = await res.json()
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: {data} }
 }

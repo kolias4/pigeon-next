@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import dateformat from '../../../functions/dateformat'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import fetcher from '../../../functions/fetcher'
 
 function BlogCategory({data,notFound}){
 
@@ -10,7 +12,7 @@ function BlogCategory({data,notFound}){
     )
   }
 
-  var articles = data[0].arthras
+  var articles = data.articles[0].arthras
 
   return (
 
@@ -41,7 +43,8 @@ function BlogCategory({data,notFound}){
                   </a>
                 </Link>
                    <div className="description">
-                    <div dangerouslySetInnerHTML={{__html:item.kyriosthema}} className="text text-page margin-bottom-0 crop_string">
+                    <div  className="text text-page  crop_string">
+                      <ReactMarkdown>{item.kyriosthema}</ReactMarkdown>
                     </div>
                     <div className="blog-info">
                       <Link href={`/blog/post/${item.urlkey}`}>
@@ -83,17 +86,45 @@ export default BlogCategory
 
 export async function getServerSideProps({query}) {
   // Fetch data from external API
-  var notFound=false;
-  var {urlkey} = query
-  var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/category-arthras?url_key=${urlkey}`
-  const res = await fetch(url)
-  const data = await res.json()
-  if(!data[0]){
-    notFound=true;
-  }
 
-  
+  var {urlkey} = query
+  var nquery = `
+  query($urlkey:String!) {
+
+menu:categoryArthras{
+title
+url_key
+}
+
+articles:categoryArthras(where:{url_key:$urlkey}){
+
+arthras{
+  Title
+  urlkey
+  Eikones{
+    url
+  }
+  created_at
+  author
+  kyriosthema
+}
+}
+
+}
+  `
+
+
+  var data = await fetcher(nquery,{
+    variables:{
+      urlkey:urlkey
+    }
+  })
+
+
+
+
+
 
   // Pass data to the page via props
-  return { props: { data, notFound } }
+  return { props: { data } }
 }
