@@ -16,18 +16,20 @@ function Contact(){
                   <div className="vc_column-inner">
                     <div className="wpb_wrapper">
                       <div className="heading  color-black transform-header-up   vc_custom_1508350389768" id="like_sc_header_30975873">
-                        <h3 className="header">Opening Hours:</h3>
+                        <h3 className="header">Φόρμα Επικοινωνίας</h3>
                       </div>
                       <div className="wpb_text_column wpb_content_element ">
                         <div className="wpb_wrapper">
-                          <p>Nam eu mi eget velit vulputate tempor gravida quis massa. In malesuada condimentum ultrices. Sed et mauris a purus fermentum elementum. Sed tristique semper enim, et gravida orci iaculis et. Nulla facilisi.</p>
+                          <p>
+                            Για οποιοδήποτε θέμα μη διστάσετε να επικοινωνήσετε μαζί μας. Θα προσπαθήσουμε να σας απαντήσουμε το συντομότερο δυνατόν
+                          </p>
                         </div>
                       </div>
                       <div className="align-default ">
-                        <ul className="social-icons-list   vc_custom_1513441326654 icon-weight-bold" id="like_sc_header_1551130109">
-                          <li className><span className="fa fa-phone" /><span className="head">0(800) 809-3-614</span></li>
-                          <li className><span className="fa fa-skype" /><span className="head">wildhorse</span></li>
-                          <li className><span className="fa fa-map-marker" /><span className="head">153 Montana str,  New York,  90844-053</span></li>
+                        <ul className="social-icons-list   vc_custom_1513441326654 " id="like_sc_header_1551130109">
+                          <li className><span className="fa fa-phone" /><span className="head"><a href="tel:555-555-5555">666</a></span></li>
+                          <li className><span className="fa fa-envelope" /><span className="head"><a href="mailto:mypigeon.gr@gmail.com">mypigeon.gr@gmail.com</a></span></li>
+                          <li className><span className="fa fa-map-marker" /><span className="head">Κομοτηνη, Ροδοπη, ΚΑΡΥΔΙΑ ΤΟ ΚΑΛΥΤΕΡΟ ΧΩΡΙΟ</span></li>
                         </ul>
                       </div>
                       <div className="heading  color-black transform-header-up   vc_custom_1502236442786" id="like_sc_header_448402402">
@@ -36,9 +38,9 @@ function Contact(){
                       <div className="align-default ">
                         <ul className="social-big icon-weight-bold" id="like_sc_header_1067007673">
                           <li><a href="#" className="fa fa-facebook" /></li>
-                          <li><a href="#" className="fa fa-twitter" /></li>
+                          {/* <li><a href="#" className="fa fa-twitter" /></li>
                           <li><a href="#" className="fa fa-youtube" /></li>
-                          <li><a href="#" className="fa fa-instagram" /></li>
+                          <li><a href="#" className="fa fa-instagram" /></li> */}
                         </ul>
                       </div>
                     </div>
@@ -102,7 +104,7 @@ function Contact(){
 
 export default Contact
 
-export async function getServerSideProps({query}) {
+export async function getServerSideProps() {
   // Fetch data from external API
 
 
@@ -124,5 +126,5 @@ url_key
 
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data,title:"Επικοινωνία" } }
 }
