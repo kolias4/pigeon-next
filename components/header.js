@@ -62,22 +62,22 @@ function Header({menu,breeders}){
                   </li> */}
                 </ul>
               </li>
-              <li id="menu-item-61" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-mega-menu menu-item-61">
+              <li id="menu-item-61" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
                 <a>
                   <span>Περιστέρια</span>
                 </a>
-                <div className="mega-menu">
-                  <ul className="sub-menu mega-menu-row">
+
+                  <ul className="sub-menu">
                     {breeders.map((breeder,i) => {
                       return (
-                        <li key={breeder.breeder_name}  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-783">
+                        <li key={breeder.breeder_name}  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
                           <a>
                             <span>{breeder.breeder_name}</span>
                           </a>
-                          <ul className="sub-menu sub-menu-has-icons">
+                          <ul style={{marginTop:'0px',marginLeft:'-12px'}} className="sub-menu">
                             {breeder.breeds.map((breed,i) => {
                               return (
-                                <li key={breed.breed} className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon ">
+                                <li key={breed.breed} className="menu-item menu-item-type-post_type menu-item-object-page  ">
                                   <Link href={`/pigeons/breed/${breed.urlkey}`}>
                                   <a  className="">
                                     <span>{breed.breed}</span>
@@ -98,7 +98,7 @@ function Header({menu,breeders}){
 
 
                   </ul>
-                </div>
+
               </li>
               <li id="menu-item-60" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60">
                 <a>
@@ -132,37 +132,13 @@ function Header({menu,breeders}){
                       <span>Shop</span>
 
                     </a>
-                    <ul style={{marginTop:'0px',marginLeft:'-12px'}} className="sub-menu">
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
-                        <a href="">
-                        <span>skata</span>
-                        </a>
-                      </li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
-                        <a href="">
-                        <span>poulia</span>
-                        </a>
-                      </li>
 
-                    </ul>
                   </li>
                   <li id="menu-item-622" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
                     <a href="http://senorcavallo.just-themes.com/cart/">
                       <span>Cart</span>
                     </a>
-                    <ul style={{marginTop:'0px',marginLeft:'-12px'}} className="sub-menu">
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
-                        <a href="">
-                        <span>skata</span>
-                        </a>
-                      </li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
-                        <a href="">
-                        <span>poulia</span>
-                        </a>
-                      </li>
-
-                    </ul>
+              
                   </li>
                   <li id="menu-item-621" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-621">
                     <a href="http://senorcavallo.just-themes.com/checkout/">
