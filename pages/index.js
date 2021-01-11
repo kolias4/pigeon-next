@@ -1286,7 +1286,7 @@ menu:categoryArthras{
   url_key
 }
 
-breeders{
+breeders(sort:"breeder_name:desc"){
   breeder_name
   breeds{
     breed
