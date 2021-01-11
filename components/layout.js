@@ -12,7 +12,7 @@ function Layout({children,data,title}){
 
   return (
     <div>
-    {path === '/'?<Header menu={data && data.menu || []} />:<Header2 title={title} menu={data && data.menu || []}/>}
+    {path === '/'?<Header breeders={data && data.breeders || []} menu={data && data.menu || []} />:<Header2 title={title} menu={data && data.menu || []}/>}
     <main>
     {children}
     </main>

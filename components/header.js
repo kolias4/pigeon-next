@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function Header({menu}){
+function Header({menu,breeders}){
 
   return (
     <header>
@@ -68,55 +68,34 @@ function Header({menu}){
                 </a>
                 <div className="mega-menu">
                   <ul className="sub-menu mega-menu-row">
-                    <li id="menu-item-783" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-783">
-                      <a>
-                        <span>Καθαροαιμια-Mypigeon</span>
-                      </a>
-                      <ul className="sub-menu sub-menu-has-icons">
-                        <li id="menu-item-597" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-597">
-                          <a href="http://senorcavallo.just-themes.com/headers/" className="fa fa-font">
-                            <span>Headers</span>
+                    {breeders.map((breeder,i) => {
+                      return (
+                        <li key={breeder.breeder_name}  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-783">
+                          <a>
+                            <span>{breeder.breeder_name}</span>
                           </a>
+                          <ul className="sub-menu sub-menu-has-icons">
+                            {breeder.breeds.map((breed,i) => {
+                              return (
+                                <li key={breed.breed} className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon ">
+                                  <Link href={`/pigeons/breed/${breed.urlkey}`}>
+                                  <a  className="">
+                                    <span>{breed.breed}</span>
+                                  </a>
+                                  </Link>
+                                </li>
+
+                              )
+                            })}
+
+
+                          </ul>
                         </li>
-                        <li id="menu-item-579" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-579">
-                          <a href="http://senorcavallo.just-themes.com/text/" className="fa fa-align-left">
-                            <span>Text</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-594" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-594">
-                          <a href="http://senorcavallo.just-themes.com/text_columns/" className="fa fa-columns">
-                            <span>Text Columns</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-643" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-643">
-                          <a href="http://senorcavallo.just-themes.com/table/" className="fa fa-table">
-                            <span>Table</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-588" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-588">
-                          <a href="http://senorcavallo.just-themes.com/separators/" className="fa fa-arrows-h">
-                            <span>Separators</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li id="menu-item-784" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu-col menu-item-784">
-                      <a>
-                        <span>Έλληνες εκτροφείς</span>
-                      </a>
-                      <ul className="sub-menu sub-menu-has-icons">
-                        <li id="menu-item-555" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-555">
-                          <a href="http://senorcavallo.just-themes.com/buttons/" className="fa fa-mouse-pointer">
-                            <span>Buttons</span>
-                          </a>
-                        </li>
-                        <li id="menu-item-705" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-icon menu-item-705">
-                          <a href="http://senorcavallo.just-themes.com/forms/" className="fa fa-edit">
-                            <span>Forms</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
+
+                      )
+                    })}
+
+
 
                   </ul>
                 </div>
@@ -147,16 +126,43 @@ function Header({menu}){
                 <a href="#">
                   <span>Shop</span>
                 </a>
-                <ul className="sub-menu">
-                  <li id="menu-item-623" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
+                <ul  className="sub-menu">
+                  <li id="menu-item-623" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
                     <a href="http://senorcavallo.just-themes.com/shop/">
                       <span>Shop</span>
+
                     </a>
+                    <ul style={{marginTop:'0px',marginLeft:'-12px'}} className="sub-menu">
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
+                        <a href="">
+                        <span>skata</span>
+                        </a>
+                      </li>
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
+                        <a href="">
+                        <span>poulia</span>
+                        </a>
+                      </li>
+
+                    </ul>
                   </li>
-                  <li id="menu-item-622" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
+                  <li id="menu-item-622" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
                     <a href="http://senorcavallo.just-themes.com/cart/">
                       <span>Cart</span>
                     </a>
+                    <ul style={{marginTop:'0px',marginLeft:'-12px'}} className="sub-menu">
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
+                        <a href="">
+                        <span>skata</span>
+                        </a>
+                      </li>
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-623">
+                        <a href="">
+                        <span>poulia</span>
+                        </a>
+                      </li>
+
+                    </ul>
                   </li>
                   <li id="menu-item-621" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-621">
                     <a href="http://senorcavallo.just-themes.com/checkout/">

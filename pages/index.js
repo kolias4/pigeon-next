@@ -1286,6 +1286,14 @@ menu:categoryArthras{
   url_key
 }
 
+breeders{
+  breeder_name
+  breeds{
+    breed
+    urlkey
+  }
+}
+
 slider:homeSlider{
   slider_images{
     url
