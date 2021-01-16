@@ -46,7 +46,7 @@ function Header2({menu,title}){
           </li>
 <li id="menu-item-2547" className={`menu-item menu-item-has-children ${router.asPath.startsWith("/blog")?'current_page_item':''}`}><a ><span>Αρθρα</span></a>
 <ul className="sub-menu">
-  {menu.map((item) => {
+  {menu && menu.categoryArthras.map((item) => {
     return (
       <li key={item.title} id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
         <Link href={`/blog/category/${item.url_key}`}>

@@ -5,6 +5,8 @@ import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import Link from 'next/link'
 import dateformat from '../functions/dateformat'
+import menuquery from '../functions/queries/menuquery'
+
 
 
 
@@ -61,7 +63,9 @@ useEffect(() => {
                     {slides.map((slide,i) => {
                       return (
 
-                        <div key={`slide${i}`} className={`zs-slide zs-slide-${i} ${activeslide === i? 'active myactive':''}`} style={{backgroundImage:`url(${process.env.NEXT_PUBLIC_STRAPI_URL}${slide.url})`}}/>
+                        <div key={`slide${i}`} className={`zs-slide zs-slide-${i} ${activeslide === i? 'active myactive':''}`} >
+                        <Image priority={true} objectFit="cover" quality={50} layout="fill"  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${slide.url}`}/>
+                        </div>
 
 
                       )
@@ -105,32 +109,16 @@ useEffect(() => {
                           opacity: 1,
                           transition: 'all 0.3s ease 0s',
                           fontFamily: 'Rufina !important'
-                        }} className="header" data-sr-id={2}>Senor Cavallo
-                        <span className="subheader" data-sr-id={3} style={{
+                        }} className="header" data-sr-id={2}>Premium Racing Pigeons
+                        {/* <span className="subheader" data-sr-id={3} style={{
                             visibility: 'visible',
                             transform: 'translateY(0px) scale(1)',
                             opacity: 1,
                             transition: 'all 0.3s ease 0s'
-                          }}>- Riding Club</span>
+                          }}>- Greece</span> */}
                       </h2>
                     </div>
-                    <div className="jtx-content-width width-0" style={{
-                        maxWidth: 700
-                      }}>
-                      <div className="wpb_text_column wpb_content_element  vc_custom_1513383880691">
-                        <div className="wpb_wrapper">
-                          <p style={{
-                              textAlign: 'center',
-                              visibility: 'visible',
-                              transform: 'translateY(0px) scale(1)',
-                              opacity: 1,
-                              transition: 'all 0.3s ease 0s'
-                            }} data-sr-id={4}>
-                            <span className="text-md">Praesent ac ipsum nisi. Integer non condimentum quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla diam arcu, sodales a varius eget.</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+
                     <div className="es-resp">
                       <div className="visible-lg" style={{
                           height: 54
@@ -147,14 +135,7 @@ useEffect(() => {
                       <div className="visible-xs" style={{
                           height: 54
                         }}/></div>
-                    <div className="btn-wrap align-center">
-                      <a href="href" className="btn  btn-second transform-default color-text-main color-hover-white btn-wide align-center   vc_custom_1513384107705" id="like_sc_button_1168674312" data-sr-id={5} style={{
-                          visibility: 'visible',
-                          transform: 'translateY(0px) scale(1)',
-                          opacity: 1,
-                          transition: 'all 0.3s ease 0s'
-                        }}>read more</a>
-                    </div>
+
                     <div className="es-resp">
                       <div className="visible-lg" style={{
                           height: 180
@@ -189,8 +170,8 @@ useEffect(() => {
                 </ul>
                 <div className="nav-right">
                   <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart" title="View your shopping cart">
-                    <i className="fa fa-shopping-cart" aria-hidden="true"/>
-                    <span className="cart-contents header-cart-count count">0</span>
+                    <i className="fa fa-user" aria-hidden="true"/>
+
                   </a>
                   <div id="top-search" className="top-search">
                     <a href="#" id="top-search-ico" className="fa fa-search" aria-hidden="true"/>
@@ -215,7 +196,7 @@ useEffect(() => {
               <div className="entry-content clearfix" id="entry-div">
 
                 <div className="vc_row-full-width vc_clearfix"/>
-                <section className="vc_section vc_custom_1518023914640 bg-color-theme_color call-us">
+                <section className="vc_section  bg-color-theme_color">
                   <div className="vc_row wpb_row vc_row-fluid vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
                     <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
                       <div className="vc_column-inner">
@@ -281,165 +262,9 @@ useEffect(() => {
                 </section>
 
     <div className="vc_row-full-width vc_clearfix"/>
-                {/* <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" >
-                  <div className="vc_row wpb_row vc_row-fluid">
-                    <div className="wpb_column vc_column_container vc_col-sm-12">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <div className="es-resp">
-                            <div className="visible-lg" style={{
-                                height: 64
-                              }}/>
-                            <div className="visible-md" style={{
-                                height: 64
-                              }}/>
-                            <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                height: 64
-                              }}/>
-                            <div className="visible-ms" style={{
-                                height: 64
-                              }}/>
-                            <div className="visible-xs" style={{
-                                height: 0
-                              }}/></div>
-                          <div className="services-sc bg-gray highlight-disabled  row">
-                            <div className="swiper-container services-slider swiper-container-horizontal" data-cols={3} data-autoplay={0}>
-                              <div className="swiper-wrapper">
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide swiper-slide-active" >
-                                  <article id="post-2369" className="matchHeight post-2369 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
-                                      height: 320
-                                    }}>
-                                    <a href="http://senorcavallo.just-themes.com/services/horse-tours/" className="photo">
-                                      <img src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horses_Rent-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
-                                    </a>
-                                    <div className="description">
-                                      <a href="http://senorcavallo.just-themes.com/services/horse-tours/">
-                                        <h4 className="header">Horse Tours</h4>
-                                      </a>
-                                      <div className="info">
-                                        <a href="http://senorcavallo.just-themes.com/services/horse-tours/" className="btn btn-xs btn-arrow"><span className="fa fa-arrow-right"/></a>
-                                      </div>
-                                    </div>
-                                  </article>
-                                </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide swiper-slide-next" >
-                                  <article id="post-2367" className="matchHeight post-2367 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
-                                      height: 320
-                                    }}>
-                                    <a href="http://senorcavallo.just-themes.com/services/grooming-services/" className="photo">
-                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service2_Horse_Grooming-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
-                                    </a>
-                                    <div className="description">
-                                      <a href="http://senorcavallo.just-themes.com/services/grooming-services/">
-                                        <h4 className="header">Grooming Services</h4>
-                                      </a>
-                                      <div className="info">
-                                        <a href="http://senorcavallo.just-themes.com/services/grooming-services/" className="btn btn-xs btn-arrow"><span className="fa fa-arrow-right"/></a>
-                                      </div>
-                                    </div>
-                                  </article>
-                                </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" >
-                                  <article id="post-2366" className="matchHeight post-2366 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
-                                      height: 320
-                                    }}>
-                                    <a href="http://senorcavallo.just-themes.com/services/winds-classes-2/" className="photo">
-                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service1_Ridind_School-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
-                                    </a>
-                                    <div className="description">
-                                      <a href="http://senorcavallo.just-themes.com/services/winds-classes-2/">
-                                        <h4 className="header">Riding School</h4>
-                                      </a>
-                                      <div className="info">
-                                        <a href="http://senorcavallo.just-themes.com/services/winds-classes-2/" className="btn btn-xs btn-arrow"><span className="fa fa-arrow-right"/></a>
-                                      </div>
-                                    </div>
-                                  </article>
-                                </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide">
-                                  <article id="post-2357" className="matchHeight post-2357 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
-                                      height: 320
-                                    }}>
-                                    <a href="http://senorcavallo.just-themes.com/services/keeping-and-care/" className="photo">
-                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service5_Keeping_and_Care-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
-                                    </a>
-                                    <div className="description">
-                                      <a href="http://senorcavallo.just-themes.com/services/keeping-and-care/">
-                                        <h4 className="header">Keeping and Care</h4>
-                                      </a>
-                                      <div className="info">
-                                        <a href="http://senorcavallo.just-themes.com/services/keeping-and-care/" className="btn btn-xs btn-arrow"><span className="fa fa-arrow-right"/></a>
-                                      </div>
-                                    </div>
-                                  </article>
-                                </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" >
-                                  <article id="post-2365" className="matchHeight post-2365 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
-                                      height: 320
-                                    }}>
-                                    <a href="http://senorcavallo.just-themes.com/services/horse-tours-2/" className="photo">
-                                      <img src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service4_Horse_Tours-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
-                                    </a>
-                                    <div className="description">
-                                      <a href="http://senorcavallo.just-themes.com/services/horse-tours-2/">
-                                        <h4 className="header">Horse Tours</h4>
-                                      </a>
-                                      <div className="info">
-                                        <a href="http://senorcavallo.just-themes.com/services/horse-tours-2/" className="btn btn-xs btn-arrow"><span className="fa fa-arrow-right"/></a>
-                                      </div>
-                                    </div>
-                                  </article>
-                                </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6  swiper-slide" >
-                                  <article id="post-2364" className="matchHeight post-2364 services type-services status-publish has-post-thumbnail hentry services-category-riding-club" style={{
-                                      height: 320
-                                    }}>
-                                    <a href="http://senorcavallo.just-themes.com/services/childrens-classes/" className="photo">
-                                      <img  src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-740x500.jpg" className="attachment-senorcavallo-service size-senorcavallo-service" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-740x500.jpg 740w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/09/service3_Childrens_Classes-770x520.jpg 770w" sizes="(max-width: 740px) 100vw, 740px"/>
-                                    </a>
-                                    <div className="description">
-                                      <a href="http://senorcavallo.just-themes.com/services/childrens-classes/">
-                                        <h4 className="header">Children’s Classes</h4>
-                                      </a>
-                                      <div className="info">
-                                        <a href="http://senorcavallo.just-themes.com/services/childrens-classes/" className="btn btn-xs btn-arrow"><span className="fa fa-arrow-right"/></a>
-                                      </div>
-                                    </div>
-                                  </article>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="arrows">
-                              <a href="#" className="arrow-left fa fa-arrow-left swiper-button-disabled"/>
-                              <a href="#" className="arrow-right fa fa-arrow-right"/>
-                            </div>
-                          </div>
-                          <div className="btn-wrap align-center">
-                            <a href="href" className="btn  btn-xs btn-second transform-default color-text-white color-hover-default align-center   vc_custom_1511216021107" id="like_sc_button_1004129987">view more</a>
-                          </div>
-                          <div className="es-resp">
-                            <div className="visible-lg" style={{
-                                height: 64
-                              }}/>
-                            <div className="visible-md" style={{
-                                height: 64
-                              }}/>
-                            <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                height: 64
-                              }}/>
-                            <div className="visible-ms" style={{
-                                height: 64
-                              }}/>
-                            <div className="visible-xs" style={{
-                                height: 0
-                              }}/></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section><div className="vc_row-full-width vc_clearfix"/> */}
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_custom_1511217882368 vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-white bg-pos-center-center bg-overlay-dark" >
-                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_custom_1508187734191 vc_row-has-fill bg-pos-center-center text-align-center" >
+
+                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_section-has-fill vc_general vc_parallax bg-color-second" >
+                  <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_row-has-fill bg-pos-center-center text-align-center" >
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
                         <div className="wpb_wrapper">
@@ -449,77 +274,76 @@ useEffect(() => {
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
-                            <h5 className="subheader">Tariffs</h5>
+
                             <h3 style={{
                                 fontFamily: 'Rufina !important',
                                 fontWeight: 700,
                                 fontStyle: 'normal'
-                              }} className="header">Choose Your Plan</h3>
+                              }} className="header">Περιστέρια που προτείνουμε</h3>
                           </div>
                           <div className="jtx-content-width width-0" style={{
                               maxWidth: 770
                             }}>
                             <div className="wpb_text_column wpb_content_element ">
-                              <div className="wpb_wrapper">
-                                <p style={{
-                                    textAlign: 'center'
-                                  }}>
-                                  <span className="text-large text-md">
-                                    <span style={{
-                                        color: '#ffffff'
-                                      }}>Praesent ac ipsum nisi. Integer non condimentum quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla diam arcu, sodales a varius eget.</span>
-                                  </span>
-                                </p>
-                              </div>
+
                             </div>
                           </div>
-                          <div className="vc_row wpb_row vc_inner vc_row-fluid jtx-sr jtx-sr-effect-fade_in jtx-sr-id-1185163062 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-500 jtx-sr-sequences-100">
-                            <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                              <div className="vc_column-inner">
-                                <div className="wpb_wrapper">
-                                  <div className="tariff-item item   layout-default matchHeight" id="like_sc_tariff_753540699" style={{
-                                      height: 449,
-                                      visibility: 'visible',
-                                      transform: 'translateY(0px) scale(1)',
-                                      opacity: 1,
-                                      transition: 'all 0.3s ease 0s'
-                                    }} data-sr-id={11}>
-                                    <h4 className="header">
-                                      <span className="color-main">Beginners</span>
-                                      classes</h4>
-                                    <div className="price">$20</div>
-                                    <p>Morbi nec accumsan arcu. Nunc euismod tortor sed ex lobortis, eget porta magna fermentum.</p>
-                                    <div>
-                                      <a href="#" className="btn btn-default  color-hover-second transform-lowercase">get now</a>
+                          <div className=" archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js vc_row wpb_row vc_inner vc_row-fluid jtx-sr jtx-sr-effect-fade_in jtx-sr-id-1185163062 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-500 jtx-sr-sequences-100">
+                            {data.pigeons.map((pigeon,i) => {
+                              var imagepath = pigeon.eikones[0] && pigeon.eikones[0].url
+                              return (
+                                <div className="wpb_column  vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
+                                  <div className="vc_column-inner ">
+                                    <div className="wpb_wrapper ">
+                                      <div className="tariff-item item     layout-default matchHeight" id="like_sc_tariff_753540699" style={{
+                                          height: 449,
+                                          visibility: 'visible',
+                                          transform: 'translateY(0px) scale(1)',
+                                          opacity: 1,
+                                          backgroundImage:imagepath?`url(${process.env.NEXT_PUBLIC_STRAPI_URL}${imagepath})`:'',
+                                          transition: 'all 0.3s ease 0s'
+                                        }} data-sr-id={11}>
+                                        <h4 className="header">
+                                          <span className="color-main">{pigeon.kodikos}</span>
+                                          </h4>
+                                        <div className="price">€{pigeon.timi}</div>
+                                        <h4>{pigeon.name}</h4>
+                                        <div>
+                                          <Link href={`/pigeons/${pigeon.urlkey}`}>
+                                          <a  className="btn btn-default  color-hover-second ">Δείτε το</a>
+                                          </Link>
+                                        </div>
+                                        {/* <a href="href" className="more">more info »</a> */}
+                                      </div>
                                     </div>
-                                    <a href="href" className="more">more info »</a>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                            <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                              <div className="vc_column-inner">
-                                <div className="wpb_wrapper">
-                                  <div className="tariff-item item   layout-default matchHeight" id="like_sc_tariff_1026932512" style={{
-                                      height: 449,
-                                      visibility: 'visible',
-                                      transform: 'translateY(0px) scale(1)',
-                                      opacity: 1,
-                                      transition: 'all 0.3s ease 0s'
-                                    }} data-sr-id={12}>
-                                    <h4 className="header">
-                                      <span className="color-main">Advanced</span>
-                                      classes</h4>
-                                    <div className="price">$38</div>
-                                    <p>Vestibulum pretium, eros at consequat lacinia, elit dolor cursus est, at sollicitudin nibh nulla feugiat risus.</p>
-                                    <div>
-                                      <a href="#" className="btn btn-default  color-hover-second transform-lowercase">get now</a>
-                                    </div>
-                                    <a href="href" className="more">more info »</a>
-                                  </div>
+
+                              )
+                            })}
+                            <ul className="products columns-4">
+                            <li className="has-post-thumbnail product type-product post-2707 status-publish first instock product_cat-accessories product_cat-hat product_cat-tools product_tag-barrel shipping-taxable purchasable product-type-simple">
+                              <div className="matchHeight1 item">
+                                <div className="matchHeight jtx-product" data-mh="jtx-product" style={{
+                                    height: 403
+                                  }}>
+                                  <a href="http://senorcavallo.just-themes.com/product/barrel/">
+                                    <div className="image">
+                                      <img width={290} height={290} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7.jpg" className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7.jpg 290w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7-150x150.jpg 150w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7-100x100.jpg 100w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7-90x90.jpg 90w" sizes="(max-width: 290px) 100vw, 290px"/></div>
+                                    <h2 className="woocommerce-loop-product__title">Barrel</h2>
+                                  </a>
+                                  <div className="post_content entry-content">Proin congue fringilla tortor, nec tempor arcu ...</div>
                                 </div>
+                                <span className="price">
+                                  <span className="woocommerce-Price-amount amount">
+                                    <span className="woocommerce-Price-currencySymbol">$</span>43.00</span>
+                                </span>
+                                <a href="/shop/?add-to-cart=2707" data-quantity={1} className="button product_type_simple add_to_cart_button ajax_add_to_cart btn btn-second color-hover-main" data-product_id={2707} data-product_sku="data-product_sku" aria-label="Add “Barrel” to your cart" rel="nofollow">Add to cart</a>
                               </div>
-                            </div>
+                            </li>
+                            </ul>
+
+                        {/*
                             <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
                               <div className="vc_column-inner">
                                 <div className="wpb_wrapper">
@@ -544,30 +368,8 @@ useEffect(() => {
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                              <div className="vc_column-inner">
-                                <div className="wpb_wrapper">
-                                  <div className="tariff-item item   layout-default matchHeight" id="like_sc_tariff_664999399" style={{
-                                      height: 449,
-                                      visibility: 'visible',
-                                      transform: 'translateY(0px) scale(1)',
-                                      opacity: 1,
-                                      transition: 'all 0.3s ease 0s'
-                                    }} data-sr-id={14}>
-                                    <h4 className="header">
-                                      <span className="color-main">Group</span>
-                                      classes</h4>
-                                    <div className="price">$14</div>
-                                    <p>Vestibulum pretium, eros at consequat lacinia, elit dolor cursus est, at sollicitudin nibh nulla feugiat risus.</p>
-                                    <div>
-                                      <a href="#" className="btn btn-default  color-hover-second transform-lowercase">get now</a>
-                                    </div>
-                                    <a href="href" className="more">more info »</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            </div> */}
+
                           </div>
                           <div className="es-resp">
                             <div className="visible-lg" style={{
@@ -1281,23 +1083,27 @@ export async function getServerSideProps() {
 
   var query =`
   query {
-menu:categoryArthras{
-  title
-  url_key
-}
 
-breeders(sort:"breeder_name:desc"){
-  breeder_name
-  breeds{
-    breed
-    urlkey
-  }
-}
 
 slider:homeSlider{
   slider_images{
     url
   }
+}
+
+pigeons(where:{proteinomeno:true}){
+  proteinomeno
+  kodikos
+  timi
+  name
+  urlkey
+  eikones{
+    url
+  }
+  breed{
+    breed
+  }
+
 }
 
 egrafi{
@@ -1332,11 +1138,11 @@ egrafi{
 
 
 
-
+  var menu = await menuquery()
 
   // const res = await fetch(url)
   // const data = await res.json()
 
   // Pass data to the page via props
-  return { props: {data} }
+  return { props: {data,menu} }
 }

@@ -53,3 +53,14 @@
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+.tariff-item {
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  
+
+
+
+
+}

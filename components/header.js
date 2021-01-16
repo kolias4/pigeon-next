@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function Header({menu,breeders}){
+function Header({menu}){
 
   return (
     <header>
@@ -41,7 +41,7 @@ function Header({menu,breeders}){
                   <span>Αρθρα</span>
                 </a>
                 <ul className="sub-menu">
-                  {menu.map((item) => {
+                  {menu && menu.categoryArthras.map((item) => {
                     return (
                       <li key={item.title} id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
                         <Link href={`/blog/category/${item.url_key}`}>
@@ -68,7 +68,7 @@ function Header({menu,breeders}){
                 </a>
 
                   <ul className="sub-menu">
-                    {breeders.map((breeder,i) => {
+                    {menu && menu.breeders.map((breeder,i) => {
                       return (
                         <li key={breeder.breeder_name}  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
                           <a>
@@ -138,7 +138,7 @@ function Header({menu,breeders}){
                     <a href="http://senorcavallo.just-themes.com/cart/">
                       <span>Cart</span>
                     </a>
-              
+
                   </li>
                   <li id="menu-item-621" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-621">
                     <a href="http://senorcavallo.just-themes.com/checkout/">

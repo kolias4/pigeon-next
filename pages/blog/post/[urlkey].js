@@ -1,25 +1,33 @@
 import Image from 'next/image'
 import dateformat from '../../../functions/dateformat'
 import fetcher from '../../../functions/fetcher'
-
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Disqus from "disqus-react"
-import { useRouter } from 'next/router'
+import menuquery from '../../../functions/queries/menuquery'
+
+
 
 
 
 function BlogPost({data,notFound}){
+
+  const router = useRouter()
+
+  if (router.isFallback) {
+  return <div>Loading...</div>
+}
 
   if(notFound){
     return (
       <h1 className="text-center">Δεν βρέθηκαν άρθρα</h1>
     )
   }
-  const router = useRouter()
+
 
   const settings = {
    autoplay:true,
@@ -158,19 +166,36 @@ function SamplePrevArrow(props) {
 
 export default BlogPost
 
+export async function getStaticPaths() {
+  // Call an external API endpoint to get posts
+var nquery = `
+query {
 
-export async function getServerSideProps({query}) {
-  // Fetch data from external API
+arthras{
+  urlkey
+}
+}
+`
 
-  var {urlkey} = query
+var data = await fetcher(nquery)
+
+
+
+  // Get the paths we want to pre-render based on posts
+  const paths = data.arthras.map((post) => ({
+    params: { urlkey: post.urlkey },
+  }))
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: true }
+}
+
+export async function getStaticProps({ params }) {
 
   var nquery = `
   query($urlkey:String!) {
 
-menu:categoryArthras{
-title
-url_key
-}
 
 articles:arthras(where:{urlkey:$urlkey}){
 id
@@ -197,11 +222,62 @@ Eikones{
 
   const data = await fetcher(nquery,{
     variables:{
-      urlkey:urlkey
+      urlkey:params.urlkey
     }
   })
 
+  var menu = await menuquery()
+
 
   // Pass data to the page via props
-  return { props: { data,title:data.articles[0].Title } }
+  return { props: { data,title:data.articles[0].Title,menu },revalidate:30 }
+
 }
+
+
+// export async function getServerSideProps({query}) {
+//   // Fetch data from external API
+//
+//   var {urlkey} = query
+//
+//   var nquery = `
+//   query($urlkey:String!) {
+//
+// menu:categoryArthras{
+// title
+// url_key
+// }
+//
+// articles:arthras(where:{urlkey:$urlkey}){
+// id
+// created_at
+// Title
+// kyriosthema
+// author
+// Youtubevideo
+// Video{
+//   url
+// }
+// category_arthras{
+//   title
+//   url_key
+// }
+// Eikones{
+//   url
+// }
+// }
+//
+// }
+//   `
+//
+//
+//   const data = await fetcher(nquery,{
+//     variables:{
+//       urlkey:urlkey
+//     }
+//   })
+//
+//
+//   // Pass data to the page via props
+//   return { props: { data,title:data.articles[0].Title } }
+// }

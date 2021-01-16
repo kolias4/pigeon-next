@@ -3,8 +3,18 @@ import dateformat from '../../../functions/dateformat'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import fetcher from '../../../functions/fetcher'
+import { useRouter } from 'next/router'
+import menuquery from '../../../functions/queries/menuquery'
+
+
 
 function BlogCategory({data,notFound}){
+
+  const router = useRouter()
+
+  if (router.isFallback) {
+  return <div>Loading...</div>
+}
 
   if(notFound){
     return (
@@ -83,18 +93,40 @@ function BlogCategory({data,notFound}){
 
 export default BlogCategory
 
+export async function getStaticPaths() {
+  // Call an external API endpoint to get posts
+var nquery = `
+query {
 
-export async function getServerSideProps({query}) {
+categoryArthras{
+  url_key
+}
+}
+`
+
+var data = await fetcher(nquery)
+
+
+
+  // Get the paths we want to pre-render based on posts
+  const paths = data.categoryArthras.map((arthro) => ({
+    params: { urlkey: arthro.url_key },
+  }))
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: true }
+}
+
+
+export async function getStaticProps({ params }) {
   // Fetch data from external API
 
-  var {urlkey} = query
+
   var nquery = `
   query($urlkey:String!) {
 
-menu:categoryArthras{
-title
-url_key
-}
+
 
 articles:categoryArthras(where:{url_key:$urlkey}){
   title
@@ -117,9 +149,11 @@ arthras{
 
   var data = await fetcher(nquery,{
     variables:{
-      urlkey:urlkey
+      urlkey:params.urlkey
     }
   })
+
+  var menu = await menuquery()
 
 
 
@@ -127,5 +161,5 @@ arthras{
 
 
   // Pass data to the page via props
-  return { props: { data,title:data.articles[0].title } }
+  return { props: { data,title:data.articles[0].title,menu },revalidate:30  }
 }
