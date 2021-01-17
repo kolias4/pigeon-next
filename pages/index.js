@@ -263,13 +263,13 @@ useEffect(() => {
 
     <div className="vc_row-full-width vc_clearfix"/>
 
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_section-has-fill vc_general vc_parallax bg-color-second" >
+                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_section-has-fill vc_general vc_parallax bg-color-white" >
                   <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_row-has-fill bg-pos-center-center text-align-center" >
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
                         <div className="wpb_wrapper">
 
-                          <div className="heading  head-subheader align-center color-white subcolor-main transform-default   vc_custom_1518024603312" id="like_sc_header_1827581567" style={{
+                          <div className="heading  head-subheader align-center subcolor-main transform-default   vc_custom_1518024603312" id="like_sc_header_1827581567" style={{
                               fontFamily: 'Rufina !important',
                               fontWeight: 700,
                               fontStyle: 'normal'
@@ -279,7 +279,7 @@ useEffect(() => {
                                 fontFamily: 'Rufina !important',
                                 fontWeight: 700,
                                 fontStyle: 'normal'
-                              }} className="header">Περιστέρια που προτείνουμε</h3>
+                              }} className="header ">Περιστέρια που προτείνουμε</h3>
                           </div>
                           <div className="jtx-content-width width-0" style={{
                               maxWidth: 770
@@ -289,59 +289,49 @@ useEffect(() => {
                             </div>
                           </div>
                           <div className=" archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js vc_row wpb_row vc_inner vc_row-fluid jtx-sr jtx-sr-effect-fade_in jtx-sr-id-1185163062 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-500 jtx-sr-sequences-100">
+                            <div className="row">
+                            <ul className="products columns-4">
+
                             {data.pigeons.map((pigeon,i) => {
                               var imagepath = pigeon.eikones[0] && pigeon.eikones[0].url
                               return (
-                                <div className="wpb_column  vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                                  <div className="vc_column-inner ">
-                                    <div className="wpb_wrapper ">
-                                      <div className="tariff-item item     layout-default matchHeight" id="like_sc_tariff_753540699" style={{
-                                          height: 449,
-                                          visibility: 'visible',
-                                          transform: 'translateY(0px) scale(1)',
-                                          opacity: 1,
-                                          backgroundImage:imagepath?`url(${process.env.NEXT_PUBLIC_STRAPI_URL}${imagepath})`:'',
-                                          transition: 'all 0.3s ease 0s'
-                                        }} data-sr-id={11}>
-                                        <h4 className="header">
-                                          <span className="color-main">{pigeon.kodikos}</span>
-                                          </h4>
-                                        <div className="price">€{pigeon.timi}</div>
-                                        <h4>{pigeon.name}</h4>
-                                        <div>
-                                          <Link href={`/pigeons/${pigeon.urlkey}`}>
-                                          <a  className="btn btn-default  color-hover-second ">Δείτε το</a>
-                                          </Link>
-                                        </div>
-                                        {/* <a href="href" className="more">more info »</a> */}
+                                <div className="col-md-3">
+                                <li style={{width:'auto',float:'none'}} className="has-post-thumbnail product type-product post-2707 status-publish first instock product_cat-accessories product_cat-hat product_cat-tools product_tag-barrel shipping-taxable purchasable product-type-simple">
+                                  <div className="matchHeight1 item">
+                                    <div className="matchHeight jtx-product" data-mh="jtx-product" style={{
+                                        height: 403
+                                      }}>
+                                      <Link href={`/pigeons/${pigeon.urlkey}`}>
+                                      <a >
+                                        <div className="image">
+                                          {imagepath && <Image width={290} height={290} objectFit="cover" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imagepath}`}/>}
+                                          </div>
+                                        <h2 className="woocommerce-loop-product__title">{pigeon.kodikos}</h2>
+                                      </a>
+                                      </Link>
+                                      <div className="post_content entry-content">
+                                        <p>
+                                          {pigeon.name}
+                                        </p>
+
                                       </div>
                                     </div>
+                                    <span className="price">
+                                      <span className="woocommerce-Price-amount amount">
+                                        <span className="woocommerce-Price-currencySymbol">€</span>{pigeon.timi}</span>
+                                    </span>
+                                    <Link href={`/pigeons/${pigeon.urlkey}`}>
+                                    <a className=" btn btn-second color-hover-main" >Δείτε το</a>
+                                  </Link>
                                   </div>
+                                </li>
                                 </div>
 
                               )
                             })}
-                            <ul className="products columns-4">
-                            <li className="has-post-thumbnail product type-product post-2707 status-publish first instock product_cat-accessories product_cat-hat product_cat-tools product_tag-barrel shipping-taxable purchasable product-type-simple">
-                              <div className="matchHeight1 item">
-                                <div className="matchHeight jtx-product" data-mh="jtx-product" style={{
-                                    height: 403
-                                  }}>
-                                  <a href="http://senorcavallo.just-themes.com/product/barrel/">
-                                    <div className="image">
-                                      <img width={290} height={290} src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7.jpg" className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="alt" srcSet="http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7.jpg 290w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7-150x150.jpg 150w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7-100x100.jpg 100w, http://senorcavallo.just-themes.com/wp-content/uploads/2017/10/7-90x90.jpg 90w" sizes="(max-width: 290px) 100vw, 290px"/></div>
-                                    <h2 className="woocommerce-loop-product__title">Barrel</h2>
-                                  </a>
-                                  <div className="post_content entry-content">Proin congue fringilla tortor, nec tempor arcu ...</div>
-                                </div>
-                                <span className="price">
-                                  <span className="woocommerce-Price-amount amount">
-                                    <span className="woocommerce-Price-currencySymbol">$</span>43.00</span>
-                                </span>
-                                <a href="/shop/?add-to-cart=2707" data-quantity={1} className="button product_type_simple add_to_cart_button ajax_add_to_cart btn btn-second color-hover-main" data-product_id={2707} data-product_sku="data-product_sku" aria-label="Add “Barrel” to your cart" rel="nofollow">Add to cart</a>
-                              </div>
-                            </li>
+
                             </ul>
+                            </div>
 
                         {/*
                             <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">

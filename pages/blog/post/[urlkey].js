@@ -183,7 +183,7 @@ var data = await fetcher(nquery)
 
   // Get the paths we want to pre-render based on posts
   const paths = data.arthras.map((post) => ({
-    params: { urlkey: post.urlkey },
+    params: { urlkey: post.urlkey}
   }))
 
   // We'll pre-render only these paths at build time.
