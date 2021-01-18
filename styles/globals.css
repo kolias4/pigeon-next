@@ -7,6 +7,10 @@
   /* width: 100vw; */
 }
 
+.hoverable{
+  cursor: pointer;
+}
+
 .myactive {
   transition: transform 20000ms ease-out 0s, opacity 800ms ease 0s !important;
   opacity: 1 !important;
@@ -58,7 +62,7 @@
   background-position:center;
   background-repeat: no-repeat;
   background-size:cover;
-  
+
 
 
 

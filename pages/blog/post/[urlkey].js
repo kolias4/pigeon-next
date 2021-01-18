@@ -31,7 +31,7 @@ function BlogPost({data,notFound}){
 
   const settings = {
    autoplay:true,
-   dots: true,
+   dots: false,
    infinite: true,
    speed: 500,
    slidesToShow: 1,
