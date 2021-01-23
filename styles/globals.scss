@@ -1,5 +1,19 @@
 
 
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+.equal {
+  display: flex !important;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
 [data-vc-full-width="true"]{
   position: 'relative';
   left: 0;
@@ -68,3 +82,45 @@
 
 
 }
+
+/* OVERIDE RC MENU */
+
+.rc-menu.myrc{
+  border: none;
+  color: black;
+  box-shadow: none;
+  background-color:#c4aa4f;
+  font-weight: bold;
+  a{
+    color:black;
+  }
+  div{
+    font-weight: bold;
+    font-size:inherit;
+  }
+
+  .rc-menu-item-selected {
+
+    background-color: #c4aa4f;
+
+  }
+
+  .rc-menu-item{
+    color:black;
+  }
+  .rc-menu-submenu{
+    color: black;
+  }
+
+  .rc-menu-submenu-active > .rc-menu-submenu-title {
+    background-color: #c4aa4f;
+}
+
+.rc-menu-submenu > .rc-menu {
+    background-color: #c4aa4f;
+}
+
+}
+
+
+/* OVERIDE RC MENU */

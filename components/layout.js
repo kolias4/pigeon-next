@@ -8,11 +8,14 @@ function Layout({children,data,title,bodyClass,menu}){
 
   const router = useRouter()
 
-  const path = router.pathname
+  const {pathname:path,asPath} = router
+
+
+
 
   return (
     <div className={bodyClass}>
-    {path === '/'?<Header menu={menu} />:<Header2 title={title} menu={menu}/>}
+    {path === '/'?<Header menu={menu} />:<Header2 key={asPath} title={title} menu={menu}/>}
     <main>
     {children}
     </main>

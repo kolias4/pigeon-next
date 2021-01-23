@@ -8,17 +8,17 @@ function PigeonTabs({description,video,youtubevideo,pedigree}){
   const [activetab, setActiveTab] = useState("description")
   return (
     <div className="woocommerce-tabs wc-tabs-wrapper">
-      <ul className="tabs wc-tabs" role="tablist">
+      <ul id="kel"  className="tabs wc-tabs" role="tablist">
       {description &&
         <li className={`description_tab hoverable  ${activetab === 'description'? 'active' :''}`}>
-          <a onClick={() => setActiveTab('description')}>Περιγραφή</a>
+          <a href="#kel" onClick={() => setActiveTab('description')}>Περιγραφή</a>
         </li>
 
       }
 
       {pedigree &&
         <li className={`description_tab hoverable ${activetab === 'pedigree'? 'active' :''}`}>
-          <a onClick={() => setActiveTab('pedigree')}>Pedigree</a>
+          <a href="#kel" onClick={() => setActiveTab('pedigree')}>Pedigree</a>
         </li>
 
       }
@@ -26,7 +26,7 @@ function PigeonTabs({description,video,youtubevideo,pedigree}){
       {(video || youtubevideo) &&
 
         <li className={`description_tab hoverable ${activetab === 'video'? 'active' :''}`}>
-          <a onClick={() => setActiveTab('video')}>Βίντεο</a>
+          <a href="#kel" onClick={() => setActiveTab('video')}>Βίντεο</a>
         </li>
 
 

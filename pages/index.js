@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dateformat from '../functions/dateformat'
 import menuquery from '../functions/queries/menuquery'
+import {Modal,Button} from 'react-bootstrap'
 
 
 
@@ -13,6 +14,11 @@ import menuquery from '../functions/queries/menuquery'
  export default function Home({data}) {
 
   const [activeslide,setActiveSlide]= useState(null)
+
+  const [show, setShow] = useState(true);
+
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
 
   const slides=data.slider.slider_images
 
@@ -44,6 +50,22 @@ useEffect(() => {
 },[]);
   return (
     <div >
+
+
+    {/* <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal heading</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={handleClose}>
+          Save Changes
+        </Button>
+      </Modal.Footer>
+    </Modal> */}
 
 
 

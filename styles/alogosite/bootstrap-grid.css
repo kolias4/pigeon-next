@@ -1267,9 +1267,9 @@ th {
     content: "\e236"
 }
 
-.glyphicon-modal-window:before {
+/* .glyphicon-modal-window:before {
     content: "\e237"
-}
+} */
 
 .glyphicon-oil:before {
     content: "\e238"
@@ -6992,11 +6992,11 @@ button.close {
     -webkit-appearance: none
 }
 
-.modal-open {
+/* .modal-open {
     overflow: hidden
-}
+} */
 
-.modal {
+/* .modal {
     display: none;
     overflow: hidden;
     position: fixed;
@@ -7007,9 +7007,9 @@ button.close {
     z-index: 1050;
     -webkit-overflow-scrolling: touch;
     outline: 0
-}
+} */
 
-.modal.fade .modal-dialog {
+/* .modal.fade .modal-dialog {
     -webkit-transform: translate(0, -25%);
     -ms-transform: translate(0, -25%);
     -o-transform: translate(0, -25%);
@@ -7018,16 +7018,16 @@ button.close {
     -moz-transition: -moz-transform 0.3s ease-out;
     -o-transition: -o-transform 0.3s ease-out;
     transition: transform 0.3s ease-out
-}
+} */
 
-.modal.in .modal-dialog {
+/* .modal.in .modal-dialog {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
     transform: translate(0, 0)
-}
+} */
 
-.modal-open .modal {
+/* .modal-open .modal {
     overflow-x: hidden;
     overflow-y: auto
 }
@@ -7134,7 +7134,7 @@ button.close {
     .modal-lg {
         width: 900px
     }
-}
+} */
 
 .tooltip {
     position: absolute;
@@ -7697,13 +7697,13 @@ button.close {
 .pager:after,
 .panel-body:before,
 .panel-body:after,
-.modal-header:before,
+/* .modal-header:before,
 .modal-header:after,
 .modal-footer:before,
 .modal-footer:after {
     content: " ";
     display: table
-}
+} */
 
 .clearfix:after,
 .dl-horizontal dd:after,
@@ -7719,10 +7719,10 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-header:after,
+/* .modal-header:after,
 .modal-footer:after {
     clear: both
-}
+} */
 
 .center-block {
     display: block;

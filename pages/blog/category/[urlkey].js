@@ -29,7 +29,7 @@ function BlogCategory({data,notFound}){
     <div className="container"><div className="inner-page margin-default">
     <div className>
       <div className="blog blog-block layout-three-cols">
-        <div className="row">
+        <div className="row equal">
         {articles.map((item,i) => {
           let image = item.Eikones[0]
           return (

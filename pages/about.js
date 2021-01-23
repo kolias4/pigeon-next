@@ -1,8 +1,9 @@
 import fetcher from '../functions/fetcher'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
+import menuquery from '../functions/queries/menuquery'
 
-function About({data}){
+function About({data,title}){
 
   return (
     <div className="container">
@@ -210,18 +211,13 @@ function About({data}){
 
 export default About
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
 
 
 
   var nquery = `
   query {
-
-menu:categoryArthras{
-title
-url_key
-}
 
 about:aboutUs{
   title
@@ -235,10 +231,10 @@ about:aboutUs{
 }
   `
 
-
+  var menu = await menuquery()
   const data = await fetcher(nquery)
 
 
   // Pass data to the page via props
-  return { props: { data,title:"Σχετικά με εμάς" } }
+  return { props: { data,title:"Σχετικά με εμάς",menu } }
 }

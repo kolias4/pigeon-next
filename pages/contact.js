@@ -1,4 +1,5 @@
 import fetcher from '../functions/fetcher'
+import menuquery from '../functions/queries/menuquery'
 
 function Contact(){
 
@@ -104,27 +105,16 @@ function Contact(){
 
 export default Contact
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
 
+var menu = await menuquery()
 
 
-  var nquery = `
-  query {
-
-menu:categoryArthras{
-title
-url_key
-}
 
 
-}
-  `
-
-
-  const data = await fetcher(nquery)
 
 
   // Pass data to the page via props
-  return { props: { data,title:"Επικοινωνία" } }
+  return { props: { title:"Επικοινωνία",menu } }
 }

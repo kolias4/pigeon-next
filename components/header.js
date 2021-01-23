@@ -1,18 +1,36 @@
 import Link from 'next/link'
 
+import {useState} from 'react'
+import MobileMenu from './mobilemenu'
+import { useRouter } from 'next/router'
+
+
+
+
 function Header({menu}){
+
+  const [menuopen,setMenuOpen] = useState(false)
+    const router = useRouter()
 
   return (
     <header>
 
+    <MobileMenu menu={menu} menuopen={menuopen} setMenuOpen={setMenuOpen}/>
+
+
+
+
+
     <div id="nav-wrapper">
       <nav className="navbar navbar-homepage">
         <div className="container">
-          <a className="logo-home" href="http://senorcavallo.just-themes.com/">
+        <Link href="/">
+          <a className="logo-home" >
             <img width={168} height={158} src="/logo.png" className="attachment-full size-full" alt="logo"/>
           </a>
+          </Link>
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed">
+            <button onClick={() => setMenuOpen(!menuopen)} type="button" className="navbar-toggle collapsed">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar top-bar"/>
               <span className="icon-bar middle-bar"/>
@@ -62,7 +80,7 @@ function Header({menu}){
                   </li> */}
                 </ul>
               </li>
-              <li id="menu-item-61" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+              <li id="menu-item-61" className={`menu-item menu-item-has-children ${router.asPath.startsWith("/pigeons")?'current_page_item':''}`}>
                 <a>
                   <span>Περιστέρια</span>
                 </a>
