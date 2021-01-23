@@ -28,9 +28,9 @@ function Contact(){
                       </div>
                       <div className="align-default ">
                         <ul className="social-icons-list   vc_custom_1513441326654 " id="like_sc_header_1551130109">
-                          <li className><span className="fa fa-phone" /><span className="head"><a href="tel:555-555-5555">666</a></span></li>
+                          <li className><span className="fa fa-phone" /><span className="head"><a href="tel:+306982181433">+306982181433</a></span></li>
                           <li className><span className="fa fa-envelope" /><span className="head"><a href="mailto:mypigeon.gr@gmail.com">mypigeon.gr@gmail.com</a></span></li>
-                          <li className><span className="fa fa-map-marker" /><span className="head">Κομοτηνη, Ροδοπη, ΚΑΡΥΔΙΑ ΤΟ ΚΑΛΥΤΕΡΟ ΧΩΡΙΟ</span></li>
+                          <li className><span className="fa fa-map-marker" /><span className="head">Κομοτηνη, Ροδοπη</span></li>
                         </ul>
                       </div>
                       <div className="heading  color-black transform-header-up   vc_custom_1502236442786" id="like_sc_header_448402402">

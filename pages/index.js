@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dateformat from '../functions/dateformat'
 import menuquery from '../functions/queries/menuquery'
-import {Modal,Button} from 'react-bootstrap'
+
 
 
 
@@ -15,10 +15,7 @@ import {Modal,Button} from 'react-bootstrap'
 
   const [activeslide,setActiveSlide]= useState(null)
 
-  const [show, setShow] = useState(true);
 
-const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
 
   const slides=data.slider.slider_images
 
@@ -35,6 +32,13 @@ const handleShow = () => setShow(true);
 
   useEffect(() => {
 
+    if(!activeslide){
+      setTimeout(() => {
+        setActiveSlide(0)
+      },100)
+
+        }
+
     const intervalId = setInterval(() => {
       handleSlider()
     },5300)
@@ -43,29 +47,13 @@ const handleShow = () => setShow(true);
 
 },[activeslide]);
 
-useEffect(() => {
 
-   setActiveSlide(0)
-
-},[]);
   return (
     <div >
 
 
-    {/* <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
-    </Modal> */}
+
+
 
 
 
@@ -219,29 +207,9 @@ useEffect(() => {
 
                 <div className="vc_row-full-width vc_clearfix"/>
                 <section className="vc_section  bg-color-theme_color">
-                  <div className="vc_row wpb_row vc_row-fluid vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
-                    <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <div className="wpb_text_column wpb_content_element  vc_custom_1513387421625">
-                            <div className="wpb_wrapper">
-                              <p>
-                                <strong>
-                                  <span className="text-large" style={{
-                                      color: '#28201d'
-                                    }}>Call to our manager<br/>
-                                  </span>
-                                  <span className="text-large" style={{
-                                      color: '#ffffff'
-                                    }}>and get an advice</span>
-                                </strong>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
+                  <div className="d-flex align-items-center justify-content-center flex-wrap">
+
+                    <div className="wpb_column mx-3 ">
                       <div className="vc_column-inner">
                         <div className="wpb_wrapper">
                           <ul className="block-icon  icon-h-right align-left i-transparent layout-inline">
@@ -250,7 +218,7 @@ useEffect(() => {
                               <div className="block-right">
                                 <h4 className="font-main">
 
-                                  0-800 255 29 020
+                                   +30 6982181433
                                 </h4>
                                 <div className="descr"/></div>
                             </li>
@@ -258,24 +226,16 @@ useEffect(() => {
                         </div>
                       </div>
                     </div>
-                    <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <div className="align-default icon-style-square">
-                            <ul className="social-small   vc_custom_1511208384929 icon-style-square icon-weight-bold" id="like_sc_header_1256223746">
 
-                              <li><a href="#" className="fa fa-facebook"/></li>
-
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
+                    <div className="wpb_column mx-3">
                       <div className="vc_column-inner">
                         <div className="wpb_wrapper">
                           <div className="btn-wrap align-left">
-                            <a href="/contacts/" className="btn  btn-xs btn-second transform-default color-text-default color-hover-default align-left   vc_custom_1513441693504" id="like_sc_button_278609766">contact us</a>
+                            <Link href="/contact">
+                            <a  className="btn  btn-xs btn-second transform-default color-text-default color-hover-default align-left   vc_custom_1513441693504" id="like_sc_button_278609766">
+                              Επικοινωνία
+                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -311,8 +271,8 @@ useEffect(() => {
                             </div>
                           </div>
                           <div className=" archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js vc_row wpb_row vc_inner vc_row-fluid jtx-sr jtx-sr-effect-fade_in jtx-sr-id-1185163062 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-500 jtx-sr-sequences-100">
-                            <div className="row">
-                            <ul className="products columns-4">
+
+                            <ul className="products columns-4 row">
 
                             {data.pigeons.map((pigeon,i) => {
                               var imagepath = pigeon.eikones[0] && pigeon.eikones[0].url
@@ -326,7 +286,7 @@ useEffect(() => {
                                       <Link href={`/pigeons/${pigeon.urlkey}`}>
                                       <a >
                                         <div className="image">
-                                          {imagepath && <Image width={290} height={290} objectFit="cover" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imagepath}`}/>}
+                                          {imagepath && <Image priority={true} width={290} height={290} objectFit="cover" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imagepath}`}/>}
                                           </div>
                                         <h2 className="woocommerce-loop-product__title">{pigeon.kodikos}</h2>
                                       </a>
@@ -353,7 +313,7 @@ useEffect(() => {
                             })}
 
                             </ul>
-                            </div>
+
 
                         {/*
                             <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
@@ -613,7 +573,7 @@ useEffect(() => {
                   </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
 <div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-second testimonials-section">
+                {/* <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-second testimonials-section">
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -772,7 +732,8 @@ useEffect(() => {
       backgroundImage: 'url("")',
       top: '-50%'
     }}/>
-  </section>
+  </section> */}
+
   <div className="vc_row-full-width vc_clearfix"/>
 
                 <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section vc_custom_1511271667688 vc_section-has-fill bg-color-gray" >

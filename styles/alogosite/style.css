@@ -515,7 +515,7 @@ body {
 body {
     color: #28201d;
     background: #fff;
-    
+
 }
 
 body.body-black-dark {
@@ -12152,9 +12152,7 @@ img {
     transition: all .3s ease;
 }
 
-.fade {
-    transition: visibility 0s linear 0.2s, opacity 0.2s linear;
-}
+
 
 .opacity-fade {
     transition: visibility 0s linear 0.2s, opacity 0.2s linear;

@@ -16,6 +16,12 @@ breeders(sort:"breeder_name:desc"){
     urlkey
   }
 }
+
+kolovodromias{
+ title
+ url_key
+}
+
 }
    `
 

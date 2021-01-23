@@ -80,7 +80,7 @@ function Header({menu}){
                   </li> */}
                 </ul>
               </li>
-              <li id="menu-item-61" className={`menu-item menu-item-has-children ${router.asPath.startsWith("/pigeons")?'current_page_item':''}`}>
+              <li className={`menu-item menu-item-has-children ${router.asPath.startsWith("/pigeons")?'current_page_item':''}`}>
                 <a>
                   <span>Περιστέρια</span>
                 </a>
@@ -118,26 +118,24 @@ function Header({menu}){
                   </ul>
 
               </li>
-              <li id="menu-item-60" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60">
+              <li  className={`menu-item menu-item-has-children ${router.asPath.startsWith("/kolobodromia")?'current_page_item':''}`}>
                 <a>
-                  <span>Gallery</span>
+                  <span>Κολομποδρόμια</span>
                 </a>
                 <ul className="sub-menu">
-                  <li id="menu-item-47" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-47">
-                    <a href="http://senorcavallo.just-themes.com/gallery-2-columns/">
-                      <span>Gallery 2-columns</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-48" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-48">
-                    <a href="http://senorcavallo.just-themes.com/gallery-3-columns/">
-                      <span>Gallery 3-columns</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-49" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-49">
-                    <a href="http://senorcavallo.just-themes.com/gallery-4-columns/">
-                      <span>Gallery 4-columns</span>
-                    </a>
-                  </li>
+                {menu && menu.kolovodromias.map((kolobodromio,i) => {
+                  return (
+                    <li key={kolobodromio.title} className="menu-item menu-item-type-post_type menu-item-object-page  ">
+                      <Link href={`/kolobodromia/${kolobodromio.url_key}`}>
+                      <a  className="">
+                        <span>{kolobodromio.title}</span>
+                      </a>
+                      </Link>
+                    </li>
+
+                  )
+                })}
+            
                 </ul>
               </li>
               <li id="menu-item-619" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">

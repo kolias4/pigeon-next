@@ -5,14 +5,18 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
-@import "bootstrap/scss/modal";
+
 @import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-.equal {
-  display: flex !important;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-}
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/utilities/display";
+@import "bootstrap/scss/utilities/spacing";
+@import "bootstrap/scss/utilities/flex";
+@import "bootstrap/scss/utilities/text";
+
+
+
+
 
 [data-vc-full-width="true"]{
   position: 'relative';

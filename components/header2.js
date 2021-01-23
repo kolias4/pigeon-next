@@ -98,6 +98,27 @@ function Header2({menu,title}){
 
           </li>
 
+          <li  className={`menu-item menu-item-has-children ${router.asPath.startsWith("/kolobodromia")?'current_page_item':''}`}>
+            <a>
+              <span>Κολομποδρόμια</span>
+            </a>
+            <ul className="sub-menu">
+            {menu && menu.kolovodromias.map((kolobodromio,i) => {
+              return (
+                <li key={kolobodromio.title} className="menu-item menu-item-type-post_type menu-item-object-page  ">
+                  <Link href={`/kolobodromia/${kolobodromio.url_key}`}>
+                  <a  className="">
+                    <span>{kolobodromio.title}</span>
+                  </a>
+                  </Link>
+                </li>
+
+              )
+            })}
+
+            </ul>
+          </li>
+
           <li id="menu-item-46" className={`menu-item ${router.asPath.startsWith("/contact")?'current_page_item':''} `}>
           <Link href="/contact">
           <a>
