@@ -128,3 +128,33 @@
 
 
 /* OVERIDE RC MENU */
+
+//MEnu style mobile
+@media (max-width: 1199px) {
+  #menu-main-menu {
+    li {
+      a {
+        font-size: 1.5rem;
+      }
+
+      a.show {
+        &:after {
+      transform: rotate(90deg);
+  }
+      }
+      .sub-menu.show{
+        li {
+          a {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+  }
+
+
+}
+
+
+//MEnu style mobile

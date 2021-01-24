@@ -10,18 +10,30 @@ import { useRouter } from 'next/router'
 function Header({menu}){
 
   const [menuopen,setMenuOpen] = useState(false)
+  const [menuactive,setMenuActive] = useState([])
     const router = useRouter()
+
+    const handleClick = (e) => {
+      console.log(e.target.name)
+      if(menuactive.includes(e.target.name)){
+        setMenuActive(menuactive.filter(el => el !== e.target.name))
+      }
+
+      else {
+        setMenuActive(menuactive.concat(e.target.name))
+      }
+    }
 
   return (
     <header>
 
-    <MobileMenu menu={menu} menuopen={menuopen} setMenuOpen={setMenuOpen}/>
+    {/* <MobileMenu menu={menu} menuopen={menuopen} setMenuOpen={setMenuOpen}/> */}
 
 
 
 
 
-    <div id="nav-wrapper">
+    <div id="nav-wrapper" className={menuopen ? 'mob-visible':''}>
       <nav className="navbar navbar-homepage">
         <div className="container">
         <Link href="/">
@@ -37,9 +49,9 @@ function Header({menu}){
               <span className="icon-bar bottom-bar"/>
             </button>
           </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <div className="toggle-wrap">
-              <button type="button" className="navbar-toggle collapsed">
+          <div id="navbar" className={`navbar-collapse ${menuopen ? '':'collapse'}`}>
+            <div style={{height:'70px'}} className="toggle-wrap">
+              <button  onClick={() => setMenuOpen(!menuopen)} type="button" className={`navbar-toggle ${menuopen ? '':'collapsed'} `}>
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar top-bar"/>
                 <span className="icon-bar middle-bar"/>
@@ -54,11 +66,11 @@ function Header({menu}){
                 </a>
               </li> */}
 
-              <li id="menu-item-59" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59">
-                <a>
-                  <span>Αρθρα</span>
+              <li  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59">
+                <a className={`${menuactive.includes('arthra') ?'show':''}`} name="arthra" onClick={handleClick} >
+                  <span >Αρθρα</span>
                 </a>
-                <ul className="sub-menu">
+                <ul className={`sub-menu ${menuactive.includes('arthra') ?'show':''}`}>
                   {menu && menu.categoryArthras.map((item) => {
                     return (
                       <li key={item.title} id="menu-item-43" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-43">
@@ -81,18 +93,18 @@ function Header({menu}){
                 </ul>
               </li>
               <li className={`menu-item menu-item-has-children ${router.asPath.startsWith("/pigeons")?'current_page_item':''}`}>
-                <a>
+                <a className={` ${menuactive.includes('pigeons') ?'show':''}`} name="pigeons" onClick={handleClick}>
                   <span>Περιστέρια</span>
                 </a>
 
-                  <ul className="sub-menu">
+                  <ul className={`sub-menu ${menuactive.includes('pigeons') ?'show':''}`}>
                     {menu && menu.breeders.map((breeder,i) => {
                       return (
                         <li key={breeder.breeder_name}  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                          <a>
+                          <a className={` ${menuactive.includes(breeder.breeder_name) ?'show':''}`} name={breeder.breeder_name} onClick={handleClick}>
                             <span>{breeder.breeder_name}</span>
                           </a>
-                          <ul style={{marginTop:'0px',marginLeft:'-12px'}} className="sub-menu">
+                          <ul style={{marginTop:'0px',marginLeft:'-12px'}} className={`sub-menu ${menuactive.includes(breeder.breeder_name) ?'show':''}`}>
                             {breeder.breeds.map((breed,i) => {
                               return (
                                 <li key={breed.breed} className="menu-item menu-item-type-post_type menu-item-object-page  ">
@@ -119,10 +131,10 @@ function Header({menu}){
 
               </li>
               <li  className={`menu-item menu-item-has-children ${router.asPath.startsWith("/kolobodromia")?'current_page_item':''}`}>
-                <a>
+                <a className={`${menuactive.includes('kolobodromia') ?'show':''}`} name="kolobodromia" onClick={handleClick}>
                   <span>Κολομποδρόμια</span>
                 </a>
-                <ul className="sub-menu">
+                <ul className={`sub-menu ${menuactive.includes('kolobodromia') ?'show':''}`}>
                 {menu && menu.kolovodromias.map((kolobodromio,i) => {
                   return (
                     <li key={kolobodromio.title} className="menu-item menu-item-type-post_type menu-item-object-page  ">
@@ -135,7 +147,7 @@ function Header({menu}){
 
                   )
                 })}
-            
+
                 </ul>
               </li>
               <li id="menu-item-619" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
@@ -201,7 +213,7 @@ function Header({menu}){
                 </ul> */}
               </li>
             </ul>
-            <div className="nav-mob">
+            {/* <div className="nav-mob"> //mobile menu emfanizetai kato ap to menu
               <ul className="nav navbar-nav">
                 <li>
                   <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart-mob" title="View your shopping cart">
@@ -211,7 +223,7 @@ function Header({menu}){
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
