@@ -1036,7 +1036,7 @@ nav.navbar #navbar.muted {
     nav.navbar #navbar .max-mega-menu>li>a,
     nav.navbar #navbar ul.navbar-nav>li>a {
         transition: color 0.5s ease;
-        font-family: 'Rufina', sans-serif;
+        font-family: 'Ubuntu',sans-serif;
         font-weight: 700;
     }
     nav.navbar #navbar .max-mega-menu>li>a span,
@@ -1959,7 +1959,7 @@ nav.navbar .navbar-toggle.collapsed .bottom-bar {
         line-height: 1em;
         font-weight: bold;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        font-family: 'Rufina', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
         font-weight: 700;
         position: relative;
     }
@@ -2166,7 +2166,7 @@ nav.navbar.affix {
         padding: 0 !important;
     }
     #nav-wrapper nav.navbar.navbar-white #navbar ul.navbar-nav>li>a {
-        font-family: 'Rufina', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
         font-weight: 700;
         font-weight: 900;
         font-size: 18px;
@@ -2229,7 +2229,7 @@ body.body-black-dark .top-search a {
 }
 
 #mega-menu-wrap-primary>ul {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 
@@ -2252,7 +2252,7 @@ body.body-black-dark .top-search a {
 }
 
 #mega-menu-wrap-primary #mega-menu-primary {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 
@@ -2986,12 +2986,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 
 .header {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 
@@ -3250,7 +3250,7 @@ h6.align-right {
     border-bottom: 2px solid #6e2626;
     font-weight: 900;
     font-size: 12px;
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
     transition: all .3s ease;
 }
@@ -4848,7 +4848,7 @@ body.error404 h1.header {
 }
 
 .testimonials-list .inner span.bg {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
     color: #F8F5EC;
     zoom: 1;
@@ -5139,7 +5139,7 @@ body.error404 h1.header {
     font-size: 16px;
     color: #fff;
     font-weight: 900;
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
     display: block;
     margin-top: -5px;
@@ -5609,7 +5609,7 @@ footer .go-top span {
     margin-bottom: 13px;
     vertical-align: middle;
     font-size: 16px;
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 
@@ -9571,7 +9571,7 @@ label.css-radio.no-label {
 }
 
 .vc_tta-tabs .vc_tta-tabs-list .vc_tta-tab .vc_tta-title-text {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 
@@ -12034,7 +12034,7 @@ a.black:hover {
 }
 
 .font-headers {
-    font-family: 'Rufina', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 

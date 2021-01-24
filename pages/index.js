@@ -107,7 +107,7 @@ import menuquery from '../functions/queries/menuquery'
                           height: 280
                         }}/></div>
                     <div className="heading  inline align-center color-main subcolor-white transform-default   vc_custom_1516288099100" id="like_sc_header_1212805265" style={{
-                        fontFamily: 'Rufina !important',
+
                         fontWeight: 700,
                         fontStyle: 'normal'
                       }}>
@@ -118,7 +118,7 @@ import menuquery from '../functions/queries/menuquery'
                           transform: 'translateY(0px) scale(1)',
                           opacity: 1,
                           transition: 'all 0.3s ease 0s',
-                          fontFamily: 'Rufina !important'
+
                         }} className="header" data-sr-id={2}>Premium Racing Pigeons
                         {/* <span className="subheader" data-sr-id={3} style={{
                             visibility: 'visible',
@@ -252,13 +252,13 @@ import menuquery from '../functions/queries/menuquery'
                         <div className="wpb_wrapper">
 
                           <div className="heading  head-subheader align-center subcolor-main transform-default   vc_custom_1518024603312" id="like_sc_header_1827581567" style={{
-                              fontFamily: 'Rufina !important',
+
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
 
                             <h3 style={{
-                                fontFamily: 'Rufina !important',
+
                                 fontWeight: 700,
                                 fontStyle: 'normal'
                               }} className="header ">Περιστέρια που προτείνουμε</h3>
@@ -380,13 +380,13 @@ import menuquery from '../functions/queries/menuquery'
                       <div style={{backgroundImage:'none',backgroundColor:'white'}} className="vc_column-inner vc_custom_1579537352413">
                         <div className="wpb_wrapper">
                           <div className="heading  heading-large head-subheader align-left color-black subcolor-main transform-default" id="like_sc_header_1372766355" style={{
-                              fontFamily: 'Rufina !important',
+
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
                             <h5 className="subheader">Εγγραφείτε στο</h5>
                             <h2 style={{
-                                fontFamily: 'Rufina !important',
+
                                 fontWeight: 700,
                                 fontStyle: 'normal'
                               }} className="header">Mypigeon</h2>
@@ -448,7 +448,7 @@ import menuquery from '../functions/queries/menuquery'
                         </div>
                       </div>
                     </div>
-                    <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
+                    <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6 d-md-block d-none">
                       <div className="vc_column-inner">
                         <div style={{minHeight:'500px',display:'flex',alignItems:'center',justifyContent:'center', backgroundColor:'#28201d'}} className="wpb_wrappe">
                           <div className="wpb_single_image wpb_content_element vc_align_center">
@@ -494,13 +494,13 @@ import menuquery from '../functions/queries/menuquery'
                       <div className="vc_column-inner">
                         <div className="wpb_wrapper">
                           <div className="heading  head-subheader align-center color-black subcolor-main transform-default bg-image   vc_custom_1513348347832" id="like_sc_header_1505581322" style={{
-                              fontFamily: 'Rufina !important',
+
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
                             <h5 className="subheader">Our events</h5>
                             <h3 style={{
-                                fontFamily: 'Rufina !important',
+
                                 fontWeight: 700,
                                 fontStyle: 'normal'
                               }} className="header">Upcoming competitions</h3>
@@ -850,13 +850,13 @@ import menuquery from '../functions/queries/menuquery'
                         <div className="wpb_wrapper">
 
                           <div className="heading align-center color-black subcolor-main transform-default bg-image   vc_custom_1513346533124" id="like_sc_header_1872379077" style={{
-                              fontFamily: 'Rufina !important',
+
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
                             {/* <h5 className="subheader">Who we are</h5> */}
                             <h3 style={{
-                                fontFamily: 'Rufina !important',
+
                                 fontWeight: 700,
                                 fontStyle: 'normal'
                               }} className="header">{data.about.title}</h3>
@@ -875,13 +875,13 @@ import menuquery from '../functions/queries/menuquery'
                       <div className="vc_column-inner vc_custom_1513454744328">
                         <div className="wpb_wrapper">
                           {/* <div className="heading  heading-large head-subheader align-left color-black subcolor-second transform-default   vc_custom_1513346469845" id="like_sc_header_1051267961" style={{
-                              fontFamily: 'Rufina !important',
+
                               fontWeight: 700,
                               fontStyle: 'normal'
                             }}>
                             <h2 className="subheader">40 Years of</h2>
                             <h2 style={{
-                                fontFamily: 'Rufina !important',
+
                                 fontWeight: 700,
                                 fontStyle: 'normal'
                               }} className="header">Riding Experience</h2>

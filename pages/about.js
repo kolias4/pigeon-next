@@ -21,13 +21,13 @@ function About({data,title}){
                     <div className="wpb_wrapper">
 
                       <div className="heading align-center color-black subcolor-main transform-default bg-image   vc_custom_1513346533124" id="like_sc_header_1872379077" style={{
-                          fontFamily: 'Rufina !important',
+
                           fontWeight: 700,
                           fontStyle: 'normal'
                         }}>
                         {/* <h5 className="subheader">Who we are</h5> */}
                         <h3 style={{
-                            fontFamily: 'Rufina !important',
+
                             fontWeight: 700,
                             fontStyle: 'normal'
                           }} className="header">{data.about.title}</h3>
@@ -46,13 +46,13 @@ function About({data,title}){
                   <div className="vc_column-inner vc_custom_1513454744328">
                     <div className="wpb_wrapper">
                       {/* <div className="heading  heading-large head-subheader align-left color-black subcolor-second transform-default   vc_custom_1513346469845" id="like_sc_header_1051267961" style={{
-                          fontFamily: 'Rufina !important',
+
                           fontWeight: 700,
                           fontStyle: 'normal'
                         }}>
                         <h2 className="subheader">40 Years of</h2>
                         <h2 style={{
-                            fontFamily: 'Rufina !important',
+
                             fontWeight: 700,
                             fontStyle: 'normal'
                           }} className="header">Riding Experience</h2>
