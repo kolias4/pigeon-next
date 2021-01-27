@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dateformat from '../functions/dateformat'
 import menuquery from '../functions/queries/menuquery'
+import MyModal from '../components/modals/mymodal'
+import RegisterForm from '../components/forms/register'
 
 
 
@@ -14,6 +16,8 @@ import menuquery from '../functions/queries/menuquery'
  export default function Home({data}) {
 
   const [activeslide,setActiveSlide]= useState(null)
+
+  const [reveal,setReveal] = useState(false)
 
 
 
@@ -52,7 +56,9 @@ import menuquery from '../functions/queries/menuquery'
     <div >
 
 
-
+ <MyModal title="ΕΓΓΡΑΦΗ" reveal={reveal} setReveal={setReveal}>
+   <RegisterForm/>
+ </MyModal>
 
 
 
@@ -423,11 +429,11 @@ import menuquery from '../functions/queries/menuquery'
                                 height: 14
                               }}/></div>
                           <div className="btn-wrap align-left">
-                            <Link href="/register">
-                            <a className="btn  btn-second transform-default color-text-white color-hover-default align-left   vc_custom_1513358113660" id="like_sc_button_932198521">
+
+                            <button onClick={() => setReveal(true)} className="btn  btn-second transform-default color-text-white color-hover-default align-left   vc_custom_1513358113660" id="like_sc_button_932198521">
                               ΕΓΓΡΑΦΗ
-                            </a>
-                            </Link>
+                            </button>
+
                           </div>
                           <div className="es-resp">
                             <div className="visible-lg" style={{

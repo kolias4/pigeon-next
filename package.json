@@ -10,6 +10,7 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "disqus-react": "^1.0.10",
+    "formik": "^2.2.6",
     "next": "^10.0.4",
     "rc-menu": "^8.10.5",
     "react": "17.0.1",

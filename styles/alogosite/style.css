@@ -508,9 +508,7 @@ html {
 }
 
 html,
-body {
-    height: 100% !important;
-}
+
 
 body {
     color: #28201d;
