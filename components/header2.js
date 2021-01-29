@@ -252,7 +252,7 @@ function Header2({menu,title}){
     <li><a href="#" target="_blank"><span className="fa fa-google-plus" /></a></li>
     <li><a href="#" target="_blank"><span className="fa fa-instagram" /></a></li>
   </ul>
-  <div className="nav-right">
+  {/* <div className="nav-right">
     <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart " title="View your shopping cart">
       <i className="fa fa-shopping-cart" aria-hidden="true" />
       <span className="cart-contents header-cart-count count">0</span>
@@ -262,7 +262,7 @@ function Header2({menu,title}){
       <input placeholder="Search" defaultValue type="text" />
       <span className="search-close">×</span>
     </div>
-  </div>
+  </div> */}
 </header>
 
     </>

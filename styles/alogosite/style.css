@@ -690,8 +690,8 @@ header.page-header.header-no-bcn h1 {
 .nav-right {
     margin: 0px 0 0 0px;
     position: absolute;
-    right: 35px;
-    top: 50%;
+    right: 10%;
+    top: 55px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -o-transform: translateY(-50%);
@@ -700,28 +700,28 @@ header.page-header.header-no-bcn h1 {
     z-index: 100;
 }
 
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
     .nav-right {
         display: none;
     }
-}
+} */
 
 .nav-right a,
 .nav-right div {
     display: block;
 }
 
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
     .nav-right {
         margin: 40px 70px 0 0;
     }
-}
+} */
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
     .nav-right {
         margin: 30px 60px 0 0;
     }
-}
+} */
 
 .nav-right .cart {
     z-index: 1;
