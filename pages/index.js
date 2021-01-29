@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import {useEffect,useState} from 'react'
+import {useEffect,useState,useContext} from 'react'
+import {UiContext,AppContext} from '../context/context'
+
 import fetcher from '../functions/fetcher'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
@@ -8,6 +10,8 @@ import dateformat from '../functions/dateformat'
 import menuquery from '../functions/queries/menuquery'
 import MyModal from '../components/modals/mymodal'
 import RegisterForm from '../components/forms/register'
+import LoginForm from '../components/forms/login'
+
 
 
 
@@ -17,7 +21,15 @@ import RegisterForm from '../components/forms/register'
 
   const [activeslide,setActiveSlide]= useState(null)
 
+  const [modalstate,setModalState] = useState('register')
+
   const [reveal,setReveal] = useState(false)
+
+  const {setToaster} = useContext(UiContext)
+  const {user,setUser} = useContext(AppContext)
+
+
+
 
 
 
@@ -32,6 +44,22 @@ import RegisterForm from '../components/forms/register'
     else {
       setActiveSlide(0)
     }
+  }
+
+  const disconnect = () => {
+    setUser(null)
+    localStorage.removeItem('usertoken')
+  }
+
+  const login = () => {
+    if(user){
+      return;
+    }
+    else {
+      setModalState('login')
+      setReveal(true)
+    }
+
   }
 
   useEffect(() => {
@@ -56,9 +84,45 @@ import RegisterForm from '../components/forms/register'
     <div >
 
 
- <MyModal title="ΕΓΓΡΑΦΗ" reveal={reveal} setReveal={setReveal}>
-   <RegisterForm/>
+ <MyModal contentClassName="mymodalcontent" title={modalstate === "register"? "ΕΓΓΡΑΦΗ ΝΕΟΥ ΧΡΗΣΤΗ":"ΕΙΣΟΔΟΣ ΧΡΗΣΤΗ"} reveal={reveal} setReveal={setReveal}>
+
+   {modalstate === "register"? <RegisterForm onSuccess={() => {
+     setToaster({show:true,message:"Η ΕΓΓΡΑΦΗ ΟΛΟΚΛΗΡΩΘΗΚΕ",success:true});
+     setReveal(false)
+   }
+ }
+    onFail={() => {
+      setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+      setReveal(false)
+
+    }
+      }
+      setUser={setUser}
+    /> :
+    <LoginForm
+      onSuccess={() => {
+        setToaster({show:true,message:"ΕΙΣΟΔΟΣ ΕΠΙΤΥΧΗΣ",success:true});
+        setReveal(false)
+      }
+
+    }
+
+    onFail={() => {
+      setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+      setReveal(false)
+
+    }
+      }
+
+      setUser={setUser}
+
+
+
+    />
+  }
  </MyModal>
+
+
 
 
 
@@ -185,15 +249,21 @@ import RegisterForm from '../components/forms/register'
                   </li> */}
                 </ul>
                 <div className="nav-right">
-                  <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart" title="View your shopping cart">
-                    <i className="fa fa-user" aria-hidden="true"/>
+                  <a className="shop_table cart" title={user && user.username}>
+                    {user && <span className="mr-2">{user.username}</span>}
+                    <i onClick={() => login()} style={{fontSize:'2rem'}} className={`fa fa-user ${!user? 'hoverable':''}`} aria-hidden="true"/>
 
                   </a>
-                  <div id="top-search" className="top-search">
+                  {user &&
+                    <div className="text-right my-2 shop_table cart">
+                      <span onClick={() => disconnect()} className="hoverable" >Αποσύνδεση</span>
+                    </div>
+                  }
+                  {/* <div id="top-search" className="top-search">
                     <a href="#" id="top-search-ico" className="fa fa-search" aria-hidden="true"/>
                     <input placeholder="Search" defaultValue="defaultValue" type="text"/>
                     <span className="search-close">×</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -430,7 +500,7 @@ import RegisterForm from '../components/forms/register'
                               }}/></div>
                           <div className="btn-wrap align-left">
 
-                            <button onClick={() => setReveal(true)} className="btn  btn-second transform-default color-text-white color-hover-default align-left   vc_custom_1513358113660" id="like_sc_button_932198521">
+                            <button onClick={() => {setModalState('register');setReveal(true);}} className="btn  btn-second transform-default color-text-white color-hover-default align-left   vc_custom_1513358113660" id="like_sc_button_932198521">
                               ΕΓΓΡΑΦΗ
                             </button>
 

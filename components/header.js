@@ -1,8 +1,9 @@
+import { useRouter } from 'next/router'
+import {useState,useContext} from 'react'
 import Link from 'next/link'
 
-import {useState} from 'react'
+
 import MobileMenu from './mobilemenu'
-import { useRouter } from 'next/router'
 
 
 
@@ -11,6 +12,7 @@ function Header({menu}){
 
   const [menuopen,setMenuOpen] = useState(false)
   const [menuactive,setMenuActive] = useState([])
+
     const router = useRouter()
 
     const handleClick = (e) => {

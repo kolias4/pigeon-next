@@ -1,8 +1,10 @@
 import {Form} from 'react-bootstrap'
- import { useFormik } from 'formik';
- import registermutation from '../../functions/queries/registermutation'
+import { useFormik } from 'formik';
 
-const RegisterForm = ({onFail,onSuccess,setUser}) => {
+import fetcher from '../../functions/fetcher';
+
+
+const LoginForm = ({onFail,onSuccess,setUser}) => {
 
 
   const validate = (values) => {
@@ -14,9 +16,6 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
     errors.email = 'Λάθος email';
   }
 
-  if(!values.firstName){
-    errors.firstName = "Υποχρετωτικό πεδίο"
-  }
 
   if(!values.password){
     errors.password = "Υποχρετωτικό πεδίο"
@@ -28,23 +27,42 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: '',
       email: '',
       password:''
     },
     validate,
     onSubmit: values => {
       console.log(values)
-      registermutation(values.firstName,values.email,values.password).then(res => {
-        console.log(res,"res register")
-        localStorage.setItem("usertoken",JSON.stringify(res.register.jwt))
-        setUser(res.register.user)
-        onSuccess()
+
+      let query = `
+      mutation($email:String!,$password:String!){
+login(input:{identifier:$email,password:$password}){
+  jwt
+  user{
+    username
+    email
+    id
+  }
+}
+}
+      `
+
+      fetcher(query,{
+        variables:{
+          email:values.email,
+          password:values.password
+        }
+      }).then(res => {
+          console.log(res,"res login")
+          localStorage.setItem("usertoken",JSON.stringify(res.login.jwt))
+          setUser(res.login.user)
+          onSuccess()
+      }).catch(err => {
+          console.log(err,"error")
+          onFail()
+
       })
-      .catch(err => {
-        console.log(err,"error")
-        onFail()
-      })
+
     },
   });
 
@@ -55,21 +73,7 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
 
     <Form noValidate onSubmit={formik.handleSubmit}>
 
-    <Form.Group controlId="firstName">
-             <Form.Label>Όνομα</Form.Label>
-             <Form.Control
-               type="text"
 
-               name="firstName"
-               value={formik.values.firstName}
-               onChange={formik.handleChange}
-               onBlur={formik.handleBlur}
-               isInValid={formik.touched.firstName && formik.errors.firstName}
-             />
-             <Form.Control.Feedback  type="invalid">
-                 {formik.touched.firstName && formik.errors.firstName}
-               </Form.Control.Feedback>
-           </Form.Group>
 
            <Form.Group controlId="email">
                     <Form.Label>E-mail</Form.Label>
@@ -103,7 +107,7 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
                              </Form.Control.Feedback>
                          </Form.Group>
 
-           <button className="btn " type="submit">Υποβολή</button>
+           <button className="btn " type="submit">Είσοδος</button>
 
     </Form>
 
@@ -114,4 +118,4 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
 }
 
 
-export default RegisterForm;
+export default LoginForm;

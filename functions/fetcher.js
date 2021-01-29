@@ -1,11 +1,12 @@
 
 
-async function fetcher(query, { variables } = {}) {
+async function fetcher(query, { variables } = {}, token = null) {
+
+  const headers = token? {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token} : {'Content-Type': 'application/json'}
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: headers,
     body: JSON.stringify({
       query,
       variables,

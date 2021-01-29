@@ -1,10 +1,10 @@
 import {Modal,Button} from "react-bootstrap"
 
-const MyModal = ({reveal,setReveal,children,title}) => {
+const MyModal = ({reveal,setReveal,children,title,contentClassName}) => {
 
   return (
 
-    <Modal show={reveal} onHide={() => setReveal(false)}>
+    <Modal contentClassName={contentClassName} show={reveal} onHide={() => setReveal(false)}>
      <Modal.Header closeButton>
      <h4 className="m-0">{title}</h4>
 
@@ -12,14 +12,7 @@ const MyModal = ({reveal,setReveal,children,title}) => {
      <Modal.Body>
      {children}
      </Modal.Body>
-     <Modal.Footer>
-       <Button variant="secondary" onClick={() => setReveal(false)}>
-         Close
-       </Button>
-       <Button variant="primary" onClick={() => setReveal(false)}>
-         Save Changes
-       </Button>
-     </Modal.Footer>
+
    </Modal>
 
 

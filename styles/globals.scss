@@ -9,12 +9,17 @@
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/grid";
 @import "bootstrap/scss/modal";
+@import "bootstrap/scss/toasts";
+
 // @import "bootstrap/scss/forms";
 
 @import "bootstrap/scss/utilities/display";
 @import "bootstrap/scss/utilities/spacing";
 @import "bootstrap/scss/utilities/flex";
 @import "bootstrap/scss/utilities/text";
+@import "bootstrap/scss/utilities/sizing";
+
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
@@ -32,6 +37,19 @@ html {
   left: 0;
   box-sizing: border-box;
   /* width: 100vw; */
+}
+
+input[isinvalid]{
+  border-color: red !important;
+}
+
+.invalid-feedback{
+  color: red;
+  text-align: left;
+}
+
+.mymodalcontent {
+  background-color: #F8F5EC;
 }
 
 .hoverable{
