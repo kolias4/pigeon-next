@@ -11,14 +11,14 @@ const LoginForm = ({onFail,onSuccess,setUser}) => {
   const errors = {};
 
   if (!values.email) {
-    errors.email = 'Υποχρετωτικό πεδίο';
+    errors.email = 'Υποχρεωτικό πεδίο';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Λάθος email';
   }
 
 
   if(!values.password){
-    errors.password = "Υποχρετωτικό πεδίο"
+    errors.password = "Υποχρεωτικό πεδίο"
   }
 
   return errors;

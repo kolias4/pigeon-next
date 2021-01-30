@@ -321,7 +321,7 @@ import LoginForm from '../components/forms/login'
 
     <div className="vc_row-full-width vc_clearfix"/>
 
-                <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_section-has-fill vc_general vc_parallax bg-color-white" >
+    {  data.pigeons[0] && <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" className="vc_section services-block vc_section-has-fill vc_general vc_parallax bg-color-white" >
                   <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid vc_row-has-fill bg-pos-center-center text-align-center" >
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -391,32 +391,6 @@ import LoginForm from '../components/forms/login'
                             </ul>
 
 
-                        {/*
-                            <div className="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
-                              <div className="vc_column-inner">
-                                <div className="wpb_wrapper">
-                                  <div className="tariff-item item     vc_custom_1513377526385 layout-default matchHeight vip" id="like_sc_tariff_1950237592" style={{
-                                      height: 449,
-                                      visibility: 'visible',
-                                      transform: 'translateY(0px) scale(1)',
-                                      opacity: 1,
-                                      transition: 'all 0.3s ease 0s'
-                                    }} data-sr-id={13}>
-                                    <span className="label-vip font-headers">BEST</span>
-                                    <h4 className="header">
-                                      <span className="white">Personal</span>
-                                      <span className=" color-main">trainings</span>
-                                    </h4>
-                                    <div className="price">$49</div>
-                                    <p>Morbi nec accumsan arcu. Nunc euismod tortor sed ex lobortis, eget porta magna fermentum.</p>
-                                    <div>
-                                      <a href="#" className="btn btn-default btn-second color-hover-white transform-lowercase">get now</a>
-                                    </div>
-                                    <a href="href" className="more">more info »</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div> */}
 
                           </div>
                           <div className="es-resp">
@@ -441,9 +415,9 @@ import LoginForm from '../components/forms/login'
                   </div><div className="vc_row-full-width vc_clearfix"/><div className="vc_parallax-inner skrollable skrollable-before" data-bottom-top="top: -50%;" data-top-bottom="top: 0%;" style={{
       height: '150%',
       top: '-50%'
-    }}/></section>
+    }}/></section>}
     <div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray" >
+                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section bg-color-gray py-5 py-md-0" >
                   <div className="vc_row wpb_row vc_row-fluid">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -524,7 +498,7 @@ import LoginForm from '../components/forms/login'
                         </div>
                       </div>
                     </div>
-                    <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6 d-md-block d-none">
+                    <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6 d-md-block d-none py-4">
                       <div className="vc_column-inner">
                         <div style={{minHeight:'500px',display:'flex',alignItems:'center',justifyContent:'center', backgroundColor:'#28201d'}} className="wpb_wrappe">
                           <div className="wpb_single_image wpb_content_element vc_align_center">

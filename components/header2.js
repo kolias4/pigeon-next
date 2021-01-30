@@ -147,7 +147,50 @@ function Header2({menu,title}){
 
                 </ul>
               </li>
-              <li id="menu-item-619" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
+
+
+              <li className={`menu-item menu-item-has-children ${router.asPath.startsWith("/sylogoi")?'current_page_item':''}`}>
+                <a className={` ${menuactive.includes('omospondia') ?'show':''}`} name="omospondia" onClick={handleClick}>
+                  <span>Ομοσπονδία</span>
+                </a>
+
+                  <ul className={`sub-menu ${menuactive.includes('omospondia') ?'show':''}`}>
+                    {menu && menu.kyklois.map((kyklos,i) => {
+                      return (
+                        <li key={kyklos.title}  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                          <a className={` ${menuactive.includes(kyklos.title) ?'show':''}`} name={kyklos.title} onClick={handleClick}>
+                            <span>{kyklos.title}</span>
+                          </a>
+                          <ul style={{marginTop:'0px',marginLeft:'-12px'}} className={`sub-menu ${menuactive.includes(kyklos.title) ?'show':''}`}>
+                            {kyklos.sylogois.map((sylogos,i) => {
+                              return (
+                                <li key={sylogos.title} className="menu-item menu-item-type-post_type menu-item-object-page  ">
+                                  <Link href={`/sylogoi/${sylogos.urlkey}`}>
+                                  <a  className="">
+                                    <span>{sylogos.title}</span>
+                                  </a>
+                                  </Link>
+                                </li>
+
+                              )
+                            })}
+
+
+                          </ul>
+                        </li>
+
+                      )
+                    })}
+
+
+
+                  </ul>
+
+              </li>
+
+
+
+              {/* <li id="menu-item-619" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
                 <a href="#">
                   <span>Shop</span>
                 </a>
@@ -176,7 +219,9 @@ function Header2({menu,title}){
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> */}
+
+
               <li id="menu-item-46" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
                 <Link href="/contact">
                 <a >

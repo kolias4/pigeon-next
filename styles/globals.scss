@@ -42,6 +42,9 @@ html {
 input[isinvalid]{
   border-color: red !important;
 }
+textarea[isinvalid]{
+  border-color: red !important;
+}
 
 .invalid-feedback{
   color: red;

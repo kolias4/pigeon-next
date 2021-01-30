@@ -1,7 +1,25 @@
+import {useContext} from 'react'
+
+import { UiContext } from '../context/context';
+import ContactForm from '../components/forms/contact'
 import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
 
 function Contact(){
+
+  const {setToaster} = useContext(UiContext)
+
+  const onSuccess = () => {
+    setToaster({show:true,message:"ΤΟ ΜΗΝΥΜΑ ΣΤΑΛΘΗΚΕ ΜΕ ΕΠΙΤΥΧΙΑ",success:true});
+
+  }
+
+  const onFail = () => {
+    setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+
+  }
+
+
 
   return (
     <div className="container">
@@ -53,23 +71,8 @@ function Contact(){
                       <div className="jtx-contact-form-7 transform-default form-bg-gray form-style-secondary form-btn-default form-btn-default form-padding-default " id="like_sc_contact_form_7_893640890">
                         <div role="form" className="wpcf7" id="wpcf7-f1551-p25-o1" lang="en-US" dir="ltr">
                           <div className="screen-reader-response" />
-                          <form action="/contacts/#wpcf7-f1551-p25-o1" method="post" className="wpcf7-form" noValidate="novalidate">
-                            <div style={{display: 'none'}}>
-                              <input type="hidden" name="_wpcf7" defaultValue={1551} />
-                              <input type="hidden" name="_wpcf7_version" defaultValue="5.1.3" />
-                              <input type="hidden" name="_wpcf7_locale" defaultValue="en_US" />
-                              <input type="hidden" name="_wpcf7_unit_tag" defaultValue="wpcf7-f1551-p25-o1" />
-                              <input type="hidden" name="_wpcf7_container_post" defaultValue={25} />
-                            </div>
-                            <p><label> Your Name*:<br />
-                                <span className="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" defaultValue size={40} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
-                            <p><label> Your Email*:<br />
-                                <span className="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" defaultValue size={40} className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </label></p>
-                            <p><label> Your Message<br />
-                                <span className="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols={40} rows={10} className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" defaultValue={""} /></span> </label></p>
-                            <p><input type="submit" defaultValue="Submit" className="wpcf7-form-control wpcf7-submit" /><span className="ajax-loader" /></p>
-                            <div className="wpcf7-response-output wpcf7-display-none" />
-                          </form>
+                            <ContactForm onSuccess={onSuccess} onFail={onFail}/>
+
                         </div>
                       </div>
                     </div>

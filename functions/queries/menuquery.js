@@ -22,6 +22,15 @@ kolovodromias{
  url_key
 }
 
+kyklois{
+  title
+  urlkey
+  sylogois{
+    title
+    urlkey
+  }
+}
+
 }
    `
 

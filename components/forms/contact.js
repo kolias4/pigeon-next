@@ -1,8 +1,10 @@
 import {Form} from 'react-bootstrap'
- import { useFormik } from 'formik';
- import registermutation from '../../functions/queries/registermutation'
+import { useFormik } from 'formik';
 
-const RegisterForm = ({onFail,onSuccess,setUser}) => {
+import fetcher from '../../functions/fetcher';
+
+
+const ContactForm = ({onFail,onSuccess}) => {
 
 
   const validate = (values) => {
@@ -18,8 +20,8 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
     errors.firstName = "Υποχρεωτικό πεδίο"
   }
 
-  if(!values.password){
-    errors.password = "Υποχρεωτικό πεδίο"
+  if(!values.message){
+    errors.message = "Υποχρεωτικό πεδίο"
   }
 
   return errors;
@@ -30,21 +32,36 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
     initialValues: {
       firstName: '',
       email: '',
-      password:''
+      telephone:'',
+      message:''
     },
     validate,
     onSubmit: values => {
       console.log(values)
-      registermutation(values.firstName,values.email,values.password).then(res => {
-        console.log(res,"res register")
-        localStorage.setItem("usertoken",JSON.stringify(res.register.jwt))
-        setUser(res.register.user)
+
+      let query = `
+      mutation($email:String!,$firstName:String!,$telephone:String!,$message:String!)
+      {createContactForm(input:{data:{name:$firstName,email:$email,message:$message,telephone:$telephone}}){
+  contactForm{
+    id
+  }
+}
+}
+
+      `
+      fetcher(query,{
+        variables:{
+          email:values.email,
+          firstName:values.firstName,
+          telephone:values.telephone,
+          message:values.message
+        }
+      }).then(res => {
+        formik.resetForm()
         onSuccess()
       })
-      .catch(err => {
-        console.log(err,"error")
-        onFail()
-      })
+      .catch(err => onFail())
+
     },
   });
 
@@ -87,23 +104,41 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
                       </Form.Control.Feedback>
                   </Form.Group>
 
-                  <Form.Group controlId="password">
-                           <Form.Label>Κωδικός</Form.Label>
-                           <Form.Control
-                             type="password"
 
-                             name="password"
-                             value={formik.values.password}
+                  <Form.Group controlId="telephone">
+                           <Form.Label>Τηλέφωνο</Form.Label>
+                           <Form.Control
+                             type="tel"
+
+                             name="telephone"
+                             value={formik.values.telephone}
                              onChange={formik.handleChange}
                              onBlur={formik.handleBlur}
-                             isInValid={formik.touched.password && formik.errors.password}
+                             isInValid={formik.touched.telephone && formik.errors.telephone}
                            />
                            <Form.Control.Feedback  type="invalid">
-                               {formik.touched.password && formik.errors.password}
+                               {formik.touched.telephone && formik.errors.telephone}
                              </Form.Control.Feedback>
                          </Form.Group>
 
-           <button className="btn " type="submit">Υποβολή</button>
+                  <Form.Group controlId="message">
+                           <Form.Label>Μήνυμα</Form.Label>
+                           <Form.Control
+
+                             as="textarea"
+                             rows={3}
+                             name="message"
+                             value={formik.values.message}
+                             onChange={formik.handleChange}
+                             onBlur={formik.handleBlur}
+                             isInValid={formik.touched.message && formik.errors.message}
+                           />
+                           <Form.Control.Feedback  type="invalid">
+                               {formik.touched.message && formik.errors.message}
+                             </Form.Control.Feedback>
+                         </Form.Group>
+
+           <button className="btn " type="submit">Αποστολή</button>
 
     </Form>
 
@@ -114,4 +149,4 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
 }
 
 
-export default RegisterForm;
+export default ContactForm;
