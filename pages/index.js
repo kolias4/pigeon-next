@@ -11,6 +11,10 @@ import menuquery from '../functions/queries/menuquery'
 import MyModal from '../components/modals/mymodal'
 import RegisterForm from '../components/forms/register'
 import LoginForm from '../components/forms/login'
+import { useRouter } from 'next/router'
+
+
+import { NextSeo } from 'next-seo';
 
 
 
@@ -27,6 +31,8 @@ import LoginForm from '../components/forms/login'
 
   const {setToaster} = useContext(UiContext)
   const {user,setUser} = useContext(AppContext)
+
+  const router = useRouter()
 
 
 
@@ -82,6 +88,24 @@ import LoginForm from '../components/forms/login'
 
   return (
     <div >
+      <NextSeo title="Ταχυδρομικά Περιστέρια | MyPigeon"
+        description="Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων και πολλά άλλα"
+        canonical={process.env.NEXT_PUBLIC_SITE_URL}
+        openGraph={{
+      type: 'website',
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      title: 'Ταχυδρομικά Περιστέρια | MyPigeon',
+      description: 'Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων και πολλά άλλα',
+      images: [
+        {
+          url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+          alt: 'logo',
+        }
+
+      ],
+      site_name: 'MyPigeon',
+    }}
+      />
 
 
  <MyModal contentClassName="mymodalcontent" title={modalstate === "register"? "ΕΓΓΡΑΦΗ ΝΕΟΥ ΧΡΗΣΤΗ":"ΕΙΣΟΔΟΣ ΧΡΗΣΤΗ"} reveal={reveal} setReveal={setReveal}>
@@ -144,7 +168,7 @@ import LoginForm from '../components/forms/login'
                       return (
 
                         <div key={`slide${i}`} className={`zs-slide zs-slide-${i} ${activeslide === i? 'active myactive':''}`} >
-                        <Image priority={true} objectFit="cover" quality={50} layout="fill"  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${slide.url}`}/>
+                        <Image priority={true} objectFit="cover" quality={60} layout="fill"  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${slide.url}`}/>
                         </div>
 
 

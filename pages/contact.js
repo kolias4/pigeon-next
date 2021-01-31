@@ -1,11 +1,14 @@
+import { NextSeo } from 'next-seo';
 import {useContext} from 'react'
+import { useRouter } from 'next/router'
 
 import { UiContext } from '../context/context';
 import ContactForm from '../components/forms/contact'
 import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
 
-function Contact(){
+
+function Contact({title}){
 
   const {setToaster} = useContext(UiContext)
 
@@ -18,11 +21,31 @@ function Contact(){
     setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
 
   }
+  const router =useRouter()
 
 
 
   return (
     <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL + router.asPath}`,
+    title:`${title} | MyPigeon`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+        alt: 'logo',
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
+
+
   {/* Content */}
   <div className="margin-top">
     <div className="row">

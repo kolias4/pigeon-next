@@ -3,6 +3,7 @@
 import Image from 'next/image'
 
 import Link from 'next/link'
+import { NextSeo } from 'next-seo';
 
 import fetcher from '../../functions/fetcher'
 
@@ -13,7 +14,7 @@ import menuquery from '../../functions/queries/menuquery'
 
 
 
-function SylogosPage({data, notFound}) {
+function SylogosPage({data, notFound,title}) {
 
   const router = useRouter()
 
@@ -42,6 +43,25 @@ function SylogosPage({data, notFound}) {
   return (
 
     <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      description={`Σύλλογος ${title}`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
+    title:`${title} | MyPigeon`,
+    description:`Σύλλογος ${title}`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+        alt: 'logo',
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
   <div className="inner-page margin-default">
 
   <div className="text-page">
@@ -60,7 +80,7 @@ function SylogosPage({data, notFound}) {
    <ul className="social-icons-list   vc_custom_1513441326654 " >
 
      {sylogos.proedros &&  <li>
-         <span>Πρόεδρος συλλόγου: </span>
+         <span>Υπεύθυνος συλλόγου: </span>
          <span className="font-weight-bold">
            <a >{sylogos.proedros}</a>
          </span>

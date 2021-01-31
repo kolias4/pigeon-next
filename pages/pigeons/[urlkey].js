@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import fetcher from '../../functions/fetcher'
 import PigeonTabs from '../../components/pigeontabs'
+import { NextSeo } from 'next-seo';
 
 import {useRouter} from 'next/router'
 import menuquery from '../../functions/queries/menuquery'
@@ -15,7 +16,7 @@ import menuquery from '../../functions/queries/menuquery'
 
 
 
-function PigeonPage({data, notFound}) {
+function PigeonPage({data, notFound,title}) {
 
   const router = useRouter()
 
@@ -75,6 +76,26 @@ function PigeonPage({data, notFound}) {
   return (
 
     <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      description={`Περιστέρι ${title}`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
+    title:`${title} | MyPigeon`,
+    description:`Περιστέρι ${title}`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${pigeon.eikones[0] && pigeon.eikones[0].url || '/logo.png'}`,
+        alt:`${title}`,
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
+
   <div className="inner-page margin-default">
 
   <div className="text-page">

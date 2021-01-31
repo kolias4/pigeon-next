@@ -8,14 +8,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import fetcher from '../../functions/fetcher'
 import KolobodromioTabs from '../../components/kolobodromiotabs'
-
+import { NextSeo } from 'next-seo';
 import {useRouter} from 'next/router'
 import menuquery from '../../functions/queries/menuquery'
 
 
 
 
-function KolobodromioPage({data, notFound}) {
+function KolobodromioPage({data, notFound,title}) {
 
   const router = useRouter()
 
@@ -75,6 +75,27 @@ function KolobodromioPage({data, notFound}) {
   return (
 
     <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      description={`Κολομπροδρόμιο ${title}`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
+    title:`${title} | MyPigeon`,
+    description:`Κολομπροδρόμιο ${title}`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${kolobodromio.images[0] && kolobodromio.images[0].url || '/logo.png'}`,
+        alt:`${title}`,
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
+
+
   <div className="inner-page margin-default">
 
   <div className="text-page">

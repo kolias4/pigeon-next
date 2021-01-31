@@ -5,10 +5,11 @@ import ReactMarkdown from 'react-markdown'
 import fetcher from '../../../functions/fetcher'
 import { useRouter } from 'next/router'
 import menuquery from '../../../functions/queries/menuquery'
+import { NextSeo } from 'next-seo';
 
 
 
-function BlogCategory({data,notFound}){
+function BlogCategory({data,notFound,title}){
 
   const router = useRouter()
 
@@ -26,7 +27,29 @@ function BlogCategory({data,notFound}){
 
   return (
 
-    <div className="container"><div className="inner-page margin-default">
+    <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      description={`Κατηγορία ${title}`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
+    title:`${title} | MyPigeon`,
+    description:`Κατηγορία  ${title}`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_SITE_URL}${'/logo.png'}`,
+        alt:`${title}`,
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
+
+
+    <div className="inner-page margin-default">
     <div className>
       <div className="blog blog-block layout-three-cols">
         <div className="row equal">

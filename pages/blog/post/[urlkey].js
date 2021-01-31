@@ -9,12 +9,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Disqus from "disqus-react"
 import menuquery from '../../../functions/queries/menuquery'
+import { NextSeo } from 'next-seo';
 
 
 
 
 
-function BlogPost({data,notFound}){
+
+function BlogPost({data,notFound,title}){
 
   const router = useRouter()
 
@@ -74,6 +76,27 @@ function SamplePrevArrow(props) {
   return (
 
     <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      description={`Άρθρο ${title}`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
+    title:`${title} | MyPigeon`,
+    description:`Άρθρο  ${title}`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.Eikones[0] && article.Eikones[0].url || '/logo.png'}`,
+        alt:`${title}`,
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
+
+
       <div className="inner-page margin-default">
         <h3 className="text-center">{article.Title}</h3>
     <div className="row">

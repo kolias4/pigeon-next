@@ -1,13 +1,14 @@
 import Image from 'next/image'
 
 import Link from 'next/link'
+import { NextSeo } from 'next-seo';
 
 import fetcher from '../../../functions/fetcher'
 import {useRouter} from 'next/router'
 import menuquery from '../../../functions/queries/menuquery'
 
 
-function BreedPage({data, notFound}) {
+function BreedPage({data, notFound,title}) {
 
   const router = useRouter()
 
@@ -33,6 +34,26 @@ function BreedPage({data, notFound}) {
 
   return (
     <div className="container">
+
+    <NextSeo title={`${title} | MyPigeon`}
+      description={`Εκτροφέας ${title}`}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      openGraph={{
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
+    title:`${title} | MyPigeon`,
+    description:`Εκτροφέας  ${title}`,
+    images: [
+      {
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.breeds[0] && data.breeds[0].photo.url || '/logo.png'}`,
+        alt:`${title}`,
+      }
+
+    ],
+    site_name: 'MyPigeon',
+  }}
+    />
+
     <div className="inner-page margin-default">
       <div className="row">
         <div className="col-lg-8 col-lg-push-4 col-md-8 col-md-push-4 text-page">
@@ -163,6 +184,9 @@ export async function getStaticProps({ params }) {
 
     breeds(where:{urlkey:$urlkey}){
       breed
+      photo{
+        url
+        }
     }
 
     catbreeds:breeds(where:{breeder:{id:"2"}}){
