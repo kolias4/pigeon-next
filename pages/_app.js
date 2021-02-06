@@ -6,6 +6,12 @@ import '../styles/alogosite/plugins.css'
 import '../styles/alogosite/style.css'
 import "../styles/alogosite/woocommerce.css"
 import '../styles/globals.scss'
+// import '../styles/calendar.scss'
+import '@fullcalendar/common/main.css'
+import '@fullcalendar/daygrid/main.css'
+import '@fullcalendar/timegrid/main.css'
+
+
 
 import{ useState,useEffect } from 'react';
 

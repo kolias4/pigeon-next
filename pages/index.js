@@ -12,7 +12,9 @@ import MyModal from '../components/modals/mymodal'
 import RegisterForm from '../components/forms/register'
 import LoginForm from '../components/forms/login'
 import { useRouter } from 'next/router'
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 import { NextSeo } from 'next-seo';
 
@@ -67,6 +69,68 @@ import { NextSeo } from 'next-seo';
     }
 
   }
+
+  var item_length = data.xorigois.length
+
+  const settings = {
+   autoplay:true,
+   dots: false,
+   infinite: item_length > 3,
+   speed: 500,
+   slidesToShow: 3,
+   slidesToScroll: 1,
+   nextArrow: <SampleNextArrow />,
+   prevArrow: <SamplePrevArrow />,
+   responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 0,
+          infinite:true
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite:true
+        }
+      }
+    ]
+ };
+
+ function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className="arrow right"
+      style={{display: "block", position:"absolute", width:'20px',height:'20px',right:'10px', top:'50%', zIndex:'1000' }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className="arrow left"
+      style={{display: "block", position:"absolute", width:'20px',height:'20px',left:'10px', top:'50%', zIndex:'1000' }}
+      onClick={onClick}
+    />
+  );
+}
 
   useEffect(() => {
 
@@ -314,7 +378,9 @@ import { NextSeo } from 'next-seo';
                         <div className="wpb_wrapper">
                           <ul className="block-icon  icon-h-right align-left i-transparent layout-inline">
                             <li className=" icon-image">
-                              <span className="icon-image bg-main"><img src="http://senorcavallo.just-themes.com/wp-content/uploads/2017/11/phone-call-.png" className="icon-image" alt="0-800 255 29 020"/></span>
+                              <span className="icon-image bg-main">
+                                <i style={{fontSize:'2rem',color:'black'}} className="fa fa-phone"></i>
+                              </span>
                               <div className="block-right">
                                 <h4 className="font-main">
 
@@ -562,7 +628,7 @@ import { NextSeo } from 'next-seo';
                     </div>
                   </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
-                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section vc_custom_1516291127722 vc_section-has-fill bg-pos-left-bottom bg-mobile-hide jtx-sr jtx-sr-effect-fade_in jtx-sr-id-697380719 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-300 jtx-sr-sequences-200">
+                <section data-vc-full-width="true" data-vc-full-width-init="true" className="vc_section  vc_section-has-fill bg-pos-left-bottom bg-mobile-hide jtx-sr jtx-sr-effect-fade_in jtx-sr-id-697380719 jtx-sr-el-items jtx-sr-delay-200 jtx-sr-duration-300 jtx-sr-sequences-200">
                   <div className="vc_row wpb_row vc_row-fluid bg-pos-left-center">
                     <div className="wpb_column vc_column_container vc_col-sm-12">
                       <div className="vc_column-inner">
@@ -577,7 +643,7 @@ import { NextSeo } from 'next-seo';
 
                                 fontWeight: 700,
                                 fontStyle: 'normal'
-                              }} className="header">Upcoming competitions</h3>
+                              }} className="header">Δείτε τα Events</h3>
                           </div>
                           <div className="es-resp">
                             <div className="visible-lg" style={{
@@ -623,7 +689,9 @@ import { NextSeo } from 'next-seo';
                                 height: 16
                               }}/></div>
                           <div className="btn-wrap align-center">
-                            <a href="/event/" className="btn  btn-xs btn-second transform-default color-text-default color-hover-default align-center mobile-center  vc_custom_1515870367023" id="like_sc_button_1401072893">view more</a>
+                            <Link href="/events">
+                            <a  className="btn  btn-xs btn-second transform-default color-text-default color-hover-default align-center mobile-center  vc_custom_1515870367023" id="like_sc_button_1401072893">Events</a>
+                            </Link>
                           </div>
                           <div className="es-resp">
                             <div className="visible-lg" style={{
@@ -1108,6 +1176,49 @@ import { NextSeo } from 'next-seo';
       top: '-20%'
     }}/>
   </section>
+
+  <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.2" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-gray  bg-pos-center-center">
+    <div className="vc_row wpb_row vc_row-fluid vc_custom_1511210269077">
+      <div className="wpb_column vc_column_container vc_col-sm-12">
+        <div className="vc_column-inner">
+          <div className="wpb_wrapper">
+
+            <div className="heading align-center color-black subcolor-main transform-default bg-image   vc_custom_1513346533124" id="like_sc_header_1872379077" style={{
+
+                fontWeight: 700,
+                fontStyle: 'normal'
+              }}>
+              {/* <h5 className="subheader">Who we are</h5> */}
+              <h3 style={{
+
+                  fontWeight: 700,
+                  fontStyle: 'normal'
+                }} className="header">Χορηγοί</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-vc-full-width="true" data-vc-full-width-init="true" className="vc_row wpb_row vc_row-fluid" >
+
+      <Slider {...settings}>
+        {data.xorigois.map((item,i) => {
+          return (
+            <div className="text-center">
+            <Image priority={true} key={`kolobodromio${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.logo.url}`}  alt={`kolobodromio${i}`} objectFit="contain" width={300} height={200} />
+           </div>
+          )
+        })}
+
+
+
+
+      </Slider>
+
+
+    </div>
+
+</section>
               </div>
             </article>
           </div>
@@ -1115,7 +1226,8 @@ import { NextSeo } from 'next-seo';
       </div>
     </div>
 
-  </div>)
+  </div>
+)
 }
 
 
@@ -1176,6 +1288,17 @@ egrafi{
     }
 
   }
+
+
+  xorigois{
+  title
+  logo{
+    url
+    width
+    height
+  }
+  website
+}
 
 
 }
