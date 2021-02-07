@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 function Footer() {
   return (<footer>
@@ -34,15 +35,17 @@ function Footer() {
             </div>
           </div>
           <div className="col-md-4 col-sm-6 col-ms-12 hidden-xs hidden-ms hidden-sm matchHeight clearfix">
-            {/* <div className="footer-widget-area">
+            <div className="footer-widget-area">
               <div id="nav_menu-2" className="widget widget_nav_menu">
                 <h4 className="header-widget">Explore</h4>
                 <div className="menu-footer-menu-container">
                   <ul id="menu-footer-menu" className="menu">
                     <li id="menu-item-2177" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2177">
-                      <a href="http://senorcavallo.just-themes.com/">Home</a>
+                      <Link href="/privacy-policy">
+                      <a style={{color:'#c4aa4f'}}>Προσωπικά δεδομένα</a>
+                      </Link>
                     </li>
-                    <li id="menu-item-2178" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2178">
+                    {/* <li id="menu-item-2178" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2178">
                       <a href="http://senorcavallo.just-themes.com/blog-three-columns/">Blog</a>
                     </li>
                     <li id="menu-item-2179" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2179">
@@ -53,11 +56,11 @@ function Footer() {
                     </li>
                     <li id="menu-item-2181" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2181">
                       <a href="http://senorcavallo.just-themes.com/gallery-3-columns/">Gallery</a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
 
         </div>

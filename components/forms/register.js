@@ -1,6 +1,7 @@
 import {Form} from 'react-bootstrap'
  import { useFormik } from 'formik';
  import registermutation from '../../functions/queries/registermutation'
+ import Link from 'next/link'
 
 const RegisterForm = ({onFail,onSuccess,setUser}) => {
 
@@ -22,6 +23,10 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
     errors.password = "Υποχρεωτικό πεδίο"
   }
 
+  if(!values.terms){
+    errors.terms = "Υποχρεωτικό πεδίο"
+  }
+
   return errors;
 };
 
@@ -30,7 +35,8 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
     initialValues: {
       firstName: '',
       email: '',
-      password:''
+      password:'',
+      terms:false
     },
     validate,
     onSubmit: values => {
@@ -101,7 +107,20 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
                            <Form.Control.Feedback  type="invalid">
                                {formik.touched.password && formik.errors.password}
                              </Form.Control.Feedback>
-                         </Form.Group>
+                      </Form.Group>
+
+                      <Form.Group >
+           <Form.Check
+             className={`d-flex ${formik.touched.terms && formik.errors.terms?'text-danger':''}`}
+             required
+             name="terms"
+             label={<span className="ml-2">Έχω διαβάσει και συμφωνώ με τους κανονισμούς <Link href="/privacy-policy"><a>Προσωπικών δεδομένων</a></Link></span>}
+             onChange={formik.handleChange}
+             isInValid={formik.touched.terms && formik.errors.terms}
+             checked={formik.values.terms}
+             id="validationFormik0"
+           />
+         </Form.Group>
 
            <button className="btn " type="submit">Υποβολή</button>
 
