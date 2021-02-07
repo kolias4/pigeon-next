@@ -79,7 +79,7 @@ function Contact({title}){
                       </div>
                       <div className="align-default ">
                         <ul className="social-big icon-weight-bold" id="like_sc_header_1067007673">
-                          <li><a href="#" className="fa fa-facebook" /></li>
+                          <li><a target="_blank" rel="noopener" href="https://web.facebook.com/pigeon.my.1" className="fa fa-facebook" /></li>
                           {/* <li><a href="#" className="fa fa-twitter" /></li>
                           <li><a href="#" className="fa fa-youtube" /></li>
                           <li><a href="#" className="fa fa-instagram" /></li> */}

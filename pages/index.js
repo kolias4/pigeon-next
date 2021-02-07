@@ -322,11 +322,11 @@ function SamplePrevArrow(props) {
                         }}/></div>
                   </div>
                 </div>
-                <ul className="nav-left">
+                {/* <ul className="nav-left">
                   <li>
                     <a href="#" target="_blank"><span className="fa fa-facebook-f"/></a>
                   </li>
-                  {/* <li>
+                  <li>
                     <a href="#" target="_blank"><span className="fa fa-twitter"/></a>
                   </li>
                   <li>
@@ -334,8 +334,8 @@ function SamplePrevArrow(props) {
                   </li>
                   <li>
                     <a href="#" target="_blank"><span className="fa fa-instagram"/></a>
-                  </li> */}
-                </ul>
+                  </li>
+                </ul> */}
                 <div className="nav-right">
                   <a className="shop_table cart" title={user && user.username}>
                     {user && <span className="mr-2">{user.username}</span>}
@@ -698,9 +698,9 @@ function SamplePrevArrow(props) {
                      </div>
 
                      <div className="my-3 text-center">
-                       <Link href="/events">
+                       {/* <Link href="/events"> //to link gia ta events prosorina off
                          <a className="btn btn-primary">Events</a>
-                       </Link>
+                       </Link> */}
                      </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
 <div className="vc_row-full-width vc_clearfix"/>

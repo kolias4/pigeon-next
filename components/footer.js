@@ -16,24 +16,25 @@ function Footer() {
           </div>
           <div className="col-md-4 col-sm-6 col-ms-12  matchHeight clearfix">
             <div style={{color:'white'}} className="footer-widget-area">
-              <div id="text-3" className="widget widget_text">
+              {/* <div id="text-3" className="widget widget_text">
                 <h4 className="header-widget">About Сlub</h4>
                 <div className="textwidget">
                   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                 </div>
-              </div>
+              </div> */}
               <div id="jtx_icons-3" className="widget widget_jtx_icons">
                 <ul className="social-big">
-                  <li><a href="#" className="fa fa-twitter"/></li>
-                  <li><a href="#" className="fa fa-facebook"/></li>
+                  <li><a target="_blank" rel="noopener" href="https://web.facebook.com/pigeon.my.1" className="fa fa-facebook"/></li>
+                  {/* <li><a href="#" className="fa fa-twitter"/></li>
+
                   <li><a href="#" className="fa fa-instagram"/></li>
-                  <li><a href="#" className="fa fa-google-plus"/></li>
+                  <li><a href="#" className="fa fa-google-plus"/></li> */}
                 </ul>
               </div>
             </div>
           </div>
           <div className="col-md-4 col-sm-6 col-ms-12 hidden-xs hidden-ms hidden-sm matchHeight clearfix">
-            <div className="footer-widget-area">
+            {/* <div className="footer-widget-area">
               <div id="nav_menu-2" className="widget widget_nav_menu">
                 <h4 className="header-widget">Explore</h4>
                 <div className="menu-footer-menu-container">
@@ -56,7 +57,7 @@ function Footer() {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
         </div>
@@ -64,10 +65,11 @@ function Footer() {
     </section>
 
     <div className="footer-block footer-gotop-hide-">
-      <div className="container">
+      <div className="container text-center">
         <p>
-          <a href="http://just-themes.com" target="_blank" rel="noopener">Just-themes</a>
-          © All Rights Reserved - 2018</p>
+          <a target="_blank" rel="noopener">Mypigeon </a>
+          © All Rights Reserved - 2021
+        </p>
 
       </div>
     </div>

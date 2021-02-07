@@ -16,17 +16,19 @@ function BreedPage({data, notFound,title}) {
     return <div>Loading...</div>
   }
 
-  if(!data.pigeons){
-    return (
-      <h2 className="text-center" >Δεν βρέθηκαν Περιστέρια σε αυτήν την κατηγορία </h2>
-    )
-  }
+  // if(!data.pigeons){
+  //   return (
+  //     <h2 className="text-center" >Δεν βρέθηκαν Περιστέρια σε αυτήν την κατηγορία </h2>
+  //   )
+  // }
+  //
+  // if(!data.pigeons[0]){
+  //   return (
+  //     <h2 className="text-center" >Δεν βρέθηκαν Περιστέρια σε αυτήν την κατηγορία </h2>
+  //   )
+  // }
 
-  if(!data.pigeons[0]){
-    return (
-      <h2 className="text-center" >Δεν βρέθηκαν Περιστέρια σε αυτήν την κατηγορία </h2>
-    )
-  }
+  const breed = data.breeds && data.breeds[0]
 
 
 
@@ -53,8 +55,17 @@ function BreedPage({data, notFound,title}) {
     site_name: 'MyPigeon',
   }}
     />
+    <div className="my-3 d-flex flex-column align-items-center justify-content-center">
+      {breed && breed.photo && breed.photo[0] &&
+        <Image width={breed.photo[0].width} height={breed.photo[0].height} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${breed.photo[0].url}`}/>
+      }
+      {breed.description &&
+        <p>{breed.description}</p>
+      }
+    </div>
 
     <div className="inner-page margin-default">
+
       <div className="row">
         <div className="col-lg-8 col-lg-push-4 col-md-8 col-md-push-4 text-page">
           <header className="woocommerce-products-header"></header>
@@ -62,6 +73,9 @@ function BreedPage({data, notFound,title}) {
 
 
           <ul className="products columns-4">
+            {!data.pigeons[0] &&
+              <h3>Προσεχώς διαθέσιμα</h3>
+            }
             {data.pigeons.map((pigeon,i) => {
               var imagepath = pigeon.eikones[0] && pigeon.eikones[0].url
               return (
@@ -185,8 +199,11 @@ export async function getStaticProps({ params }) {
     breeds(where:{urlkey:$urlkey}){
       breed
       photo{
+        width
+        height
         url
         }
+      description
     }
 
     catbreeds:breeds(where:{breeder:{id:"2"}}){

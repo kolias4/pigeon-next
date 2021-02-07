@@ -291,12 +291,12 @@ function Header2({menu,title}){
         </li>
     </ul>
   </div>
-  <ul className="nav-left">
+  {/* <ul className="nav-left">
     <li><a href="#" target="_blank"><span className="fa fa-facebook-f" /></a></li>
     <li><a href="#" target="_blank"><span className="fa fa-twitter" /></a></li>
     <li><a href="#" target="_blank"><span className="fa fa-google-plus" /></a></li>
     <li><a href="#" target="_blank"><span className="fa fa-instagram" /></a></li>
-  </ul>
+  </ul> */}
   {/* <div className="nav-right">
     <a href="http://senorcavallo.just-themes.com/cart/" className="shop_table cart " title="View your shopping cart">
       <i className="fa fa-shopping-cart" aria-hidden="true" />
