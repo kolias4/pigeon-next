@@ -1,22 +1,22 @@
-import Head from 'next/head'
-import {useEffect,useState,useContext} from 'react'
-import {UiContext,AppContext} from '../context/context'
-
-import fetcher from '../functions/fetcher'
-import ReactMarkdown from 'react-markdown'
-import Image from 'next/image'
-import Link from 'next/link'
-import dateformat from '../functions/dateformat'
-import menuquery from '../functions/queries/menuquery'
-import MyModal from '../components/modals/mymodal'
-import RegisterForm from '../components/forms/register'
-import LoginForm from '../components/forms/login'
-import { useRouter } from 'next/router'
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 
 import { NextSeo } from 'next-seo';
+import {useEffect,useState,useContext} from 'react'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import Slider from "react-slick";
+
+import {UiContext,AppContext} from '../context/context'
+import LoginForm from '../components/forms/login'
+import MyModal from '../components/modals/mymodal'
+import RegisterForm from '../components/forms/register'
+import dateformat from '../functions/dateformat'
+import fetcher from '../functions/fetcher'
+import menuquery from '../functions/queries/menuquery'
 
 
 
@@ -1241,7 +1241,7 @@ export async function getServerSideProps() {
   var url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`
 
   var query =`
-  query {
+  query($date:String!) {
 
 
 slider:homeSlider{
@@ -1300,11 +1300,28 @@ egrafi{
   website
 }
 
+events(limit:4,where:{date_gte:$date},sort:"date:asc"){
+ title
+ description
+ image{
+   width
+   height
+   url
+ }
+ date
+}
+
 
 }
   `;
 
-  var data= await fetcher(query)
+  var now = dateformat(new Date())
+
+  var data= await fetcher(query,{
+    variables:{
+      date:now
+    }
+  })
 
 
 
