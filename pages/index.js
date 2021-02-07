@@ -9,7 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Slider from "react-slick";
-
+import {Card,Button} from 'react-bootstrap'
 import {UiContext,AppContext} from '../context/context'
 import LoginForm from '../components/forms/login'
 import MyModal from '../components/modals/mymodal'
@@ -643,7 +643,7 @@ function SamplePrevArrow(props) {
 
                                 fontWeight: 700,
                                 fontStyle: 'normal'
-                              }} className="header">Δείτε τα Events</h3>
+                              }} className="header">Επερχόμενα Events</h3>
                           </div>
                           <div className="es-resp">
                             <div className="visible-lg" style={{
@@ -665,54 +665,43 @@ function SamplePrevArrow(props) {
                       </div>
                     </div>
                   </div>
-                  <div className="vc_row wpb_row vc_row-fluid bg-pos-right-top">
-                    <div className="wpb_column vc_column_container vc_col-sm-6 vc_hidden-sm vc_hidden-xs bg-pos-center-center">
-                      <div className="vc_column-inner"><div className="wpb_wrapper"/></div>
-                    </div>
-                    <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <div className="es-resp">
-                            <div className="visible-lg" style={{
-                                height: 48
-                              }}/>
-                            <div className="visible-md" style={{
-                                height: 48
-                              }}/>
-                            <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                height: 48
-                              }}/>
-                            <div className="visible-ms" style={{
-                                height: 16
-                              }}/>
-                            <div className="visible-xs" style={{
-                                height: 16
-                              }}/></div>
-                          <div className="btn-wrap align-center">
-                            <Link href="/events">
-                            <a  className="btn  btn-xs btn-second transform-default color-text-default color-hover-default align-center mobile-center  vc_custom_1515870367023" id="like_sc_button_1401072893">Events</a>
-                            </Link>
-                          </div>
-                          <div className="es-resp">
-                            <div className="visible-lg" style={{
-                                height: 85
-                              }}/>
-                            <div className="visible-md" style={{
-                                height: 85
-                              }}/>
-                            <div className="hidden-lg hidden-md hidden-ms hidden-xs " style={{
-                                height: 80
-                              }}/>
-                            <div className="visible-ms" style={{
-                                height: 80
-                              }}/>
-                            <div className="visible-xs" style={{
-                                height: 46
-                              }}/></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="container">
+                     <div className="row">
+                     {data.events.map((event) => {
+                       return (
+
+                         <div key={event.title} className="col-md-3 my-3">
+                           <Card className="h-100" >
+
+    {event.image && <Image width={500} height={300} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${event.image.url}`} alt={event.title}/>}
+
+   <Card.Body>
+     <Card.Title>{event.title}</Card.Title>
+     <Card.Text>
+        {event.description}
+     </Card.Text>
+
+     <div className="blog-info">
+     <a className="date date-bold">{event.date}</a>
+     </div>
+
+   </Card.Body>
+  </Card>
+                         </div>
+
+                       )
+                     })}
+
+
+
+                     </div>
+                     </div>
+
+                     <div className="my-3 text-center">
+                       <Link href="/events">
+                         <a className="btn btn-primary">Events</a>
+                       </Link>
+                     </div>
                 </section><div className="vc_row-full-width vc_clearfix"/>
 <div className="vc_row-full-width vc_clearfix"/>
                 {/* <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="data-vc-parallax-image" className="vc_section vc_section-has-fill vc_general vc_parallax vc_parallax-content-moving bg-color-second testimonials-section">
