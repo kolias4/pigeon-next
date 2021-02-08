@@ -83,10 +83,13 @@ function BlogCategory({data,notFound,title}){
                       <Link href={`/blog/post/${item.urlkey}`}>
                       <a className="btn btn-xs btn-more btn-second">Περισσότερα..</a>
                     </Link>
-                      <ul>
+                      {/* <ul>
                         <li className="icon-fav">
                           <span className="fa fa-eye" /> 0
-                        </li><li className="icon-comments"><span className="fa fa-commenting" /> 0</li></ul>
+                        </li>
+                        <li className="icon-comments">
+                        <span className="fa fa-commenting" /> 0</li>
+                        </ul> */}
                     </div>
                   </div>
                 </article>

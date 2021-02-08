@@ -934,14 +934,14 @@ function SamplePrevArrow(props) {
                                            <Link href={`/blog/post/${post.urlkey}`}>
                                           <a  className="btn btn-xxs btn-second">Περισσότερα</a>
                                           </Link>
-                                          <ul>
+                                          {/* <ul>
                                             <li className="icon-fav">
                                               <span className="fa fa-eye"/>
                                               0
                                             </li>
                                             <li className="icon-comments"><span className="fa fa-commenting"/>
                                               0</li>
-                                          </ul>
+                                          </ul> */}
                                         </div>
                                       </div>
                                     </div>

@@ -119,12 +119,14 @@ function SamplePrevArrow(props) {
               } */}
             </div>
             <div className="blog-info blog-info-top">
-              <span className="date">{dateformat(article.created_at)}</span><span className="date-div color-main">|</span> <span>{article.author}</span><ul><li className="icon-fav">
+              <span className="date">{dateformat(article.created_at)}</span><span className="date-div color-main">|</span> <span>{article.author}</span>
+              {/* <ul>
+              <li className="icon-fav">
                   <span className="fa fa-eye" /> 0
                 </li>
                 <li className="icon-comments">
                   <span className="fa fa-commenting" /> 0</li>
-                </ul>
+                </ul> */}
               </div>
             <div className="description">
               <div className="text text-page">

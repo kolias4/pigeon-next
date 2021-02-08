@@ -12,7 +12,8 @@ import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
 
 
-
+import { useRouter } from 'next/router'
+import * as gtag from '../lib/gtag'
 import{ useState,useEffect } from 'react';
 
 import {UiContext,AppContext} from '../context/context'
@@ -39,6 +40,17 @@ function MyApp({ Component, pageProps }) {
   })
 
   const [user,setUser]= useState(null)
+
+  const router = useRouter()
+useEffect(() => {
+  const handleRouteChange = (url) => {
+    gtag.pageview(url)
+  }
+  router.events.on('routeChangeComplete', handleRouteChange)
+  return () => {
+    router.events.off('routeChangeComplete', handleRouteChange)
+  }
+}, [router.events])
 
   useEffect(() => {
 
