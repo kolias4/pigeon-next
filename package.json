@@ -27,6 +27,7 @@
     "react-burger-menu": "^3.0.3",
     "react-dom": "17.0.1",
     "react-markdown": "^5.0.3",
+    "react-responsive-carousel": "^3.2.12",
     "react-slick": "^0.27.13",
     "sass": "^1.32.5",
     "slick-carousel": "^1.8.1"

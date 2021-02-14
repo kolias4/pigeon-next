@@ -257,7 +257,7 @@ about:aboutUs{
   `
 
   var menu = await menuquery()
-  const data = await fetcher(nquery)
+  const data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
 
   // Pass data to the page via props

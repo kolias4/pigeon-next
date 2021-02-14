@@ -6,6 +6,6 @@ const withTM = require('next-transpile-modules')([
 
 module.exports = withTM({
   images: {
-    domains: ['api.mypigeon.gr'],
+    domains: ['api.mypigeon.gr','localhost'],
   },
 })

@@ -202,7 +202,7 @@ arthras{
 }
 `
 
-var data = await fetcher(nquery)
+var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
 
 
@@ -249,7 +249,7 @@ Eikones{
     variables:{
       urlkey:params.urlkey
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
   var menu = await menuquery()
 

@@ -40,9 +40,15 @@ function Footer() {
                 <h4 className="header-widget">Explore</h4>
                 <div className="menu-footer-menu-container">
                   <ul id="menu-footer-menu" className="menu">
-                    <li id="menu-item-2177" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2177">
+                    <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2177">
                       <Link href="/privacy-policy">
                       <a style={{color:'#c4aa4f'}}>Προσωπικά δεδομένα</a>
+                      </Link>
+                    </li>
+
+                    <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2177">
+                      <Link href="/oroi-agoras">
+                      <a style={{color:'#c4aa4f'}}>Κανονισμοί Αγορών</a>
                       </Link>
                     </li>
                     {/* <li id="menu-item-2178" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2178">

@@ -3,9 +3,11 @@
 import Image from 'next/image'
 
 import Link from 'next/link'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Carousel } from 'react-responsive-carousel'
 import fetcher from '../../functions/fetcher'
 import KolobodromioTabs from '../../components/kolobodromiotabs'
 import { NextSeo } from 'next-seo';
@@ -31,39 +33,24 @@ function KolobodromioPage({data, notFound,title}) {
     )
   }
 
-  const settings = {
-   autoplay:false,
-   dots: false,
-   infinite: true,
-   speed: 500,
-   slidesToShow: 1,
-   slidesToScroll: 1,
-   nextArrow: <SampleNextArrow />,
-   prevArrow: <SamplePrevArrow />
- };
 
-
-
-  function SampleNextArrow(props) {
-   const { className, style, onClick } = props;
+  const handleThumbs = () => {
+   if(kolobodromio.images && (kolobodromio.images.length <=1)){
+     return null
+   }
    return (
-     <div
-       className="arrow right"
-       style={{display: "block", position:"absolute", width:'20px',height:'20px',right:'10px', top:'50%', zIndex:'1000' }}
-       onClick={onClick}
-     />
-   );
- }
+     kolobodromio.images.map((item,i) => {
 
- function SamplePrevArrow(props) {
-   const { className, style, onClick } = props;
-   return (
-     <div
-       className="arrow left"
-       style={{display: "block", position:"absolute", width:'20px',height:'20px',left:'10px', top:'50%', zIndex:'1000' }}
-       onClick={onClick}
-     />
-   );
+       return (
+         <div className="p-2"  key={item.url}>
+           <Image key={`kolobodromioimage${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}  alt={`kolobodromio${i}`} objectFit="cover" width={100} height={100} />
+
+
+         </div>
+
+       )
+     })
+   )
  }
 
 
@@ -106,7 +93,7 @@ function KolobodromioPage({data, notFound,title}) {
             <div className="col-md-6">
           <div className="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 "  style={{opacity: 1, transition: 'opacity 0.25s ease-in-out 0s'}}>
 
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
               {kolobodromio.images.map((item,i) => {
                 return (
                   <div className="text-center">
@@ -114,7 +101,24 @@ function KolobodromioPage({data, notFound,title}) {
                  </div>
                 )
               })}
-            </Slider>
+            </Slider> */}
+
+            <Carousel
+                className="mycarousel"
+                renderThumbs={handleThumbs}
+                showIndicators={false}
+                showStatus={false}
+                thumbWidth={100}
+                >
+                  {kolobodromio.images.map((item,i) => {
+                    return (
+                      <div className="text-center">
+                      <Image key={`kolobodromio${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}  alt={`kolobodromio${i}`} objectFit="contain" width={600} height={600} />
+                     </div>
+                    )
+                  })}
+
+                  </Carousel>
 
 
 
@@ -192,7 +196,7 @@ query {
 }
 `
 
-var data = await fetcher(nquery)
+var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
   const paths = data.kolovodromias.map((post) => ({
     params: { urlkey: post.url_key }
@@ -232,7 +236,7 @@ telephone
     variables:{
       urlkey:params.urlkey
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
   var menu = await menuquery()
   var bodyClass="archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js"

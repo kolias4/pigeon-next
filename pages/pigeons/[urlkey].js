@@ -1,16 +1,19 @@
 // TODO buy button event
 
-import Image from 'next/image'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
-import Link from 'next/link'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import fetcher from '../../functions/fetcher'
-import PigeonTabs from '../../components/pigeontabs'
+import { Carousel } from 'react-responsive-carousel'
 import { NextSeo } from 'next-seo';
-
 import {useRouter} from 'next/router'
+import {useState,useContext} from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { AppContext, UiContext } from '../../context/context';
+import MyModal from '../../components/modals/mymodal';
+import PigeonOffer from '../../components/forms/pigeonoffer';
+import PigeonTabs from '../../components/pigeontabs'
+import fetcher from '../../functions/fetcher'
 import menuquery from '../../functions/queries/menuquery'
 
 
@@ -20,9 +23,17 @@ function PigeonPage({data, notFound,title}) {
 
   const router = useRouter()
 
+
   if (router.isFallback) {
     return <div>Loading...</div>
   }
+
+  const [reveal,setReveal] = useState(false)
+
+  const {setToaster} = useContext(UiContext)
+  const {user} = useContext(AppContext)
+
+
 
   const pigeon = data.pigeons[0]
 
@@ -32,40 +43,25 @@ function PigeonPage({data, notFound,title}) {
     )
   }
 
-  const settings = {
-   autoplay:false,
-   dots: false,
-   infinite: true,
-   speed: 500,
-   slidesToShow: 1,
-   slidesToScroll: 1,
-   nextArrow: <SampleNextArrow />,
-   prevArrow: <SamplePrevArrow />
- };
+
+ const handleThumbs = () => {
+  if(pigeon.eikones && (pigeon.eikones.length <=1)){
+    return null
+  }
+  return (
+    pigeon.eikones.map((item,i) => {
+
+      return (
+        <div className="p-2"  key={item.url}>
+          <Image key={`pigeonimage${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}  alt={pigeon.kodikos} objectFit="cover" width={100} height={100} />
 
 
+        </div>
 
-  function SampleNextArrow(props) {
-   const { className, style, onClick } = props;
-   return (
-     <div
-       className="arrow right"
-       style={{display: "block", position:"absolute", width:'20px',height:'20px',right:'10px', top:'50%', zIndex:'1000' }}
-       onClick={onClick}
-     />
-   );
- }
-
- function SamplePrevArrow(props) {
-   const { className, style, onClick } = props;
-   return (
-     <div
-       className="arrow left"
-       style={{display: "block", position:"absolute", width:'20px',height:'20px',left:'10px', top:'50%', zIndex:'1000' }}
-       onClick={onClick}
-     />
-   );
- }
+      )
+    })
+  )
+}
 
 
 
@@ -96,6 +92,28 @@ function PigeonPage({data, notFound,title}) {
   }}
     />
 
+    <MyModal contentClassName="mymodalcontent" title={`Αγορά ${pigeon.kodikos}`} reveal={reveal} setReveal={setReveal}>
+      <PigeonOffer
+      user={user}
+      onSuccess={() => {
+        setToaster({show:true,message:"Το αίτημα αγοράς καταχωρήθηκε. Ευχαριστούμε που μας επιλέξατε",success:true});
+        setReveal(false)
+      }
+    }
+
+      onFail={() => {
+        setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+
+      }
+    }
+
+      pigeon_id={pigeon.id}
+
+      />
+    </MyModal>
+
+
+
   <div className="inner-page margin-default">
 
   <div className="text-page">
@@ -106,7 +124,7 @@ function PigeonPage({data, notFound,title}) {
             <div className="col-md-6">
           <div className="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 "  style={{opacity: 1, transition: 'opacity 0.25s ease-in-out 0s'}}>
 
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
               {pigeon.eikones.map((item,i) => {
                 return (
                   <div className="text-center">
@@ -114,7 +132,24 @@ function PigeonPage({data, notFound,title}) {
                  </div>
                 )
               })}
-            </Slider>
+            </Slider> */}
+
+            <Carousel
+                className="mycarousel"
+                renderThumbs={handleThumbs}
+                showIndicators={false}
+                showStatus={false}
+                thumbWidth={100}
+                >
+                  {pigeon.eikones.map((item,i) => {
+                    return (
+                      <div className="text-center">
+                      <Image key={`pigeonimage${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}  alt={pigeon.kodikos} objectFit="contain" width={600} height={600} />
+                     </div>
+                    )
+                  })}
+
+                  </Carousel>
 
 
 
@@ -122,13 +157,10 @@ function PigeonPage({data, notFound,title}) {
           </div>
           </div>
 
-           <div className="col-md-6">
+           <div className="col-md-6  ">
           <div className="summary entry-summary">
             <h1 className="product_title entry-title">{pigeon.kodikos}</h1>
             <h5>{pigeon.name}</h5>
-            <p className="price"><span className="woocommerce-Price-amount amount">
-              <span className="woocommerce-Price-currencySymbol">€</span>{pigeon.timi}</span>
-            </p>
 
             <div className="product_meta">
               <span className="posted_in">Κατηγορία:
@@ -139,10 +171,32 @@ function PigeonPage({data, notFound,title}) {
                </span>
               {/* <span className="tagged_as">Tags: <a href="http://senorcavallo.just-themes.com/product-tag/boot/" rel="tag">boot</a>, <a href="http://senorcavallo.just-themes.com/product-tag/shoes/" rel="tag">shoes</a>, <a href="http://senorcavallo.just-themes.com/product-tag/%d1%81owboy/" rel="tag">сowboy</a></span> */}
             </div>
-            {pigeon.pros_polisi && <form className="cart">
 
-              <button type="submit" name="add-to-cart" value={2252} className="single_add_to_cart_button button alt btn btn-second color-hover-main color-hover-second">Add to cart</button>
-            </form>}
+            <p className="price my-3">
+              <span className="woocommerce-Price-amount amount">
+                <span className="text-dark">Τιμή: </span>
+              <span className="woocommerce-Price-currencySymbol">€</span>{pigeon.timi}
+            </span>
+            </p>
+
+            {pigeon.pros_polisi && <div style={{fontSize:'1.5rem'}} className="offercount my-3">
+            <span className="font-weight-bold">Καταχωρημένες αιτήσεις: {pigeon.pigeonoffers.length}</span>
+
+            </div>}
+
+            {pigeon.sold_out && <div>
+              <h3 className="text-danger">Πουλήθηκε</h3>
+            </div>
+
+            }
+
+
+            {pigeon.pros_polisi && <div className="cart">
+
+              <button onClick={()=> setReveal(true)} type="button" name="add-to-cart" className=" btn btn-second color-hover-main">
+               Αίτηση Αγοράς
+              </button>
+            </div>}
           </div>
           </div>
 
@@ -179,7 +233,7 @@ query {
 }
 `
 
-var data = await fetcher(nquery)
+var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
   const paths = data.pigeons.map((post) => ({
     params: { urlkey: post.urlkey }
@@ -194,6 +248,7 @@ export async function getStaticProps({ params }) {
   query($urlkey:String!) {
 
     pigeons(where:{urlkey:$urlkey}){
+
   kodikos
   timi
   eikones{
@@ -215,8 +270,16 @@ export async function getStaticProps({ params }) {
   }
   perigrafi
   pros_polisi
+  sold_out
   name
   id
+
+  pigeonoffers{
+    id
+
+  }
+
+
 }
 
 
@@ -228,7 +291,7 @@ export async function getStaticProps({ params }) {
     variables:{
       urlkey:params.urlkey
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
   var menu = await menuquery()
   var bodyClass="archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js"

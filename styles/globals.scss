@@ -190,3 +190,51 @@ textarea[isinvalid]{
 
 
 //MEnu style mobile
+
+
+// responsive carousel custom start
+
+.carousel-root.mycarousel{
+  .slide{
+    display: flex;
+    background: inherit;
+    align-items: center;
+    justify-content: center;
+  }
+  .thumbs-wrapper {
+    .control-arrow{
+      background: rgba(0,0,0,0.3);
+      height: 100%;
+      top:0px;
+      padding: 0;
+    }
+
+    .thumb.selected{
+    backface-visibility: hidden;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25), rgba(64, 64, 64, 0.7));
+    border: 1px solid #ddd;
+
+
+    }
+
+    .thumb{
+      border: none;
+      transition-duration: 0s;
+    }
+
+  }
+
+  .carousel-slider{
+    &:hover{
+      .control-arrow{
+        // display: none;
+        background: rgba(0,0,0,0.6);
+      }
+
+    }
+  }
+}
+
+
+
+// responsive carousel custom end

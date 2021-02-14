@@ -1310,7 +1310,7 @@ events(limit:4,where:{date_gte:$date},sort:"date:asc"){
     variables:{
       date:now
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
 
 

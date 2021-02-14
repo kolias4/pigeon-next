@@ -34,7 +34,7 @@ kyklois{
 }
    `
 
-   const menu = await fetcher(query)
+   const menu = await fetcher(query,{},process.env.STRAPI_ADMIN_TOKEN)
 
    return menu
 

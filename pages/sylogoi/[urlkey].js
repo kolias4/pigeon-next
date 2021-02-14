@@ -152,7 +152,7 @@ query {
 }
 `
 
-var data = await fetcher(nquery)
+var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
   const paths = data.sylogois.map((post) => ({
     params: { urlkey: post.urlkey }
@@ -183,7 +183,7 @@ export async function getStaticProps({ params }) {
     variables:{
       urlkey:params.urlkey
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
   var menu = await menuquery()
   var bodyClass="archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js"

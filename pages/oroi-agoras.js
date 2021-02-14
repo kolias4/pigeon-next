@@ -7,7 +7,7 @@ import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
 
 
-function Privacy({data,title}){
+function BuyTerms({data,title}){
 
   const router = useRouter()
 
@@ -37,7 +37,7 @@ function Privacy({data,title}){
     <div className="row">
       <div className=" col-md-12 text-page">
       <ReactMarkdown>
-      {data.oroiXrisi.terms}
+      {data.kanonismosAgora.kanonismos_agoras}
       </ReactMarkdown>
 
       </div>
@@ -50,7 +50,7 @@ function Privacy({data,title}){
 
 }
 
-export default Privacy
+export default BuyTerms
 
 export async function getStaticProps() {
   // Fetch data from external API
@@ -59,12 +59,11 @@ export async function getStaticProps() {
 
   var nquery = `
   query {
-    oroiXrisi{
-      terms
+    kanonismosAgora{
+      kanonismos_agoras
 
     }
-
-}
+  }
   `
 
   var menu = await menuquery()
@@ -72,5 +71,5 @@ export async function getStaticProps() {
 
 
   // Pass data to the page via props
-  return { props: { data,title:"Προσωπικά Δεδομένα",menu } }
+  return { props: { data,title:"Κανονισμοί αγοράς",menu } }
 }

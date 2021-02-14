@@ -130,7 +130,7 @@ categoryArthras{
 }
 `
 
-var data = await fetcher(nquery)
+var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
 
 
@@ -157,7 +157,7 @@ export async function getStaticProps({ params }) {
 articles:categoryArthras(where:{url_key:$urlkey}){
   title
 
-arthras{
+arthras(sort:"created_at:desc"){
   Title
   urlkey
   Eikones{
@@ -177,7 +177,7 @@ arthras{
     variables:{
       urlkey:params.urlkey
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
   var menu = await menuquery()
 

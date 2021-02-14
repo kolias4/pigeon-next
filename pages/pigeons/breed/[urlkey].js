@@ -177,7 +177,7 @@ query {
 }
 `
 
-var data = await fetcher(nquery)
+var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
 
 
@@ -231,7 +231,7 @@ export async function getStaticProps({ params }) {
     variables:{
       urlkey:params.urlkey
     }
-  })
+  },process.env.STRAPI_ADMIN_TOKEN)
 
   var menu = await menuquery()
   var bodyClass="archive post-type-archive post-type-archive-product woocommerce woocommerce-page woocommerce-js"
