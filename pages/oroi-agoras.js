@@ -71,5 +71,5 @@ export async function getStaticProps() {
 
 
   // Pass data to the page via props
-  return { props: { data,title:"Κανονισμοί αγοράς",menu } }
+  return { props: { data,title:"Κανονισμοί αγοράς",menu },revalidate:30 }
 }

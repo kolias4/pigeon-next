@@ -261,5 +261,5 @@ about:aboutUs{
 
 
   // Pass data to the page via props
-  return { props: { data,title:"Σχετικά με εμάς",menu } }
+  return { props: { data,title:"Σχετικά με εμάς",menu },revalidate:30 }
 }

@@ -142,5 +142,5 @@ var menu = await menuquery()
 
 
   // Pass data to the page via props
-  return { props: { title:"Επικοινωνία",menu } }
+  return { props: { title:"Επικοινωνία",menu },revalidate:30 }
 }

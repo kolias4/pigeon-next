@@ -99,6 +99,12 @@ function BreedPage({data, notFound,title}) {
 
 
                       </div>
+                      {pigeon.sold_out &&
+                        <div className="text-center text-danger">
+                          <h2>Πουλήθηκε</h2>
+                        </div>
+                      }
+
                     </div>
                     <span className="price">
                       <span className="woocommerce-Price-amount amount">
@@ -107,6 +113,7 @@ function BreedPage({data, notFound,title}) {
                     <Link href={`/pigeons/${pigeon.urlkey}`}>
                     <a className=" btn btn-second color-hover-main" >Δείτε το</a>
                   </Link>
+
                   </div>
                 </li>
 
@@ -212,10 +219,14 @@ export async function getStaticProps({ params }) {
 
 }
 
-  pigeons(where:{breed:{urlkey:$urlkey}}){
+  pigeons(where:{breed:{urlkey:$urlkey}},sort:"sold_out:asc"){
 
     kodikos
     name
+    sold_out
+    pigeonoffers{
+     id
+   }
     eikones{
       url
     }

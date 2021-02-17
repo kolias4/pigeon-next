@@ -463,7 +463,13 @@ function SamplePrevArrow(props) {
                                         </p>
 
                                       </div>
+                                      {pigeon.sold_out &&
+                                        <div className="text-center text-danger">
+                                          <h2>Πουλήθηκε</h2>
+                                        </div>
+                                      }
                                     </div>
+
                                     <span className="price">
                                       <span className="woocommerce-Price-amount amount">
                                         <span className="woocommerce-Price-currencySymbol">€</span>{pigeon.timi}</span>
@@ -1224,7 +1230,7 @@ function SamplePrevArrow(props) {
 
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
   // var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-slider`
   var url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`
@@ -1239,11 +1245,12 @@ slider:homeSlider{
   }
 }
 
-pigeons(where:{proteinomeno:true}){
+pigeons(where:{proteinomeno:true},sort:"sold_out:asc"){
   proteinomeno
   kodikos
   timi
   name
+  sold_out
   urlkey
   eikones{
     url
@@ -1320,5 +1327,5 @@ events(limit:4,where:{date_gte:$date},sort:"date:asc"){
   // const data = await res.json()
 
   // Pass data to the page via props
-  return { props: {data,menu} }
+  return { props:{data,menu},revalidate:30 }
 }

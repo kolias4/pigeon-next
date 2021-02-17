@@ -34,19 +34,19 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="col-md-4 col-sm-6 col-ms-12 hidden-xs hidden-ms hidden-sm matchHeight clearfix">
+          <div className="col-md-4 col-sm-6 col-ms-12 matchHeight clearfix">
             <div className="footer-widget-area">
               <div id="nav_menu-2" className="widget widget_nav_menu">
                 <h4 className="header-widget">Explore</h4>
                 <div className="menu-footer-menu-container">
                   <ul id="menu-footer-menu" className="menu">
-                    <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2177">
+                    <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item text-left">
                       <Link href="/privacy-policy">
                       <a style={{color:'#c4aa4f'}}>Προσωπικά δεδομένα</a>
                       </Link>
                     </li>
 
-                    <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2093 current_page_item menu-item-2177">
+                    <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item text-left">
                       <Link href="/oroi-agoras">
                       <a style={{color:'#c4aa4f'}}>Κανονισμοί Αγορών</a>
                       </Link>
