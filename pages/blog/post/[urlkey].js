@@ -154,6 +154,28 @@ function SamplePrevArrow(props) {
              </div>
             </div>
           </article>
+
+          {article.Youtubevideo && <div className="videoblock mx-auto my-3" style={{maxWidth:'800px'}}>
+
+              <iframe rel="0" width="100%" height="100%" src={`https://www.youtube.com/embed/${article.Youtubevideo}`}/>
+
+
+
+          </div>}
+
+          {article.Video && <div className="mx-auto my-3" style={{maxWidth:'800px'}}>
+
+               <video controls width="100%">
+
+
+
+<source src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.Video.url}`} type={article.Video.mime}/>
+
+     Sorry, your browser doesn't support embedded videos.
+        </video>
+
+
+          </div>}
           {/* <div id="comments" className="comments-area">
             <div className="comments-form-wrap">
               <a className="anchor" id="comments-form" />
@@ -231,6 +253,7 @@ author
 Youtubevideo
 Video{
   url
+  mime
 }
 category_arthras{
   title

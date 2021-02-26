@@ -244,9 +244,22 @@ textarea[isinvalid]{
   position: fixed;
   bottom: 0px;
   padding-right: 20px;
-  
+
   z-index: 100;
   background: black;
   color: white;
 
+}
+
+.videoblock {
+position: relative;
+padding-bottom: 56.25%; /* 16:9 */
+height: 0;
+}
+.videoblock iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 }
