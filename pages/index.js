@@ -149,6 +149,15 @@ function SamplePrevArrow(props) {
 
 },[activeslide]);
 
+const showwinner = () => {
+  var name = data.winner && data.winner.name || ""
+  var email = data.winner && data.winner.email || ""
+  alert(`
+    Όνομα: ${name}
+    Email: ${email}
+  `)
+}
+
 
   return (
     <div >
@@ -264,6 +273,9 @@ function SamplePrevArrow(props) {
                       <div className="visible-xs" style={{
                           height: 280
                         }}/></div>
+                        {data.winner && <div className="winnercointainer text-center">
+                          <button onClick={() => showwinner()}   className="btn btn-second color-hover-main">Δείτε τον νικητή της κλήρωσης</button>
+                        </div>}
                     <div className="heading  inline align-center color-main subcolor-white transform-default   vc_custom_1516288099100" id="like_sc_header_1212805265" style={{
 
                         fontWeight: 700,
@@ -1305,6 +1317,11 @@ events(limit:4,where:{date_gte:$date},sort:"date:asc"){
    url
  }
  date
+}
+
+winner{
+  email
+  name
 }
 
 
