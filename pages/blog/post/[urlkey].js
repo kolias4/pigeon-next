@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import dateformat from '../../../functions/dateformat'
+import dateformat from '../../../functions/date/dateformat'
 import fetcher from '../../../functions/fetcher'
 import { useRouter } from 'next/router'
 import Link from 'next/link'

@@ -14,7 +14,7 @@ import {UiContext,AppContext} from '../context/context'
 import LoginForm from '../components/forms/login'
 import MyModal from '../components/modals/mymodal'
 import RegisterForm from '../components/forms/register'
-import dateformat from '../functions/dateformat'
+import dateformat from '../functions/date/dateformat'
 import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
 
