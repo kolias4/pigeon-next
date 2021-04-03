@@ -7,6 +7,12 @@ import fetcher from '../../functions/fetcher'
 import menuquery from '../../functions/queries/menuquery'
 import { Card } from 'react-bootstrap';
 import useNow from '../../hooks/useNow';
+import isDateBetween from '../../functions/date/isDateBetween';
+import dateFormatFull from '../../functions/date/dateFormatFull';
+import ActiveStatus from '../../components/ActiveStatus'
+import dateShow from '../../functions/date/dateShow';
+import Link from 'next/link'
+
 // import { socket } from '../lib/socket';
 // import { useEffect } from 'react';
 
@@ -62,34 +68,63 @@ function AuctionPage({data,title}){
   <div className="margin-top">
 
    <div className="row">
-       <div className="col-md-3">
-       <Card>
-  <Card.Header >Featured</Card.Header>
-  <Card.Body>
-    <Card.Title>Special title treatment</Card.Title>
-    <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
-    </Card.Text>
-    <a className=" btn btn-second color-hover-main" >Δείτε το</a>
-  </Card.Body>
-</Card>
-       </div>
-       <div className="col-md-3">
-       <Card>
+
+   {data.bids.map((bid,i) => (
+    <div key={bid.title} className="col-md-3 my-3">
+   
+       <Card className="h-100">
   <Card.Header>
-      <h3 className="my-0">sdds</h3>
+      <span className="my-0 font-weight-bold">Δημοπρασία {bid.id}</span>
   </Card.Header>
-  <Card.Body>
-  <span style={{width:'25px',height:'25px',backgroundColor:'#28a745'}} className="border border-success rounded-circle d-inline-block"></span>
-   <span style={{height:'25px'}} className="d-inline-block ml-2 ">Σε εξέλιξη</span>
-    <Card.Title>Special title treatment</Card.Title>
+  <div className="imagecontainer">
+    {bid.image ?
+     <Image width={300} height={300} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${bid.image.url}`} objectFit="cover"/>
+
+     : null}
+
+  </div>
+  <Card.Body className="d-flex flex-column">
+    <div className="d-flex align-items-center my-1">
+
+    <ActiveStatus isactive={isDateBetween(now,dateFormatFull(bid.start),dateFormatFull(bid.end))}>
+
+    </ActiveStatus>
+
+    </div>
+    <div className="my-1 d-flex flex-column">
+    <div className="start">
+    <span className="font-weight-bold">Αρχή :</span>
+    <span>{dateShow(bid.start)}</span>
+    </div>
+
+    <div className="end">
+    <span className="font-weight-bold">Τέλος :</span>
+    <span>{dateShow(bid.end)}</span>
+    </div>
+
+     
+
+    </div>
+
+    
+
+    <Card.Title className="font-weight-bold">{bid.title}</Card.Title>
     <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
+      {bid.description}
     </Card.Text>
-    <a className=" btn btn-second color-hover-main" >Δείτε το</a>
+    <div className="mt-auto">
+     <Link href={`/auctions/${bid.id}`}>
+    <a className=" btn btn-second color-hover-main mt-auto" >Συμμετοχή</a>
+    </Link>
+    </div>
+
   </Card.Body>
 </Card>
            </div>
+
+   ))}
+
+
    </div>
 
 
@@ -117,13 +152,10 @@ export async function getStaticProps() {
       end
       startprice
       description
-      pigeons{
-        kodikos
-        name
-        eikones{
-          url
-        }
+      image{
+        url
       }
+
     
     }
     }
