@@ -59,6 +59,10 @@ textarea[isinvalid]{
   background-color: #F8F5EC;
 }
 
+.modal-dialog.bidpigeonmodal{
+  max-width: 800px;
+}
+
 .hoverable{
   cursor: pointer;
 }

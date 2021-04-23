@@ -70,7 +70,7 @@ function AuctionPage({data,title}){
    <div className="row">
 
    {data.bids.map((bid,i) => (
-    <div key={bid.title} className="col-md-3 my-3">
+    <div key={bid.title} className="col-lg-3 col-md-4  my-3">
    
        <Card className="h-100">
   <Card.Header>
@@ -78,7 +78,7 @@ function AuctionPage({data,title}){
   </Card.Header>
   <div className="imagecontainer">
     {bid.image ?
-     <Image width={300} height={300} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${bid.image.url}`} objectFit="cover"/>
+     <Image width={800} height={800} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${bid.image.url}`} objectFit="cover"/>
 
      : null}
 
@@ -93,12 +93,12 @@ function AuctionPage({data,title}){
     </div>
     <div className="my-1 d-flex flex-column">
     <div className="start">
-    <span className="font-weight-bold">Αρχή :</span>
+    <span className="font-weight-bold">Έναρξη :</span>
     <span>{dateShow(bid.start)}</span>
     </div>
 
     <div className="end">
-    <span className="font-weight-bold">Τέλος :</span>
+    <span className="font-weight-bold">Λήξη :</span>
     <span>{dateShow(bid.end)}</span>
     </div>
 
