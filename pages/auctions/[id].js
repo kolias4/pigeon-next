@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap"
 import fetcher from "../../functions/fetcher"
 import menuquery from "../../functions/queries/menuquery"
 import Image from 'next/image'
-import { useState,useEffect } from "react"
+import { useState,useEffect, useContext } from "react"
 import MyModal from "../../components/modals/mymodal"
 import PigeonBid from "../../components/pigeonview/pigeonbid"
 import useNow from "../../hooks/useNow"
@@ -15,6 +15,7 @@ import dateShow from "../../functions/date/dateShow"
 import jfetcher from "../../functions/jfetcher"
 import BidTimer from "../../components/bidtimer"
 import PigeonBidPlace from "../../components/forms/PigeonBidPlace"
+import { AppContext } from "../../context/context"
 
 
 
@@ -24,6 +25,8 @@ import PigeonBidPlace from "../../components/forms/PigeonBidPlace"
 const BidOfferPage = ({data,title}) => {
 
     const router = useRouter()
+
+     const {user,setUser} = useContext(AppContext)
 
     const [revealmodal,setRevealModal] = useState(false)
 

@@ -40,6 +40,11 @@ const PigeonBidPlace = ({startprice,bidOffers}) => {
         <span onClick={()=> handlePriceChange(price+10)} style={{fontSize:'1.3rem'}} className="fa fa-plus hoverable mx-2"></span>
 
         </div>
+        <div>
+            <span className="btn btn-second color-hover-main mt-auto">
+                Αποστολή <span className="fa fa-gavel"></span>
+            </span>
+        </div>
         <style jsx>{`
         .currencycontainer{
             max-width:100px;
