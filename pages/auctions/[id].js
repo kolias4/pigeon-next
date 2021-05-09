@@ -34,6 +34,10 @@ const BidOfferPage = ({data,title}) => {
 
     const router = useRouter()
 
+    if (router.isFallback) {
+      return <div>Loading...</div>
+    }
+
     const {user,setUser} = useContext(AppContext)
 
     const [revealmodal,setRevealModal] = useState(false)
@@ -133,9 +137,7 @@ const BidOfferPage = ({data,title}) => {
 
   },[socketDelete])
 
-    if (router.isFallback) {
-        return <div>Loading...</div>
-      }
+  
 
 
     return (
