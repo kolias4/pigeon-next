@@ -10,6 +10,7 @@ import '../styles/globals.scss'
 import '@fullcalendar/common/main.css'
 import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
+// import "animate.css"
 
 
 import { useRouter } from 'next/router'
@@ -62,6 +63,7 @@ me{
   username
   email
   id
+  phone
   
 }
 }

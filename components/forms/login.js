@@ -42,6 +42,7 @@ login(input:{identifier:$email,password:$password}){
     username
     email
     id
+    phone
   }
 }
 }

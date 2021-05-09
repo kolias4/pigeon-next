@@ -3,11 +3,13 @@ import {memo} from 'react'
 
 
 function timerPropsAreEqual(prevProps, nextProps){
+  // console.log(prevProps.now === nextProps.now ,"now" )
+  // console.log(prevProps.event,nextProps.event,"time")
 return prevProps.now === nextProps.now
-  && prevProps.event === nextProps.event
+  && JSON.stringify(prevProps.event) === JSON.stringify(nextProps.event)
 }
 
-const BidTimer = ({now,event}) => {
+const BidTimer = ({now,event,onComplete}) => {
 
   if(!now || !event ){
     return null
@@ -24,9 +26,10 @@ const BidTimer = ({now,event}) => {
     return null;
   } else {
     // Render a countdown
+    let danger = days == 0 && hours == 0 && minutes == 0 && seconds <=60
     return(
        
-         <div className="d-flex align-items-center flex-wrap ">
+         <div className={`d-flex align-items-center flex-wrap ${danger? 'text-danger':''}`}>
           <span className="font-weight-bold">Απομένουν :</span>
          
           <span className="font-weight-bold mx-1">{days} Ημέρες,</span>
@@ -46,6 +49,7 @@ const BidTimer = ({now,event}) => {
     <Countdown
    date={Date.now() + (new Date(event.end).getTime() - new Date(now).getTime())}
    renderer={renderer}
+   onComplete={() => onComplete()}
    
  />
 

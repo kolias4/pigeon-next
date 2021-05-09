@@ -1,15 +1,18 @@
 import { useEffect,useState } from "react"
 import { Form } from "react-bootstrap"
 import bidMinBet from "../../functions/bidMinBet"
+import fetcher from "../../functions/fetcher"
 
 
 
 
-const PigeonBidPlace = ({startprice,bidOffers}) => {
+const PigeonBidPlace = ({startprice,bidOffers,bidId,setToaster}) => {
 
     const [minprice,setminprice] = useState(0)
 
     const [price,setprice] = useState(0)
+
+    const [disablebutton,setDisableButton]=useState(false)
     
 
     useEffect(()=>{
@@ -27,6 +30,47 @@ const PigeonBidPlace = ({startprice,bidOffers}) => {
         }
     }
 
+    const handlePlaceBid = () => {
+        var token = localStorage.getItem("usertoken")
+        if(token){
+            token = JSON.parse(token)
+            // console.log(token)
+        }
+        else{
+            alert("Not logged in")
+            return;
+        }
+        setDisableButton(true)
+       let query = `
+       mutation($bid:ID!,$price:Int!){
+        createBidOffer(input:{data:{bid:$bid,price:$price}}){
+          bidOffer{
+            id
+            price
+          }
+        }
+      }
+       `
+       fetcher(query,{
+        variables:{
+          bid:bidId,
+          price:price
+        }
+      },token).then(res => {
+          console.log(res)
+        setDisableButton(false)
+
+      })
+      .catch(err => {
+          console.log(err)
+        setDisableButton(false)
+
+       setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+
+      })
+
+    }
+
     return (
         <>
         <div className="d-flex align-items-center">
@@ -40,10 +84,10 @@ const PigeonBidPlace = ({startprice,bidOffers}) => {
         <span onClick={()=> handlePriceChange(price+10)} style={{fontSize:'1.3rem'}} className="fa fa-plus hoverable mx-2"></span>
 
         </div>
-        <div>
-            <span className="btn btn-second color-hover-main mt-auto">
-                Αποστολή <span className="fa fa-gavel"></span>
-            </span>
+        <div className="mt-3">
+            <button disabled={disablebutton} onClick={()=> handlePlaceBid() } className="btn btn-second color-hover-main mt-auto">
+                Χτύπημα <span className="fa fa-gavel"></span>
+            </button>
         </div>
         <style jsx>{`
         .currencycontainer{

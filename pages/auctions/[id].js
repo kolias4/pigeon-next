@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap"
 import fetcher from "../../functions/fetcher"
 import menuquery from "../../functions/queries/menuquery"
 import Image from 'next/image'
-import { useState,useEffect, useContext } from "react"
+import { useState,useEffect, useContext, useRef } from "react"
 import MyModal from "../../components/modals/mymodal"
 import PigeonBid from "../../components/pigeonview/pigeonbid"
 import useNow from "../../hooks/useNow"
@@ -13,9 +13,17 @@ import dateFormatFull from "../../functions/date/dateFormatFull"
 import ActiveStatus from "../../components/ActiveStatus"
 import dateShow from "../../functions/date/dateShow"
 import jfetcher from "../../functions/jfetcher"
-import BidTimer from "../../components/bidtimer"
+import BidTimer from "../../components/bids/bidtimer"
 import PigeonBidPlace from "../../components/forms/PigeonBidPlace"
-import { AppContext } from "../../context/context"
+import { AppContext, UiContext } from "../../context/context"
+import { socket } from '../../lib/socket'
+import BidUsers from "../../components/bids/BidUsers"
+import SetPhone from "../../components/bids/SetPhone"
+import LoginForm from "../../components/forms/login"
+import RegisterForm from "../../components/forms/register"
+
+
+
 
 
 
@@ -26,17 +34,30 @@ const BidOfferPage = ({data,title}) => {
 
     const router = useRouter()
 
-     const {user,setUser} = useContext(AppContext)
+    const {user,setUser} = useContext(AppContext)
 
     const [revealmodal,setRevealModal] = useState(false)
 
+    const [modalstate,setModalState] = useState('register')
+
+    const [revealRmodal,setRevealRmodal] = useState(false)
+  
+    const {setToaster} = useContext(UiContext)
+
     const [viewdpigeon,setViewdPigeon] = useState(null)
 
-    var now = useNow()
+    
 
     const [bidEnd,setBidEnd] = useState(data.bid.end)
+    var now = useNow(bidEnd)
+
+    const [isActive,setIsActive] = useState(isDateBetween(now,dateFormatFull(data.bid.start),dateFormatFull(bidEnd)))
 
     const [bidOffers,setBidOffers] = useState([])
+
+    const [socketOffer,setSocketOffer] = useState({})
+
+    const [socketDelete,setSocketDelete] = useState({})
 
     const handlePigeonView = (id) => {
 
@@ -46,11 +67,71 @@ const BidOfferPage = ({data,title}) => {
 
     }
 
+    // const handleSocketBid = (data) => {
+
+    //   let n_bidOffers = bidOffers.filter(bidOffer => bidOffer.id != data.id).concat(data)
+
+    //   console.log(data,"data")
+    //   setBidOffers(n_bidOffers)
+      
+
+    // }
+
     useEffect(() => {
       jfetcher({url:`/api/getbids`,method:'POST',body:{id:data.bid.id}})
       .then(res => setBidOffers(res))
 
     },[])
+
+      useEffect(() => {
+        
+    socket.connect();
+    socket.on(`bid${data.bid.id}`, (data) => {
+      setSocketOffer(data)
+    });
+    socket.on(`bid${data.bid.id}delete`, (data) => {
+      setSocketDelete(data)
+    });
+
+    socket.on(`bid${data.bid.id}timeupdate`, (data) => {
+      setBidEnd(data)
+    });
+
+  return () => {
+    socket.removeAllListeners(`bid${data.bid.id}`);
+    socket.disconnect();
+  }
+
+  },[])
+
+  useEffect(()=>{
+    
+    
+    // if(!socketload.current){
+    //   socketload.current = true
+    //   return;
+    // }
+    if(!socketOffer.id){
+      return;
+    }
+
+       let n_bidOffers = bidOffers.filter(bidOffer => bidOffer.id != socketOffer.id).concat(socketOffer)
+
+      // console.log(data,"data")
+      setBidOffers(n_bidOffers)
+
+  },[socketOffer])
+
+  useEffect(()=> {
+    if(!socketDelete.id){
+      return;
+    }
+    let n_bidOffers = bidOffers.filter(bidOffer => bidOffer.id != socketDelete.id)
+    setBidOffers(n_bidOffers)
+
+
+
+  },[socketDelete])
 
     if (router.isFallback) {
         return <div>Loading...</div>
@@ -65,6 +146,44 @@ const BidOfferPage = ({data,title}) => {
          <PigeonBid pigeon={viewdpigeon}/>
 
       </MyModal>
+
+      <MyModal contentClassName="mymodalcontent" title={modalstate === "register"? "ΕΓΓΡΑΦΗ ΝΕΟΥ ΧΡΗΣΤΗ":"ΕΙΣΟΔΟΣ ΧΡΗΣΤΗ"} reveal={revealRmodal} setReveal={setRevealRmodal}>
+
+   {modalstate === "register"? <RegisterForm onSuccess={() => {
+     setToaster({show:true,message:"Η ΕΓΓΡΑΦΗ ΟΛΟΚΛΗΡΩΘΗΚΕ",success:true});
+     setRevealRmodal(false)
+   }
+ }
+    onFail={() => {
+      setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+      setRevealRmodal(false)
+
+    }
+      }
+      setUser={setUser}
+    /> :
+    <LoginForm
+      onSuccess={() => {
+        setToaster({show:true,message:"ΕΙΣΟΔΟΣ ΕΠΙΤΥΧΗΣ",success:true});
+        setRevealRmodal(false)
+      }
+
+    }
+
+    onFail={() => {
+      setToaster({show:true,message:"ΚΑΤΙ ΠΗΓΕ ΛΑΘΟΣ",fail:true});
+      setRevealRmodal(false)
+
+    }
+      }
+
+      setUser={setUser}
+
+
+
+    />
+  }
+ </MyModal>
 
       <NextSeo title={`${title} | MyPigeon`}
         canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
@@ -141,7 +260,7 @@ const BidOfferPage = ({data,title}) => {
 
             <div className="d-flex align-items-center">
               
-              <ActiveStatus isactive={isDateBetween(now,dateFormatFull(data.bid.start),dateFormatFull(bidEnd))}/>
+              <ActiveStatus isactive={isActive}/>
               
 
             </div>
@@ -170,11 +289,17 @@ const BidOfferPage = ({data,title}) => {
 
     <div className="timer my-2">
 
-    <BidTimer now={now} event={{end:bidEnd}}/>
+    <BidTimer onComplete={() => setIsActive(false)} now={now} event={{end:bidEnd}}/>
       
     </div>
 
             </div>
+
+          </div>
+
+          <div className="bidsuserscontainer my-2 p-2  border">
+          <h5 className="text-center">TOP 5 ΠΡΟΣΦΟΡΕΣ </h5>
+          <BidUsers bidOffers={bidOffers}/>
 
           </div>
         
@@ -182,7 +307,20 @@ const BidOfferPage = ({data,title}) => {
       </div>
 
       <div className="my-5">
-      <PigeonBidPlace startprice={data.bid.startprice} bidOffers={bidOffers} />
+      {
+        isActive? user? user.phone?
+      <PigeonBidPlace setToaster={setToaster} bidId={data.bid.id} startprice={data.bid.startprice} bidOffers={bidOffers} />
+        :
+         <SetPhone setUser={setUser}/>
+        :
+        <p>
+        Πρέπει να <a onClick={() => {setModalState('login');setRevealRmodal(true);}} className="hoverable">ΣΥΝΔΕΘΕΙΤΕ</a> για να συμμετάσχετε στη Δημοπρασία
+        <br />
+        Δέν έχετε λογαριασμό; <a onClick={() => {setModalState('register');setRevealRmodal(true);}} className="hoverable">ΕΓΓΡΑΦΗ</a>
+        </p>
+        :
+        null
+      }
       
       </div>
 

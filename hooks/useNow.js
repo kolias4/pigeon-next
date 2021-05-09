@@ -3,7 +3,7 @@ import jfetcher from "../functions/jfetcher"
 
 
 
-const useNow = ()=> {
+const useNow = (props)=> {
 
     const [now,setNow]=useState(null)
 
@@ -15,7 +15,7 @@ const useNow = ()=> {
         })
 
 
-    },[])
+    },[props])
 
 
    return now
