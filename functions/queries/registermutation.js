@@ -1,15 +1,16 @@
 import fetcher from '../fetcher'
 
-const registermutation= async (username,email,password) => {
+const registermutation= async (username,email,password,phone) => {
 
    var query = `
-   mutation($username:String!, $email:String!, $password:String!) {
-     register(input:{username:$username,email:$email,password:$password}){
+   mutation($username:String!, $email:String!, $password:String!, $phone: String) {
+     register(input:{username:$username,email:$email,password:$password,phone:$phone}){
    jwt
    user{
      username
      email
      id
+     phone
    }
 
  }
@@ -20,7 +21,8 @@ const registermutation= async (username,email,password) => {
       variables:{
         username:username,
         email:email,
-        password:password
+        password:password,
+        phone:phone
       }
     })
 

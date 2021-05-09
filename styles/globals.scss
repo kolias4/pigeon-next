@@ -20,6 +20,8 @@
 @import "bootstrap/scss/utilities/flex";
 @import "bootstrap/scss/utilities/text";
 @import "bootstrap/scss/utilities/sizing";
+@import "bootstrap/scss/utilities/borders";
+
 
 
 
@@ -55,6 +57,10 @@ textarea[isinvalid]{
 
 .mymodalcontent {
   background-color: #F8F5EC;
+}
+
+.modal-dialog.bidpigeonmodal{
+  max-width: 800px;
 }
 
 .hoverable{

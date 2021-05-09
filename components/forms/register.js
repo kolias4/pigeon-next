@@ -36,12 +36,13 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
       firstName: '',
       email: '',
       password:'',
+      phone:'',
       terms:false
     },
     validate,
     onSubmit: values => {
       console.log(values)
-      registermutation(values.firstName,values.email,values.password).then(res => {
+      registermutation(values.firstName,values.email,values.password,values.phone).then(res => {
         console.log(res,"res register")
         localStorage.setItem("usertoken",JSON.stringify(res.register.jwt))
         setUser(res.register.user)
@@ -109,7 +110,25 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
                              </Form.Control.Feedback>
                       </Form.Group>
 
-                      <Form.Group >
+                     
+
+                      <Form.Group controlId="phone">
+                           <Form.Label>Τηλέφωνο</Form.Label>
+                           <Form.Control
+                             type="text"
+
+                             name="phone"
+                             value={formik.values.phone}
+                             onChange={formik.handleChange}
+                             onBlur={formik.handleBlur}
+                             isInValid={formik.touched.phone && formik.errors.phone}
+                           />
+                           <Form.Control.Feedback  type="invalid">
+                               {formik.touched.phone && formik.errors.phone}
+                             </Form.Control.Feedback>
+                      </Form.Group>
+
+                      
            <Form.Check
              className={`d-flex ${formik.touched.terms && formik.errors.terms?'text-danger':''}`}
              required
@@ -120,7 +139,7 @@ const RegisterForm = ({onFail,onSuccess,setUser}) => {
              checked={formik.values.terms}
              id="validationFormik0"
            />
-         </Form.Group>
+         
 
            <button className="btn " type="submit">Υποβολή</button>
 

@@ -5,11 +5,34 @@ import ReactMarkdown from 'react-markdown'
 
 import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
+// import { socket } from '../lib/socket';
+// import { useEffect } from 'react';
+
+
 
 
 function About({data,title}){
 
   const router = useRouter()
+
+  // useEffect(() => {
+  //   socket.connect();
+  //   socket.on('bid2', (data) => {
+  //     console.log("Welcome event inside JoinRoom", data);
+  //     console.log("socket")
+      
+  // });
+
+  // return () => {
+  //   socket.removeAllListeners("bid2");
+  //   socket.disconnect();
+  // }
+
+  
+
+  // },[])
+
+
 
   return (
     <div className="container">

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import dateformat from '../../../functions/dateformat'
+import dateformat from '../../../functions/date/dateformat'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import fetcher from '../../../functions/fetcher'

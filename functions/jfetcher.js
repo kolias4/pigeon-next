@@ -4,7 +4,7 @@ const jfetcher = async ({url,method,token,body}) => {
 
     var res = await fetch(url,{
 
-          method:method,
+          method:method || "GET",
           headers: {
            'Accept': 'application/json',
 

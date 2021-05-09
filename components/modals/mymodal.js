@@ -1,10 +1,10 @@
 import {Modal,Button} from "react-bootstrap"
 
-const MyModal = ({reveal,setReveal,children,title,contentClassName}) => {
+const MyModal = ({reveal,setReveal,children,title,contentClassName,dialogClassName}) => {
 
   return (
 
-    <Modal contentClassName={contentClassName} show={reveal} onHide={() => setReveal(false)}>
+    <Modal dialogClassName={dialogClassName} contentClassName={contentClassName} show={reveal} onHide={() => setReveal(false)}>
      <Modal.Header closeButton>
      <h4 className="m-0">{title}</h4>
 
