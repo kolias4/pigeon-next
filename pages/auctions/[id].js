@@ -30,7 +30,7 @@ import RegisterForm from "../../components/forms/register"
 
 
 
-const BidOfferPage = ({data,title}) => {
+const BidOfferPage = ({data,title,init_bidoffers}) => {
 
     const router = useRouter()
 
@@ -57,7 +57,7 @@ const BidOfferPage = ({data,title}) => {
 
     const [isActive,setIsActive] = useState(isDateBetween(now,dateFormatFull(data.bid.start),dateFormatFull(bidEnd)))
 
-    const [bidOffers,setBidOffers] = useState([])
+    const [bidOffers,setBidOffers] = useState(init_bidoffers)
 
     const [socketOffer,setSocketOffer] = useState({})
 
@@ -81,11 +81,11 @@ const BidOfferPage = ({data,title}) => {
 
     // }
 
-    useEffect(() => {
-      jfetcher({url:`/api/getbids`,method:'POST',body:{id:data.bid.id}})
-      .then(res => setBidOffers(res))
+    // useEffect(() => {
+    //   jfetcher({url:`/api/getbids`,method:'POST',body:{id:data.bid.id}})
+    //   .then(res => setBidOffers(res))
 
-    },[])
+    // },[])
 
       useEffect(() => {
         
@@ -339,28 +339,30 @@ const BidOfferPage = ({data,title}) => {
 
 export default BidOfferPage
 
-export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
-  var nquery = `
-  query {
-    bids{
-    id
-    }
+// export async function getStaticPaths() {
+//     // Call an external API endpoint to get posts
+//   var nquery = `
+//   query {
+//     bids{
+//     id
+//     }
       
-    }
-  `
+//     }
+//   `
   
-  var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
+//   var data = await fetcher(nquery,{},process.env.STRAPI_ADMIN_TOKEN)
 
-    const paths = data.bids.map((bid) => ({
-      params: { id: bid.id}
-    }))
+//     const paths = data.bids.map((bid) => ({
+//       params: { id: bid.id}
+//     }))
   
 
-    return { paths, fallback: true }
-  }
+//     return { paths, fallback: true }
+//   }
 
-  export async function getStaticProps({ params }) {
+  export async function getServerSideProps({ query }) {
+
+    
 
     var nquery = `
     query($id:ID!) {
@@ -371,6 +373,13 @@ export async function getStaticPaths() {
             title
             startprice 
             description
+            bid_offers{
+              id
+              price
+              user{
+                username
+              }
+            }
             pigeons{
              id
              youtubeid
@@ -402,7 +411,7 @@ export async function getStaticPaths() {
   
     const data = await fetcher(nquery,{
       variables:{
-        id:params.id
+        id:query.id
       }
     },process.env.STRAPI_ADMIN_TOKEN)
   
@@ -413,8 +422,19 @@ export async function getStaticPaths() {
             notFound: true,
           }
     }
+
+    var init_bidoffers = data.bid.bid_offers.map((offer) => {
+      var ob = {
+        id:offer.id,
+        price:offer.price,
+        username:offer.user.username
+      }
+      return ob
+    })
+    
+
     
     // Pass data to the page via props
-    return { props: { data,title:`Δημοπρασία ${data.bid.id}`,menu },revalidate:30 }
+    return { props: { data,init_bidoffers,title:`Δημοπρασία ${data.bid.id}`,menu } }
   
   }

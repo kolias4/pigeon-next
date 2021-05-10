@@ -69,7 +69,20 @@ function AuctionPage({data,title}){
 
    <div className="row">
 
-   {data.bids.map((bid,i) => (
+   {data.bids.map((bid,i) => {
+
+     var bidoffers = bid.bid_offers.sort((a,b) => {
+        if(a.price > b.price){
+            return -1
+        }
+        if(b.price > a.price){
+            return 1
+        }
+        return 0
+    } )
+
+
+     return(
     <div key={bid.title} className="col-lg-3 col-md-4  my-3">
    
        <Card className="h-100">
@@ -102,6 +115,16 @@ function AuctionPage({data,title}){
     <span>{dateShow(bid.end)}</span>
     </div>
 
+    <div className="startprice">
+    <span className="font-weight-bold">Τιμή Εκκίνησης :</span>
+    <span>{bid.startprice}€</span>
+    </div>
+
+    {bidoffers[0] && <div className="maxbid">
+    <span className="font-weight-bold">Top Προσφορά  :</span>
+    <span>{bidoffers[0].price}€</span>
+    </div>}
+
      
 
     </div>
@@ -122,7 +145,7 @@ function AuctionPage({data,title}){
 </Card>
            </div>
 
-   ))}
+   )})}
 
 
    </div>
@@ -138,7 +161,7 @@ function AuctionPage({data,title}){
 
 export default AuctionPage
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Fetch data from external API
 
 
@@ -152,6 +175,9 @@ export async function getStaticProps() {
       end
       startprice
       description
+      bid_offers{
+        price
+      }
       image{
         url
       }
@@ -166,5 +192,5 @@ export async function getStaticProps() {
 
 
   // Pass data to the page via props
-  return { props: { data,title:"Δημοπρασίες",menu },revalidate:30 }
+  return { props: { data,title:"Δημοπρασίες",menu } }
 }
