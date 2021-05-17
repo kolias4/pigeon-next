@@ -221,8 +221,22 @@ function Header2({menu,title}){
                 </ul>
               </li> */}
 
+              <li id="menu-item-2sadf" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
+                <Link href="/apotelesmata">
+                <a >
+                  <span>Αποτελέσματα</span>
+                </a>
+                </Link>
+             
+              </li>
 
-              <li id="menu-item-46" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
+              <li  className={`menu-item menu-item-has-children `}>
+                <a className={`${menuactive.includes('diafora') ?'show':''}`} name="diafora" onClick={handleClick}>
+                  <span>Διάφορα</span>
+                </a>
+                <ul className={`sub-menu ${menuactive.includes('diafora') ?'show':''}`}>
+
+                <li id="menu-item-46" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
                 <Link href="/contact">
                 <a >
                   <span>Επικοινωνία</span>
@@ -236,24 +250,17 @@ function Header2({menu,title}){
                   <span>Σχετικά με εμάς</span>
                 </a>
                 </Link>
-                {/* <ul className="sub-menu">
-                  <li id="menu-item-2548" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2548">
-                    <a href="http://senorcavallo.just-themes.com/about-club/">
-                      <span>About Club</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-750" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-750">
-                    <a href="http://senorcavallo.just-themes.com/team/">
-                      <span>Our Team</span>
-                    </a>
-                  </li>
-                  <li id="menu-item-57" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
-                    <a href="http://senorcavallo.just-themes.com/testimonials/">
-                      <span>Testimonials</span>
-                    </a>
-                  </li>
-                </ul> */}
+             
               </li>
+              
+
+                </ul>
+              </li>
+
+
+             
+
+            
             </ul>
             {/* <div className="nav-mob"> //mobile menu emfanizetai kato ap to menu
               <ul className="nav navbar-nav">
