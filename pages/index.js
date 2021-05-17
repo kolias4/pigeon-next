@@ -168,11 +168,13 @@ const showwinner = () => {
       type: 'website',
       url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
       title: 'Ταχυδρομικά Περιστέρια | MyPigeon',
-      description: 'Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων και πολλά άλλα',
+      description: 'Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων, αγορές, δημοπρασίες και πολλά άλλα',
       images: [
         {
-          url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
-          alt: 'logo',
+          url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
+          width:1203,
+          height:1200,
+          alt: 'logo'
         }
 
       ],

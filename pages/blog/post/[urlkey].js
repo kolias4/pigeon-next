@@ -87,8 +87,10 @@ function SamplePrevArrow(props) {
     description:`Άρθρο  ${title}`,
     images: [
       {
-        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.Eikones[0] && article.Eikones[0].url || '/logo.png'}`,
-        alt:`${title}`,
+        url:article.Eikones[0] ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${article.Eikones[0].url}`:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
+        width:article.Eikones[0] && article.Eikones[0].width || 1203,
+        height:article.Eikones[0] && article.Eikones[0].height || 1200,
+        alt:`${title}`
       }
 
     ],
@@ -261,6 +263,8 @@ category_arthras{
 }
 Eikones{
   url
+  width
+  height
 }
 }
 

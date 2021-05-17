@@ -73,7 +73,7 @@ function KolobodromioPage({data, notFound,title}) {
     description:`Κολομπροδρόμιο ${title}`,
     images: [
       {
-        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${kolobodromio.images[0] && kolobodromio.images[0].url || '/logo.png'}`,
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${kolobodromio.images[0] && kolobodromio.images[0].url || '/logo2.jpg'}`,
         alt:`${title}`,
       }
 
