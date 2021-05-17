@@ -20,6 +20,10 @@ function Agonas({data,title,results}){
 
   const router = useRouter()
 
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
   // useEffect(() => {
   //   socket.connect();
   //   socket.on('bid2', (data) => {
