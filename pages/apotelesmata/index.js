@@ -55,8 +55,10 @@ function Apotelesmata({data,title}){
     title:`${title} | MyPigeon`,
     images: [
       {
-        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
-        alt: 'logo',
+        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
+        width:1203,
+        height:1200,
+        alt: 'logo'
       }
 
     ],

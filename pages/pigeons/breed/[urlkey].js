@@ -47,7 +47,7 @@ function BreedPage({data, notFound,title}) {
     description:`Εκτροφέας  ${title}`,
     images: [
       {
-        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.breeds[0] && data.breeds[0].photo.url || '/logo.png'}`,
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.breeds[0] && data.breeds[0].photo.url || '/logo2.jpg'}`,
         alt:`${title}`,
       }
 

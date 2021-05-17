@@ -39,8 +39,10 @@ function BlogCategory({data,notFound,title}){
     description:`Κατηγορία  ${title}`,
     images: [
       {
-        url:`${process.env.NEXT_PUBLIC_SITE_URL}${'/logo.png'}`,
-        alt:`${title}`,
+        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
+        width:1203,
+        height:1200,
+        alt:`${title}`
       }
 
     ],

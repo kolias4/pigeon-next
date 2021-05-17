@@ -83,7 +83,7 @@ function PigeonPage({data, notFound,title}) {
     description:`Περιστέρι ${title}`,
     images: [
       {
-        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${pigeon.eikones[0] && pigeon.eikones[0].url || '/logo.png'}`,
+        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${pigeon.eikones[0] && pigeon.eikones[0].url || '/logo2.jpg'}`,
         alt:`${title}`,
       }
 
