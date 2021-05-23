@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
 import Link from 'next/link'
-import { NextSeo } from 'next-seo';
 
 import fetcher from '../../../functions/fetcher'
 import {useRouter} from 'next/router'
 import menuquery from '../../../functions/queries/menuquery'
+import Seo from '../../../components/Seo';
 
 
 function BreedPage({data, notFound,title}) {
@@ -36,25 +36,18 @@ function BreedPage({data, notFound,title}) {
 
   return (
     <div className="container">
-
-    <NextSeo title={`${title} | MyPigeon`}
+    <Seo metainfo={breed.metainfo} title={`${title} | Εκτροφέας | MyPigeon`}
       description={`Εκτροφέας ${title}`}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-      openGraph={{
-    type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
-    title:`${title} | MyPigeon`,
-    description:`Εκτροφέας  ${title}`,
-    images: [
-      {
-        url:`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.breeds[0] && data.breeds[0].photo.url || '/logo2.jpg'}`,
-        alt:`${title}`,
-      }
-
-    ],
-    site_name: 'MyPigeon',
-  }}
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      image={{
+        url:breed.photo[0]? `${process.env.NEXT_PUBLIC_STRAPI_URL}${breed.photo[0].url}`:`${process.env.NEXT_PUBLIC_STRAPI_URL}/logo2.jpg`,
+        width:breed.photo[0]?.width || 1203,
+        height:breed.photo[0]?.height || 1200,
+        alt:`${title}img`
+      }}
     />
+
+ 
     <div className="my-3 d-flex flex-column align-items-center justify-content-center">
       {breed && breed.photo && breed.photo[0] &&
         <Image width={breed.photo[0].width} height={breed.photo[0].height} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${breed.photo[0].url}`}/>
@@ -205,6 +198,10 @@ export async function getStaticProps({ params }) {
 
     breeds(where:{urlkey:$urlkey}){
       breed
+      metainfo{
+        meta_title
+        meta_description
+      }
       photo{
         width
         height

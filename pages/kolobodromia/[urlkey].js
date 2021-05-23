@@ -10,9 +10,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import fetcher from '../../functions/fetcher'
 import KolobodromioTabs from '../../components/kolobodromiotabs'
-import { NextSeo } from 'next-seo';
 import {useRouter} from 'next/router'
 import menuquery from '../../functions/queries/menuquery'
+import Seo from '../../components/Seo'
 
 
 
@@ -62,8 +62,18 @@ function KolobodromioPage({data, notFound,title}) {
   return (
 
     <div className="container">
+    <Seo title={`${title} | Κολομποδρόμια | MyPigeon`} description={`Κολομπροδρόμιο ${title}`}
+    pageurl={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+    image={{
+      url:kolobodromio.images[0]? `${process.env.NEXT_PUBLIC_STRAPI_URL}${kolobodromio.images[0].url}` : `${process.env.NEXT_PUBLIC_STRAPI_URL}/logo2.jpg`,
+      width:kolobodromio.images[0]?.width || 1203,
+      height:kolobodromio.images[0]?.height || 1200,
+      alt:`${title}img`
+    }}
 
-    <NextSeo title={`${title} | MyPigeon`}
+     />
+
+    {/* <NextSeo title={`${title} | MyPigeon`}
       description={`Κολομπροδρόμιο ${title}`}
       canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
       openGraph={{
@@ -80,7 +90,7 @@ function KolobodromioPage({data, notFound,title}) {
     ],
     site_name: 'MyPigeon',
   }}
-    />
+    /> */}
 
 
   <div className="inner-page margin-default">
@@ -218,6 +228,8 @@ website
 googlemapskey
 images{
   url
+  width
+  height
 }
 videos{
   url

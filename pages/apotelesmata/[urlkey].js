@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo';
-import Link from 'next/link';
+
 import { useRouter } from 'next/router'
-import { Card } from 'react-bootstrap';
-import dateShow from '../../functions/date/dateShow';
+
+import Seo from '../../components/Seo';
 
 
 import fetcher from '../../functions/fetcher'
@@ -24,24 +23,7 @@ function Agonas({data,title,results}){
     return <div>Loading...</div>
   }
 
-  // useEffect(() => {
-  //   socket.connect();
-  //   socket.on('bid2', (data) => {
-  //     console.log("Welcome event inside JoinRoom", data);
-  //     console.log("socket")
-      
-  // });
-
-  // return () => {
-  //   socket.removeAllListeners("bid2");
-  //   socket.disconnect();
-  // }
-
   
-
-  // },[])
-
-//   console.log(results)
 
   var theader = Object.keys(results[0])
 
@@ -50,24 +32,13 @@ function Agonas({data,title,results}){
   return (
     <div className="container">
 
-    <NextSeo title={`${title} | MyPigeon`}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-      openGraph={{
-    type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL + router.asPath}`,
-    title:`${title} | MyPigeon`,
-    images: [
-      {
-        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-        width:1203,
-        height:1200,
-        alt: 'logo'
-      }
-
-    ],
-    site_name: 'MyPigeon',
-  }}
+    <Seo metainfo={data.metainfo} title={`${title} | MyPigeon`}
+      description=""
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL + router.asPath}
     />
+    
+
+  
 
 
   {/* Content */}
@@ -148,6 +119,10 @@ export async function getStaticProps({ params }) {
   query($urlkey:String!){
     apotelesmatas(where:{urlkey:$urlkey}){
      id
+     metainfo{
+      meta_title
+      meta_description
+    }
      title
      start
      urlkey

@@ -1,15 +1,13 @@
 // TODO buy button event
 
-import Image from 'next/image'
 
-import Link from 'next/link'
-import { NextSeo } from 'next-seo';
 
 import fetcher from '../../functions/fetcher'
 
 
 import {useRouter} from 'next/router'
 import menuquery from '../../functions/queries/menuquery'
+import Seo from '../../components/Seo';
 
 
 
@@ -44,26 +42,12 @@ function SylogosPage({data, notFound,title}) {
 
     <div className="container">
 
-    <NextSeo title={`${title} | MyPigeon`}
-      description={`Σύλλογος ${title}`}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-      openGraph={{
-    type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
-    title:`${title} | MyPigeon`,
-    description:`Σύλλογος ${title}`,
-    images: [
-      {
-        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-        width:1203,
-        height:1200,
-        alt: 'logo'
-      }
-
-    ],
-    site_name: 'MyPigeon',
-  }}
+    <Seo title={`${title} | Σύλλογοι | MyPigeon`} 
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      description={`Σύλλογος Ταχυδρομικών Περιστεριών ${title}`}
     />
+
+ 
   <div className="inner-page margin-default">
 
   <div className="text-page">
