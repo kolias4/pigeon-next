@@ -1,4 +1,3 @@
-import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 
@@ -12,6 +11,7 @@ import dateFormatFull from '../../functions/date/dateFormatFull';
 import ActiveStatus from '../../components/ActiveStatus'
 import dateShow from '../../functions/date/dateShow';
 import Link from 'next/link'
+import Seo from '../../components/Seo';
 
 // import { socket } from '../lib/socket';
 // import { useEffect } from 'react';
@@ -46,24 +46,12 @@ function AuctionPage({data,title}){
   return (
     <div className="container">
 
-    <NextSeo title={`${title} | MyPigeon`}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-      openGraph={{
-    type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL + router.asPath}`,
-    title:`${title} | MyPigeon`,
-    images: [
-      {
-        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-        width:1203,
-        height:1200,
-        alt: 'logo',
-      }
-
-    ],
-    site_name: 'MyPigeon',
-  }}
+    <Seo title={`${title} | Ταχυδρομικά Περιστέρια | MyPigeon`}
+      description="Δημοπρασίες Ταχυδρομικών Περιστεριών"
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL + router.asPath}
     />
+
+ 
 
 
   {/* Content */}

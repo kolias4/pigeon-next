@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Disqus from "disqus-react"
 import menuquery from '../../../functions/queries/menuquery'
-import { NextSeo } from 'next-seo';
+import Seo from '../../../components/Seo'
 
 
 
@@ -77,26 +77,19 @@ function SamplePrevArrow(props) {
 
     <div className="container">
 
-    <NextSeo title={`${title} | MyPigeon`}
+    <Seo metainfo={article.metainfo}
       description={`Άρθρο ${title}`}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-      openGraph={{
-    type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
-    title:`${title} | MyPigeon`,
-    description:`Άρθρο  ${title}`,
-    images: [
-      {
+      title={`${title} | MyPigeon`}
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      image={{
         url:article.Eikones[0] ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${article.Eikones[0].url}`:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-        width:article.Eikones[0] && article.Eikones[0].width || 1203,
-        height:article.Eikones[0] && article.Eikones[0].height || 1200,
-        alt:`${title}`
-      }
-
-    ],
-    site_name: 'MyPigeon',
-  }}
+        width:article.Eikones[0]?.width || 1203,
+        height:article.Eikones[0]?.height || 1200,
+        alt:`${title}img`
+      }}
     />
+
+  
 
 
       <div className="inner-page margin-default">
@@ -248,6 +241,10 @@ export async function getStaticProps({ params }) {
 
 articles:arthras(where:{urlkey:$urlkey}){
 id
+metainfo{
+  meta_title
+  meta_description
+}
 created_at
 Title
 kyriosthema

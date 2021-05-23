@@ -1,7 +1,6 @@
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-import { NextSeo } from 'next-seo';
 import {useEffect,useState,useContext} from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -17,6 +16,7 @@ import RegisterForm from '../components/forms/register'
 import dateformat from '../functions/date/dateformat'
 import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
+import Seo from "../components/Seo";
 
 
 
@@ -161,26 +161,8 @@ const showwinner = () => {
 
   return (
     <div >
-      <NextSeo title="Ταχυδρομικά Περιστέρια | MyPigeon"
-        description="Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων και πολλά άλλα"
-        canonical={process.env.NEXT_PUBLIC_SITE_URL}
-        openGraph={{
-      type: 'website',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
-      title: 'Ταχυδρομικά Περιστέρια | MyPigeon',
-      description: 'Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων, αγορές, δημοπρασίες και πολλά άλλα',
-      images: [
-        {
-          url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-          width:1203,
-          height:1200,
-          alt: 'logo'
-        }
-
-      ],
-      site_name: 'MyPigeon',
-    }}
-      />
+    <Seo title="Ταχυδρομικά Περιστέρια | MyPigeon" description="Στο MyPigeon θα βρείτε τα πάντα για το ταχυδρομικό περιστέρι. Άρθρα, σύλλογοι περιστεριών, αποτελέσματα αγώνων και πολλά άλλα"/>
+ 
 
 
  <MyModal contentClassName="mymodalcontent" title={modalstate === "register"? "ΕΓΓΡΑΦΗ ΝΕΟΥ ΧΡΗΣΤΗ":"ΕΙΣΟΔΟΣ ΧΡΗΣΤΗ"} reveal={reveal} setReveal={setReveal}>
@@ -384,44 +366,7 @@ const showwinner = () => {
               <div className="entry-content clearfix" id="entry-div">
 
                 <div className="vc_row-full-width vc_clearfix"/>
-                <section className="vc_section  bg-color-theme_color">
-                  <div className="d-flex align-items-center justify-content-center flex-wrap">
-
-                    <div className="wpb_column mx-3 ">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <ul className="block-icon  icon-h-right align-left i-transparent layout-inline">
-                            <li className=" icon-image">
-                              <span className="icon-image bg-main">
-                                <i style={{fontSize:'2rem',color:'black'}} className="fa fa-phone"></i>
-                              </span>
-                              <div className="block-right">
-                                <h4 className="font-main">
-
-                                   +30 6982181433
-                                </h4>
-                                <div className="descr"/></div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="wpb_column mx-3">
-                      <div className="vc_column-inner">
-                        <div className="wpb_wrapper">
-                          <div className="btn-wrap align-left">
-                            <Link href="/contact">
-                            <a  className="btn  btn-xs btn-second transform-default color-text-default color-hover-default align-left   vc_custom_1513441693504" id="like_sc_button_278609766">
-                              Επικοινωνία
-                            </a>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+            
 
     <div className="vc_row-full-width vc_clearfix"/>
 
@@ -1214,7 +1159,15 @@ const showwinner = () => {
         {data.xorigois.map((item,i) => {
           return (
             <div className="text-center">
+            {item.website ?
+            <a href={item.website} target="_blank">
             <Image priority={true} key={`kolobodromio${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.logo.url}`}  alt={`kolobodromio${i}`} objectFit="contain" width={300} height={200} />
+
+            </a>
+             :
+            <Image priority={true} key={`kolobodromio${i}`} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.logo.url}`}  alt={`kolobodromio${i}`} objectFit="contain" width={300} height={200} />
+
+             }
            </div>
           )
         })}

@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import fetcher from '../../../functions/fetcher'
 import { useRouter } from 'next/router'
 import menuquery from '../../../functions/queries/menuquery'
-import { NextSeo } from 'next-seo';
+import Seo from '../../../components/Seo'
 
 
 
@@ -25,30 +25,18 @@ function BlogCategory({data,notFound,title}){
 
   var articles = data.articles[0].arthras
 
+  var metainfo = data.articles[0]?.metainfo
+
   return (
 
     <div className="container">
-
-    <NextSeo title={`${title} | MyPigeon`}
+    <Seo metainfo={metainfo}
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+      title={`${title} | MyPigeon`}
       description={`Κατηγορία ${title}`}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-      openGraph={{
-    type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL+router.asPath}`,
-    title:`${title} | MyPigeon`,
-    description:`Κατηγορία  ${title}`,
-    images: [
-      {
-        url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-        width:1203,
-        height:1200,
-        alt:`${title}`
-      }
-
-    ],
-    site_name: 'MyPigeon',
-  }}
     />
+
+   
 
 
     <div className="inner-page margin-default">
@@ -158,6 +146,10 @@ export async function getStaticProps({ params }) {
 
 articles:categoryArthras(where:{url_key:$urlkey}){
   title
+  metainfo{
+    meta_title
+    meta_description
+  }
 
 arthras(sort:"created_at:desc"){
   Title

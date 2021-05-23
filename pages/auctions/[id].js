@@ -1,4 +1,3 @@
-import { NextSeo } from "next-seo"
 import { useRouter } from "next/router"
 import { Card } from "react-bootstrap"
 import fetcher from "../../functions/fetcher"
@@ -21,6 +20,7 @@ import BidUsers from "../../components/bids/BidUsers"
 import SetPhone from "../../components/bids/SetPhone"
 import LoginForm from "../../components/forms/login"
 import RegisterForm from "../../components/forms/register"
+import Seo from "../../components/Seo"
 
 
 
@@ -186,25 +186,12 @@ const BidOfferPage = ({data,title,init_bidoffers}) => {
     />
   }
  </MyModal>
+ <Seo title={`${title} | Ταχυδρομικά Περιστέρια | MyPigeon`}
+   description={`${title}`}
+   pageurl={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
+ />
 
-      <NextSeo title={`${title} | MyPigeon`}
-        canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
-        openGraph={{
-      type: 'website',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL + router.asPath}`,
-      title:`${title} | MyPigeon`,
-      images: [
-        {
-          url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-          width:1203,
-          height:1200,
-          alt: 'logo'
-        }
   
-      ],
-      site_name: 'MyPigeon',
-    }}
-      />
   
   
     {/* Content */}

@@ -1,7 +1,7 @@
-import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { Card } from 'react-bootstrap';
+import Seo from '../../components/Seo';
 import dateShow from '../../functions/date/dateShow';
 
 
@@ -37,6 +37,10 @@ function Apotelesmata({data,title}){
   if(!data.apotelesmatas[0]){
     return (
       <div className="container">
+        <Seo title="Αποτελέσματα αγώνων | Ταχυδρομικά Περιστέρια | MyPigeon"
+      description="Αποτελέσματα αγώνων ταχυδρομικών περιστεριών"
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL + router.asPath}
+    />
         <h3>Δεν υπάρχουν καταχωρημένα αποτελέσματα</h3>
       </div>
     )
@@ -46,8 +50,12 @@ function Apotelesmata({data,title}){
 
   return (
     <div className="container">
+    <Seo title="Αποτελέσματα αγώνων | Ταχυδρομικά Περιστέρια | MyPigeon"
+      description="Αποτελέσματα αγώνων ταχυδρομικών περιστεριών"
+      pageurl={process.env.NEXT_PUBLIC_SITE_URL + router.asPath}
+    />
 
-    <NextSeo title={`${title} | MyPigeon`}
+    {/* <NextSeo title={`${title} | MyPigeon`}
       canonical={process.env.NEXT_PUBLIC_SITE_URL+router.asPath}
       openGraph={{
     type: 'website',
@@ -64,7 +72,7 @@ function Apotelesmata({data,title}){
     ],
     site_name: 'MyPigeon',
   }}
-    />
+    /> */}
 
 
   {/* Content */}
