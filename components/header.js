@@ -225,14 +225,41 @@ function Header({menu}){
                 </ul>
               </li> */}
 
-              <li id="menu-item-2sadf" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
+              <li  className={`menu-item menu-item-has-children `}>
+                <a className={`${menuactive.includes('agones') ?'show':''}`} name="agones" onClick={handleClick}>
+                  <span>Αγώνες</span>
+                </a>
+                <ul className={`sub-menu ${menuactive.includes('agones') ?'show':''}`}>
+
+                <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
+                <Link href="/apotelesmata">
+                <a >
+                  <span>Αποτελέσματα</span>
+                </a>
+                </Link>
+              </li>
+
+              <li  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
+                <Link href="/livestream">
+                <a >
+                  <span>Live Stream</span>
+                </a>
+                </Link>
+             
+              </li>
+              
+
+                </ul>
+              </li>
+
+              {/* <li id="menu-item-2sadf" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
                 <Link href="/apotelesmata">
                 <a >
                   <span>Αποτελέσματα</span>
                 </a>
                 </Link>
              
-              </li>
+              </li> */}
 
               <li  className={`menu-item menu-item-has-children `}>
                 <a className={`${menuactive.includes('diafora') ?'show':''}`} name="diafora" onClick={handleClick}>
