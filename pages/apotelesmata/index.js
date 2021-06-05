@@ -136,7 +136,7 @@ export async function getStaticProps() {
 
   var nquery = `
   query{
-    apotelesmatas(sort:"start:asc"){
+    apotelesmatas(sort:"start:desc"){
      id
      title
      start

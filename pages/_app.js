@@ -21,6 +21,7 @@ import {UiContext,AppContext} from '../context/context'
 import Layout from '../components/layout'
 import MyToast from '../components/modals/mytoast';
 import fetcher from '../functions/fetcher';
+import Preloader from '../components/Preloader'
 
 
 
@@ -42,6 +43,8 @@ function MyApp({ Component, pageProps }) {
 
   const [user,setUser]= useState(null)
 
+  const [preloader,setPreloader] = useState(true)
+
   const router = useRouter()
 useEffect(() => {
   const handleRouteChange = (url) => {
@@ -54,6 +57,10 @@ useEffect(() => {
 }, [router.events])
 
   useEffect(() => {
+   setTimeout(()=>{
+    setPreloader(false)
+   
+   },1000)
 
     let token = localStorage.getItem('usertoken')
     if(token){
@@ -89,6 +96,7 @@ me{
     <AppContext.Provider value={{user,setUser}}>
     <UiContext.Provider value={{setToaster}}>
     <MyToast show={toaster.show} closefunc={() => setToaster({show:false})} message={toaster.message} fail={toaster.fail} success={toaster.success}/>
+    {preloader?<Preloader/>:null}
     <Layout {...pageProps}>
       <Component {...pageProps} />
     </Layout>

@@ -135,9 +135,9 @@ function SamplePrevArrow(props) {
   useEffect(() => {
 
     if(!activeslide){
-      setTimeout(() => {
+      
         setActiveSlide(0)
-      },100)
+      
 
         }
 
@@ -207,7 +207,7 @@ const showwinner = () => {
 
 
 
-
+ 
 
 
 

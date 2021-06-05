@@ -32,8 +32,8 @@ Seo.defaultProps = {
     pageurl:process.env.NEXT_PUBLIC_SITE_URL,
     image:{
         url:`${process.env.NEXT_PUBLIC_SITE_URL}/logo2.jpg`,
-        width:1203,
-        height:1200,
+        width:1200,
+        height:630,
         alt:"logo"
     }
        
