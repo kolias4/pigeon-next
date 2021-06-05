@@ -63,7 +63,7 @@ function LiveStream({data,title}){
                                         className='react-player'
                                         muted={true}
                                         playing={true}
-                                        controls={false}
+                                        controls={true}
                                         loop={false}
                                         url={data.livestream.videolink}
                                         width='100%'
@@ -71,6 +71,8 @@ function LiveStream({data,title}){
                                     />
                                
                             </div>
+
+                            <div className="seperator mb-5"></div>
 
 </div>
 
