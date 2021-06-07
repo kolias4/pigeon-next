@@ -41,7 +41,7 @@ function LiveStream({data,title}){
       description="Live Stream ταχυδρομικών περιστεριών"
       pageurl={process.env.NEXT_PUBLIC_SITE_URL + router.asPath}
     />
-        <h3>Δεν υπάρχει ζωντανή αναμετάδωση </h3>
+        <h3>Δεν υπάρχει ζωντανή αναμετάδοση </h3>
       </div>
     )
   }
