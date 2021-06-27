@@ -52,6 +52,36 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+.menu-flags {
+  display: inline-block !important;
+  font-weight: bold;
+  ul{
+    background-color: #2d2d2d;
+    
+    li{
+      color:white;
+      &:hover{
+        background-color: rgba(190, 183, 162, 0.973);
+      }
+    }
+  }
+  .menu-flags-button {
+    background: #2d2d2d;
+    
+    color:white;
+    padding: 5px 0px !important;
+    width:auto;
+    
+      span {
+        color:white;
+      }
+   
+  }
+
+}
+
+
+
 .player-wrapper {
   position: relative;
   padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */

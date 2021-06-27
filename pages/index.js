@@ -17,13 +17,17 @@ import dateformat from '../functions/date/dateformat'
 import fetcher from '../functions/fetcher'
 import menuquery from '../functions/queries/menuquery'
 import Seo from "../components/Seo";
-
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import LangSelector from "../components/LangSelector";
+import { useTranslation } from "next-i18next";
 
 
 
 
 
  export default function Home({data}) {
+
+  const {t} = useTranslation('common')
 
   const [activeslide,setActiveSlide]= useState(null)
 
@@ -35,6 +39,9 @@ import Seo from "../components/Seo";
   const {user,setUser} = useContext(AppContext)
 
   const router = useRouter()
+  const {locale} = router
+
+  
 
 
 
@@ -153,7 +160,7 @@ const showwinner = () => {
   var name = data.winner && data.winner.name || ""
   var email = data.winner && data.winner.email || ""
   alert(`
-    Όνομα: ${name}
+    ${t('lotary.name')}: ${name}
     Email: ${email}
   `)
 }
@@ -258,7 +265,7 @@ const showwinner = () => {
                           height: 280
                         }}/></div>
                         {data.winner && <div className="winnercointainer text-center">
-                          <button onClick={() => showwinner()}   className="btn btn-second color-hover-main">Δείτε τον νικητή της κλήρωσης</button>
+                          <button onClick={() => showwinner()}   className="btn btn-second color-hover-main">{t('lotary.winner')}</button>
                         </div>}
                     <div className="heading  inline align-center color-main subcolor-white transform-default   vc_custom_1516288099100" id="like_sc_header_1212805265" style={{
 
@@ -332,7 +339,9 @@ const showwinner = () => {
                     <a href="#" target="_blank"><span className="fa fa-instagram"/></a>
                   </li>
                 </ul> */}
-                <div className="nav-right">
+              
+                <div className="nav-right text-right">
+                  {/* <LangSelector/> */}
                   <a className="shop_table cart" title={user && user.username}>
                     {user && <span className="mr-2">{user.username}</span>}
                     <i onClick={() => login()} style={{fontSize:'2rem'}} className={`fa fa-user ${!user? 'hoverable':''}`} aria-hidden="true"/>
@@ -1197,7 +1206,7 @@ const showwinner = () => {
 
 
 
-export async function getStaticProps() {
+export async function getStaticProps({locale}) {
   // Fetch data from external API
   // var url =`${process.env.NEXT_PUBLIC_STRAPI_URL}/home-slider`
   var url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`
@@ -1293,11 +1302,11 @@ winner{
 
 
 
-  var menu = await menuquery()
+  var menu = await menuquery(locale)
 
   // const res = await fetch(url)
   // const data = await res.json()
 
   // Pass data to the page via props
-  return { props:{data,menu},revalidate:30 }
+  return { props:{data,menu,...(await serverSideTranslations(locale, ['common','menu']))},revalidate:30 }
 }

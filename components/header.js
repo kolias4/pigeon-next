@@ -4,16 +4,23 @@ import Link from 'next/link'
 
 
 import MobileMenu from './mobilemenu'
+import LangSelector from './LangSelector'
+import { useTranslation } from 'next-i18next'
+
+
 
 
 
 
 function Header({menu}){
 
+  const {t} = useTranslation('menu')
+
   const [menuopen,setMenuOpen] = useState(false)
   const [menuactive,setMenuActive] = useState([])
 
     const router = useRouter()
+    const {locale} = router
 
     const handleClick = (e) => {
       console.log(e.target.name)
@@ -44,6 +51,9 @@ function Header({menu}){
           </a>
           </Link>
           <div className="navbar-header">
+          <div style={{left:'0px',top:'0px',display:'block'}} className="navbar-toggle">
+             <LangSelector/>
+          </div>
             <button onClick={() => setMenuOpen(!menuopen)} type="button" className="navbar-toggle collapsed">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar top-bar"/>
@@ -70,7 +80,7 @@ function Header({menu}){
 
               <li  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59">
                 <a className={`${menuactive.includes('arthra') ?'show':''}`} name="arthra" onClick={handleClick} >
-                  <span >Αρθρα</span>
+                  <span >{t('articles')}</span>
                 </a>
                 <ul className={`sub-menu ${menuactive.includes('arthra') ?'show':''}`}>
                   {menu && menu.categoryArthras.map((item) => {
@@ -96,7 +106,7 @@ function Header({menu}){
               </li>
               <li className={`menu-item menu-item-has-children ${router.asPath.startsWith("/pigeons")?'current_page_item':''}`}>
                 <a className={` ${menuactive.includes('pigeons') ?'show':''}`} name="pigeons" onClick={handleClick}>
-                  <span>Περιστέρια</span>
+                  <span>{t('pigeons')}</span>
                 </a>
 
                   <ul className={`sub-menu ${menuactive.includes('pigeons') ?'show':''}`}>
@@ -134,7 +144,7 @@ function Header({menu}){
               </li>
               <li  className={`menu-item menu-item-has-children ${router.asPath.startsWith("/kolobodromia")?'current_page_item':''}`}>
                 <a className={`${menuactive.includes('kolobodromia') ?'show':''}`} name="kolobodromia" onClick={handleClick}>
-                  <span>Κολομποδρόμια</span>
+                  <span>{t('olr')}</span>
                 </a>
                 <ul className={`sub-menu ${menuactive.includes('kolobodromia') ?'show':''}`}>
                 {menu && menu.kolovodromias.map((kolobodromio,i) => {
@@ -154,7 +164,7 @@ function Header({menu}){
               </li>
 
 
-              <li className={`menu-item menu-item-has-children ${router.asPath.startsWith("/sylogoi")?'current_page_item':''}`}>
+             {(locale == 'el') && <li className={`menu-item menu-item-has-children ${router.asPath.startsWith("/sylogoi")?'current_page_item':''}`}>
                 <a className={` ${menuactive.includes('omospondia') ?'show':''}`} name="omospondia" onClick={handleClick}>
                   <span>Ομοσπονδία</span>
                 </a>
@@ -191,7 +201,7 @@ function Header({menu}){
 
                   </ul>
 
-              </li>
+              </li>}
 
 
               {/* <li id="menu-item-619" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-619">
@@ -227,14 +237,14 @@ function Header({menu}){
 
               <li  className={`menu-item menu-item-has-children `}>
                 <a className={`${menuactive.includes('agones') ?'show':''}`} name="agones" onClick={handleClick}>
-                  <span>Αγώνες</span>
+                  <span>{t('races.title')}</span>
                 </a>
                 <ul className={`sub-menu ${menuactive.includes('agones') ?'show':''}`}>
 
                 <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
                 <Link href="/apotelesmata">
                 <a >
-                  <span>Αποτελέσματα</span>
+                  <span>{t('races.results')}</span>
                 </a>
                 </Link>
               </li>
@@ -242,7 +252,7 @@ function Header({menu}){
               <li  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
                 <Link href="/livestream">
                 <a >
-                  <span>Live Stream</span>
+                  <span>{t('races.livestream')}</span>
                 </a>
                 </Link>
              
@@ -263,14 +273,14 @@ function Header({menu}){
 
               <li  className={`menu-item menu-item-has-children `}>
                 <a className={`${menuactive.includes('diafora') ?'show':''}`} name="diafora" onClick={handleClick}>
-                  <span>Διάφορα</span>
+                  <span>{t('about.title')}</span>
                 </a>
                 <ul className={`sub-menu ${menuactive.includes('diafora') ?'show':''}`}>
 
                 <li id="menu-item-46" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-46">
                 <Link href="/contact">
                 <a >
-                  <span>Επικοινωνία</span>
+                  <span>{t('about.contact')}</span>
                 </a>
                 </Link>
               </li>
@@ -278,7 +288,7 @@ function Header({menu}){
               <li id="menu-item-2547" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2547">
                 <Link href="/about">
                 <a >
-                  <span>Σχετικά με εμάς</span>
+                  <span>{t('about.about')}</span>
                 </a>
                 </Link>
              

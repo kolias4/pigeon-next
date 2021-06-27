@@ -1,0 +1,16 @@
+{
+    "articles":"Articles",
+    "pigeons":"Pigeons",
+    "olr":"Olr",
+    "races":{
+        "title":"Races",
+        "results":"Results",
+        "livestream":"Live Stream"
+        
+    },
+    "about":{
+        "title":"About Us",
+        "about":"About Us",
+        "contact":"Contact"
+    }
+}

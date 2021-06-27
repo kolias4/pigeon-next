@@ -1,11 +1,13 @@
-const withTM = require('next-transpile-modules')([
-  '@fullcalendar/core','@fullcalendar/common','@fullcalendar/daygrid','@fullcalendar/timegrid'
-])
+
+
+const { i18n } = require('./next-i18next.config');
 
 
 
-module.exports = withTM({
+
+module.exports = {
   images: {
     domains: ['api.mypigeon.gr','localhost'],
   },
-})
+  i18n
+}

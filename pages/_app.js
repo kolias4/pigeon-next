@@ -22,6 +22,8 @@ import Layout from '../components/layout'
 import MyToast from '../components/modals/mytoast';
 import fetcher from '../functions/fetcher';
 import Preloader from '../components/Preloader'
+import { appWithTranslation } from 'next-i18next';
+
 
 
 
@@ -106,4 +108,4 @@ me{
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp);

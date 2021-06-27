@@ -1,0 +1,35 @@
+{
+    "loginform":{
+        "header":"",
+        "password":"",
+        "button":"",
+        "onsuccess":"",
+        "onfail":""
+    
+    },
+    "registerform":{
+        "header":"",
+        "username":"",
+        "password":"",
+        "repassword":"",
+        "telephone":"",
+        "button":"",
+        "onsuccess":"",
+        "onfail":""
+
+    },
+    "contactform":{
+        "header":"",
+        "name":"",
+        "telephone":"",
+        "message":"",
+        "onsuccess":"",
+        "onfail":""
+    },
+
+    "validation":{
+        "required":"",
+        "invalidemail":"",
+        "passnotmatch":""
+    }
+}

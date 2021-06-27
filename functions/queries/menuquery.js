@@ -1,11 +1,13 @@
 import fetcher from '../fetcher'
 
-const menuquery = async () => {
+const menuquery = async (loc) => {
+
+  let locale = loc? loc : "el"
 
    var query = `
-   query {
+   query($locale:String!) {
 
-  categoryArthras{
+  categoryArthras(locale:$locale){
     title
     url_key
   }
@@ -34,7 +36,11 @@ kyklois{
 }
    `
 
-   const menu = await fetcher(query,{},process.env.STRAPI_ADMIN_TOKEN)
+   const menu = await fetcher(query,{
+     variables:{
+       locale:locale
+     }
+   },process.env.STRAPI_ADMIN_TOKEN)
 
    return menu
 

@@ -521,16 +521,7 @@ body.body-black-dark {
     background: #28201d;
 }
 
-body.body-padding {
-    /*
-	padding: 30px 0;
 
-	& > .container-fluid {
-
-		padding: 0 30px;
-	}
-*/
-}
 
 html,
 body,
@@ -690,8 +681,8 @@ header.page-header.header-no-bcn h1 {
 .nav-right {
     margin: 0px 0 0 0px;
     position: absolute;
-    right: 10%;
-    top: 55px;
+    right: 7%;
+    top: 100px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -o-transform: translateY(-50%);
@@ -3272,14 +3263,7 @@ h6.align-right {
     margin-bottom: 20px;
 }
 
-.comment-text .date,
-.text-page .date {
-    /*
-		font-size: 13pt;
-		display: block;
-		margin: -14px 0 30px 0;
-*/
-}
+
 
 .comment-text blockquote,
 .text-page blockquote {
@@ -5655,10 +5639,7 @@ footer .go-top span {
     margin: 10px 0 16px 8px;
 }
 
-.woocommerce-MyAccount-navigation aside ul li ul li a,
-.widget-area aside ul li ul li a {
-    /*						font-size: 14px;*/
-}
+
 
 .woocommerce-MyAccount-navigation aside ul ul ul ul ul ul ul,
 .widget-area aside ul ul ul ul ul ul ul {
@@ -5976,12 +5957,7 @@ footer .go-top span {
     padding-left: 0 !important;
 }
 
-.footer-widget-area .search-form:after {
-    /*
-			top: 15px;
-			right: 15px;
-*/
-}
+
 
 .footer-widget-area .tagcloud,
 .footer-widget-area .tags {
@@ -6242,9 +6218,7 @@ footer .go-top span {
     line-height: 1.7em;
 }
 
-.blog article .blog-info {
-    /*			.cat { display: block; text-align: right; }*/
-}
+
 
 .blog article .blog-info .cat {
     font-size: 14px;
@@ -11311,9 +11285,7 @@ a.video:hover span {
     padding-bottom: 90px;
 }
 
-.zs-enabled.bullets-right {
-    /*		padding: 0 70px;*/
-}
+
 
 .zs-enabled.bullets-right .zs-bullets {
     right: 15px !important;
@@ -12202,9 +12174,6 @@ img {
     opacity: 0.2;
 }
 
-.dashed {
-    /*    background: data-uri("@{images-path}__dashed.png") 0 100% repeat-x;*/
-}
 
 .dashed-light {
     position: relative;
@@ -13571,9 +13540,7 @@ a[href^=tel] {
     color: #28201d !important;
 }
 
-.woocommerce table.shop_table td.actions .coupon .button {
-    /*		color: @black !important;*/
-}
+
 
 .woocommerce-notice {
     margin: 20px auto 40px;
@@ -14848,14 +14815,7 @@ ul.products.list li.product img {
     color: #28201d;
 }
 
-.tribe-events-calendar thead {
-    /*
-		tr:first-child th:not(:first-child) {
 
-			border-left: 1px solid #000;
-		}
-*/
-}
 
 .tribe-events-calendar thead th {
     background-color: #6e2626;
@@ -14956,7 +14916,7 @@ ul.products.list li.product img {
     max-width: 100%;
 }
 
-#tribe-events .tribe-events-button,
+
 #tribe-events .tribe-events-button:hover,
 #tribe_events_filters_wrapper input[type="submit"],
 .tribe-events-button,

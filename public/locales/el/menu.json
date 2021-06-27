@@ -1,0 +1,16 @@
+{
+    "articles":"Άρθρα",
+    "pigeons":"Περιστέρια",
+    "olr":"Κολομποδρόμια",
+    "races":{
+        "title":"Αγώνες",
+        "results":"Αποτελέσματα",
+        "livestream":"Live Stream"
+        
+    },
+    "about":{
+        "title":"Διάφορα",
+        "about":"Σχετικά με εμάς",
+        "contact":"Επικοινωνία"
+    }
+}
